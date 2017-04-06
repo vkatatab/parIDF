@@ -592,8 +592,8 @@ BuildingSurface:Detailed,
     2.7;                     !- Vertex 4 Z-coordinate {m}
 
 BuildingSurface:Detailed,
-    P2Z1,                    !- Name
-    Wall,                    !- Surface Type
+    P2Z1,!- Name
+    Wall,!- Surface Type
     InteriorWall,            !- Construction Name
     Z1,                      !- Zone Name
     Adiabatic,               !- Outside Boundary Condition
@@ -643,8 +643,8 @@ BuildingSurface:Detailed,
     P4Z1,                    !- Name
     Wall,                    !- Surface Type
     InteriorWall,            !- Construction Name
-    Z1,                      !- Zone Name
     Surface,                 !- Outside Boundary Condition
+    Z1,                      !- Zone Name
     P1Z2,                    !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure

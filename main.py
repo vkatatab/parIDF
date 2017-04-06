@@ -4,21 +4,33 @@ import re
 sys.path.insert(0, 'classes')
 
 import idfobject
+import idfset
 
-aux = []
-fp = open('files/base.idf')
-file = fp.read()
 
-idfobjects = {}
+idf = idfset.IDFSet('files/base.idf')
+# print(idf.getObjectByClass('BuildingSurface:Detailed', 'P3Z1').getParameterByName('Outside Boundary Condition'))
 
-objects = re.findall('((.+),[\n\r]+((.+)[,;]\s*!-.+[\n\r])+)', file)
-i = 0
-for objeto in objects:
-    aux = idfobject.IDFObject(objeto[0])
-    idfobjects[aux.getIdfClass()] = aux
+# idf.getObjectByClass('BuildingSurface:Detailed', 'P3Z1').setParameterByName('Outside Boundary Condition', 'Vinicius')
 
-idfobjects['ElectricEquipment'].setParameterByClass('Watts per Zone Floor Area {W/m2}', 20)
-print(idfobjects['ElectricEquipment'].getParameterByClass('Watts per Zone Floor Area {W/m2}'))
+# print(idf.getObjectByClass('BuildingSurface:Detailed', 'P3Z1'))
+
+idf.generateIdf('output/teste.idf')
+# aux = []
+# fp = open()
+# file = fp.read()
+
+# idfobjects = {}
+
+# objects = re.findall('((.+),[\n\r]+((.+)[,;]\s*!-.+[\n\r])+)', file)
+# i = 0
+# for objeto in objects:
+#     aux = idfobject.IDFObject(objeto[0])
+#     idfobjects[aux.getIdfClass()] = aux
+
+# # print ('Carol' in idfobjects);
+
+# print (len(idfobjects))
+# # print(idfobjects['ElectricEquipment'].getParameterByClass('Watts per Zone Floor Area {W/m2}'))
 
 
 # teste = idfobject.IDFObject(""" SimulationControl,

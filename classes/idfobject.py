@@ -8,17 +8,19 @@ class IDFObject(object):
         self.idfObjectLines = []
         self.parameters = {}
         self.idfClass = ''
+        self.identifier = ''
         self.separateLines()
+        self.setIdentifier()
         self.setIdfClass()
         self.convertLinesToParameters()
 
     def toString(self):
         string = self.getName() + ','
 
-    def getParameterByClass(self, name):
+    def getParameterByName(self, name):
         return self.parameters[name]
 
-    def setParameterByClass(self, name, value):
+    def setParameterByName(self, name, value):
         self.parameters[name] = value
 
     def convertLinesToParameters(self):
@@ -30,6 +32,12 @@ class IDFObject(object):
         name = string[position:]
         return name
 
+    def setIdentifier(self):
+        self.identifier = self.getParameterName(self.idfObjectLines[1])
+
+    def getIdentifier(self):
+        return self.identifier
+
     def getParameterValue(self, string):
         regex = re.search('(.+)[,;]', string)
         found = ''
@@ -37,8 +45,11 @@ class IDFObject(object):
             found = regex.group(1)
         return found
 
+    def __len__(self):
+        return 1;
+
     def separateLines(self):
-        for line in self.string.splitlines():
+        for line in ''.join(self.string).splitlines():
             self.idfObjectLines.append(line)
 
     def setIdfClass(self):
@@ -54,3 +65,15 @@ class IDFObject(object):
 
     def getString(self):
         return self.string
+
+    def getObjectString(self):
+        string = self.getIdfClass() + ',\n\r'
+        countParameters = len(self.parameters)
+        counter = 1
+        for (name, parameter) in self.parameters.items():
+            if (counter == countParameters):
+                string += '\t' + parameter + ';\t\t\t!- ' + name  + '\n\r'
+            else:
+                string += '\t' + parameter + ',\t\t\t!- ' + name  + '\n\r'
+            counter += 1
+        return string
