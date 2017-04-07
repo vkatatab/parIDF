@@ -1,4 +1,5 @@
 import re
+import collections
 
 # (.+),[\n\r]((.+)[,;]\s*!-.+\n)+
 
@@ -6,7 +7,7 @@ class IDFObject(object):
     def __init__(self, string):
         self.string = string
         self.idfObjectLines = []
-        self.parameters = {}
+        self.parameters = collections.OrderedDict()
         self.idfClass = ''
         self.identifier = ''
         self.separateLines()
