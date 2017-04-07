@@ -1,73 +1,92 @@
-Zone,
-	Z1,			!- Name
-	-0,			!- Direction of Relative North {deg}
-	0,			!- X Origin {m}
-	8,			!- Y Origin {m}
-	0,			!- Z Origin {m}
-	,			!- Type
-	1,			!- Multiplier
-	2.7,			!- Ceiling Height {m}
-	97.2;			!- Volume {m3}
+Version,
+	8.2;			!- Version Identifier
 
-Zone,
-	Z2,			!- Name
-	-0,			!- Direction of Relative North {deg}
-	0,			!- X Origin {m}
-	6,			!- Y Origin {m}
-	0,			!- Z Origin {m}
-	,			!- Type
-	1,			!- Multiplier
-	2.7,			!- Ceiling Height {m}
-	32.4;			!- Volume {m3}
+SimulationControl,
+	No,			!- Do Zone Sizing Calculation
+	No,			!- Do System Sizing Calculation
+	No,			!- Do Plant Sizing Calculation
+	No,			!- Run Simulation for Sizing Periods
+	Yes;			!- Run Simulation for Weather File Run Periods
 
-Zone,
-	Z3,			!- Name
-	-0,			!- Direction of Relative North {deg}
-	6,			!- X Origin {m}
-	0,			!- Y Origin {m}
-	0,			!- Z Origin {m}
-	,			!- Type
-	1,			!- Multiplier
-	2.7,			!- Ceiling Height {m}
-	97.2;			!- Volume {m3}
+Building,
+	Building 1,			!- Name
+	0,			!- North Axis {deg}
+	City,			!- Terrain
+	0.04,			!- Loads Convergence Tolerance Value
+	0.4,			!- Temperature Convergence Tolerance Value {deltaC}
+	FullInteriorAndExterior,			!- Solar Distribution
+	25,			!- Maximum Number of Warmup Days
+	;			!- Minimum Number of Warmup Days
 
-Lights,
-	IluminacaoZ3,			!- Name
-	Z3,			!- Zone or ZoneList Name
-	IluminacaoZ3,			!- Schedule Name
-	Watts/Area,			!- Design Level Calculation Method
-	,			!- Lighting Level {W}
-	9.7,			!- Watts per Zone Floor Area {W/m2}
-	,			!- Watts per Person {W/person}
-	0,			!- Return Air Fraction
-	0.72,			!- Fraction Radiant
-	0.18,			!- Fraction Visible
-	1,			!- Fraction Replaceable
-	General,			!- End-Use Subcategory
-	No;			!- Return Air Fraction Calculated from Plenum Temperature
+SurfaceConvectionAlgorithm:Inside,
+	TARP;			!- Algorithm
 
-Lights,
-	IluminacaoZ1,			!- Name
-	Z1,			!- Zone or ZoneList Name
-	IluminacaoZ1,			!- Schedule Name
-	Watts/Area,			!- Design Level Calculation Method
-	,			!- Lighting Level {W}
-	9.7,			!- Watts per Zone Floor Area {W/m2}
-	,			!- Watts per Person {W/person}
-	0,			!- Return Air Fraction
-	0.72,			!- Fraction Radiant
-	0.18,			!- Fraction Visible
-	1,			!- Fraction Replaceable
-	General,			!- End-Use Subcategory
-	No;			!- Return Air Fraction Calculated from Plenum Temperature
+SurfaceConvectionAlgorithm:Outside,
+	TARP;			!- Algorithm
 
-Schedule:Compact,
-	Atividade,			!- Name
-	ActivityLevel,			!- Schedule Type Limits Name
-	Through: 12/31,			!- Field 1
-	For: AllDay,			!- Field 2
-	Until: 24:00,			!- Field 3
-	117;			!- Field 4
+Timestep,
+	6;			!- Number of Timesteps per Hour
+
+Site:Location,
+	Site 1,			!- Name
+	-23.85,			!- Latitude {deg}
+	-46.64,			!- Longitude {deg}
+	-3,			!- Time Zone {hr}
+	792;			!- Elevation {m}
+
+RunPeriod,
+	Run Period 1,			!- Name
+	1,			!- Begin Month
+	1,			!- Begin Day of Month
+	12,			!- End Month
+	31,			!- End Day of Month
+	Monday,			!- Day of Week for Start Day
+	No,			!- Use Weather File Holidays and Special Days
+	No,			!- Use Weather File Daylight Saving Period
+	No,			!- Apply Weekend Holiday Rule
+	Yes,			!- Use Weather File Rain Indicators
+	No,			!- Use Weather File Snow Indicators
+	1;			!- Number of Times Runperiod to be Repeated
+
+ScheduleTypeLimits,
+	Any Number,			!- Name
+	,			!- Lower Limit Value
+	,			!- Upper Limit Value
+	,			!- Numeric Type
+	Dimensionless;			!- Unit Type
+
+ScheduleTypeLimits,
+	Temperature,			!- Name
+	-60,			!- Lower Limit Value
+	200,			!- Upper Limit Value
+	Continuous,			!- Numeric Type
+	temperature;			!- Unit Type
+
+ScheduleTypeLimits,
+	ActivityLevel,			!- Name
+	0,			!- Lower Limit Value
+	,			!- Upper Limit Value
+	Continuous,			!- Numeric Type
+	activitylevel;			!- Unit Type
+
+ScheduleTypeLimits,
+	Humidity,			!- Name
+	10,			!- Lower Limit Value
+	90,			!- Upper Limit Value
+	Continuous;			!- Numeric Type
+
+ScheduleTypeLimits,
+	On/Off,			!- Name
+	0,			!- Lower Limit Value
+	1,			!- Upper Limit Value
+	Discrete,			!- Numeric Type
+	availability;			!- Unit Type
+
+ScheduleTypeLimits,
+	Fraction,			!- Name
+	0,			!- Lower Limit Value
+	1,			!- Upper Limit Value
+	Continuous;			!- Numeric Type
 
 Schedule:Compact,
 	Pessoas,			!- Name
@@ -85,6 +104,14 @@ Zone,
 	0;			!- Field 11
 
 Schedule:Compact,
+	Atividade,			!- Name
+	ActivityLevel,			!- Schedule Type Limits Name
+	Through: 12/31,			!- Field 1
+	For: AllDay,			!- Field 2
+	Until: 24:00,			!- Field 3
+	117;			!- Field 4
+
+Schedule:Compact,
 	Equipamentos,			!- Name
 	On/Off,			!- Schedule Type Limits Name
 	Through: 12/31,			!- Field 1
@@ -100,37 +127,7 @@ Zone,
 	0;			!- Field 11
 
 Schedule:Compact,
-	Setpoint_ventilação,			!- Name
-	Temperature,			!- Schedule Type Limits Name
-	Through: 12/31,			!- Field 1
-	For: Weekdays,			!- Field 2
-	Until: 8:00,			!- Field 3
-	0,			!- Field 4
-	Until: 18:00,			!- Field 5
-	20,			!- Field 6
-	Until: 24:00,			!- Field 7
-	0,			!- Field 8
-	For: AllOtherDays,			!- Field 9
-	Until: 24:00,			!- Field 10
-	0;			!- Field 11
-
-Schedule:Compact,
-	Ar_Condicion_Aque,			!- Name
-	Temperature,			!- Schedule Type Limits Name
-	Through: 12/31,			!- Field 1
-	For: Weekdays,			!- Field 2
-	Until: 8:00,			!- Field 3
-	0,			!- Field 4
-	Until: 18:00,			!- Field 5
-	18,			!- Field 6
-	Until: 24:00,			!- Field 7
-	0,			!- Field 8
-	For: AllOtherDays,			!- Field 9
-	Until: 24:00,			!- Field 10
-	0;			!- Field 11
-
-Schedule:Compact,
-	Ventilacao_Controle,			!- Name
+	AC,			!- Name
 	On/Off,			!- Schedule Type Limits Name
 	Through: 12/31,			!- Field 1
 	For: Weekdays,			!- Field 2
@@ -141,282 +138,28 @@ Zone,
 	Until: 24:00,			!- Field 7
 	0,			!- Field 8
 	For: AllOtherDays,			!- Field 9
-	Until 24:00,			!- Field 10
-	0;			!- Field 11
-
-Schedule:Compact,
-	Ar_Condicion_Resfri,			!- Name
-	Temperature,			!- Schedule Type Limits Name
-	Through: 12/31,			!- Field 1
-	For: Weekdays,			!- Field 2
-	Until: 8:00,			!- Field 3
-	80,			!- Field 4
-	Until: 18:00,			!- Field 5
-	25,			!- Field 6
-	Until: 24:00,			!- Field 7
-	80,			!- Field 8
-	For: AllOtherDays,			!- Field 9
 	Until: 24:00,			!- Field 10
 	0;			!- Field 11
 
-Schedule:Compact,
-	Outdoor_air,			!- Name
-	Any Number,			!- Schedule Type Limits Name
-	Through: 12/31,			!- Field 1
-	For: AllDays,			!- Field 2
-	Until: 24:00,			!- Field 3
-	1;			!- Field 4
+Schedule:File,
+	IluminacaoZ3,			!- Name
+	Fraction,			!- Schedule Type Limits Name
+	C:\11_sul_10.csv,			!- File Name
+	5,			!- Column Number
+	4,			!- Rows to Skip at Top
+	8760,			!- Number of Hours of Data
+	Comma,			!- Column Separator
+	No;			!- Interpolate to Timestep
 
-Schedule:Compact,
-	Vent_hibrida_controletipo,			!- Name
-	Hybrid Control Mode Type,			!- Schedule Type Limits Name
-	Through: 12/31,			!- Field 1
-	For: Weekdays,			!- Field 2
-	Until: 8:00,			!- Field 3
-	0,			!- Field 4
-	Until: 18:00,			!- Field 5
-	1,			!- Field 6
-	Until: 24:00,			!- Field 7
-	0,			!- Field 8
-	For: AllOtherDays,			!- Field 9
-	Until: 24:00,			!- Field 10
-	0;			!- Field 11
-
-Version,
-	8.2;			!- Version Identifier
-
-RunPeriod,
-	Run Period 1,			!- Name
-	1,			!- Begin Month
-	1,			!- Begin Day of Month
-	12,			!- End Month
-	31,			!- End Day of Month
-	Monday,			!- Day of Week for Start Day
-	No,			!- Use Weather File Holidays and Special Days
-	No,			!- Use Weather File Daylight Saving Period
-	No,			!- Apply Weekend Holiday Rule
-	Yes,			!- Use Weather File Rain Indicators
-	No,			!- Use Weather File Snow Indicators
-	1;			!- Number of Times Runperiod to be Repeated
-
-SurfaceConvectionAlgorithm:Outside,
-	TARP;			!- Algorithm
-
-FenestrationSurface:Detailed,
-	JAZ1,			!- Name
-	Window,			!- Surface Type
-	ExteriorWindow,			!- Construction Name
-	P1Z1,			!- Building Surface Name
-	,			!- Outside Boundary Condition Object
-	,			!- View Factor to Ground
-	,			!- Shading Control Name
-	,			!- Frame and Divider Name
-	,			!- Multiplier
-	,			!- Number of Vertices
-	5.9746,			!- Vertex 1 X-coordinate {m}
-	6,			!- Vertex 1 Y-coordinate {m}
-	2.67,			!- Vertex 1 Z-coordinate {m}
-	5.9746,			!- Vertex 2 X-coordinate {m}
-	6,			!- Vertex 2 Y-coordinate {m}
-	2.39769447993007,			!- Vertex 2 Z-coordinate {m}
-	0.0253999999999994,			!- Vertex 3 X-coordinate {m}
-	6,			!- Vertex 3 Y-coordinate {m}
-	2.39769447993007,			!- Vertex 3 Z-coordinate {m}
-	0.0253999999999994,			!- Vertex 4 X-coordinate {m}
-	6,			!- Vertex 4 Y-coordinate {m}
-	2.67;			!- Vertex 4 Z-coordinate {m}
-
-FenestrationSurface:Detailed,
-	POZ1,			!- Name
-	Door,			!- Surface Type
-	InteriorDoor,			!- Construction Name
-	P4Z1,			!- Building Surface Name
-	PO1Z2,			!- Outside Boundary Condition Object
-	,			!- View Factor to Ground
-	,			!- Shading Control Name
-	,			!- Frame and Divider Name
-	,			!- Multiplier
-	,			!- Number of Vertices
-	5.1,			!- Vertex 1 X-coordinate {m}
-	0,			!- Vertex 1 Y-coordinate {m}
-	2.1,			!- Vertex 1 Z-coordinate {m}
-	5.1,			!- Vertex 2 X-coordinate {m}
-	0,			!- Vertex 2 Y-coordinate {m}
-	0,			!- Vertex 2 Z-coordinate {m}
-	5.9,			!- Vertex 3 X-coordinate {m}
-	0,			!- Vertex 3 Y-coordinate {m}
-	0,			!- Vertex 3 Z-coordinate {m}
-	5.9,			!- Vertex 4 X-coordinate {m}
-	0,			!- Vertex 4 Y-coordinate {m}
-	2.1;			!- Vertex 4 Z-coordinate {m}
-
-FenestrationSurface:Detailed,
-	POZ3,			!- Name
-	Door,			!- Surface Type
-	InteriorDoor,			!- Construction Name
-	P1Z3,			!- Building Surface Name
-	PO2Z2,			!- Outside Boundary Condition Object
-	,			!- View Factor to Ground
-	,			!- Shading Control Name
-	,			!- Frame and Divider Name
-	,			!- Multiplier
-	,			!- Number of Vertices
-	-0.1,			!- Vertex 1 X-coordinate {m}
-	6,			!- Vertex 1 Y-coordinate {m}
-	2.1,			!- Vertex 1 Z-coordinate {m}
-	-0.1,			!- Vertex 2 X-coordinate {m}
-	6,			!- Vertex 2 Y-coordinate {m}
-	0,			!- Vertex 2 Z-coordinate {m}
-	-0.9,			!- Vertex 3 X-coordinate {m}
-	6,			!- Vertex 3 Y-coordinate {m}
-	0,			!- Vertex 3 Z-coordinate {m}
-	-0.9,			!- Vertex 4 X-coordinate {m}
-	6,			!- Vertex 4 Y-coordinate {m}
-	2.1;			!- Vertex 4 Z-coordinate {m}
-
-FenestrationSurface:Detailed,
-	PO1Z2,			!- Name
-	Door,			!- Surface Type
-	InteriorDoor,			!- Construction Name
-	P1Z2,			!- Building Surface Name
-	POZ1,			!- Outside Boundary Condition Object
-	,			!- View Factor to Ground
-	,			!- Shading Control Name
-	,			!- Frame and Divider Name
-	,			!- Multiplier
-	,			!- Number of Vertices
-	5.9,			!- Vertex 1 X-coordinate {m}
-	2,			!- Vertex 1 Y-coordinate {m}
-	2.1,			!- Vertex 1 Z-coordinate {m}
-	5.9,			!- Vertex 2 X-coordinate {m}
-	2,			!- Vertex 2 Y-coordinate {m}
-	0,			!- Vertex 2 Z-coordinate {m}
-	5.1,			!- Vertex 3 X-coordinate {m}
-	2,			!- Vertex 3 Y-coordinate {m}
-	0,			!- Vertex 3 Z-coordinate {m}
-	5.1,			!- Vertex 4 X-coordinate {m}
-	2,			!- Vertex 4 Y-coordinate {m}
-	2.1;			!- Vertex 4 Z-coordinate {m}
-
-FenestrationSurface:Detailed,
-	PO2Z2,			!- Name
-	Door,			!- Surface Type
-	InteriorDoor,			!- Construction Name
-	P4Z2,			!- Building Surface Name
-	POZ3,			!- Outside Boundary Condition Object
-	,			!- View Factor to Ground
-	,			!- Shading Control Name
-	,			!- Frame and Divider Name
-	,			!- Multiplier
-	,			!- Number of Vertices
-	5.1,			!- Vertex 1 X-coordinate {m}
-	0,			!- Vertex 1 Y-coordinate {m}
-	2.1,			!- Vertex 1 Z-coordinate {m}
-	5.1,			!- Vertex 2 X-coordinate {m}
-	0,			!- Vertex 2 Y-coordinate {m}
-	0,			!- Vertex 2 Z-coordinate {m}
-	5.9,			!- Vertex 3 X-coordinate {m}
-	0,			!- Vertex 3 Y-coordinate {m}
-	0,			!- Vertex 3 Z-coordinate {m}
-	5.9,			!- Vertex 4 X-coordinate {m}
-	0,			!- Vertex 4 Y-coordinate {m}
-	2.1;			!- Vertex 4 Z-coordinate {m}
-
-FenestrationSurface:Detailed,
-	JAZ3,			!- Name
-	Window,			!- Surface Type
-	ExteriorWindow,			!- Construction Name
-	P4Z3,			!- Building Surface Name
-	,			!- Outside Boundary Condition Object
-	,			!- View Factor to Ground
-	,			!- Shading Control Name
-	,			!- Frame and Divider Name
-	,			!- Multiplier
-	,			!- Number of Vertices
-	-5.9746,			!- Vertex 1 X-coordinate {m}
-	0,			!- Vertex 1 Y-coordinate {m}
-	2.67,			!- Vertex 1 Z-coordinate {m}
-	-5.9746,			!- Vertex 2 X-coordinate {m}
-	0,			!- Vertex 2 Y-coordinate {m}
-	2.39769447993007,			!- Vertex 2 Z-coordinate {m}
-	-0.0253999999999993,			!- Vertex 3 X-coordinate {m}
-	0,			!- Vertex 3 Y-coordinate {m}
-	2.39769447993007,			!- Vertex 3 Z-coordinate {m}
-	-0.0253999999999993,			!- Vertex 4 X-coordinate {m}
-	0,			!- Vertex 4 Y-coordinate {m}
-	2.67;			!- Vertex 4 Z-coordinate {m}
-
-AirflowNetwork:MultiZone:Surface,
-	JAZ1,			!- Surface Name
-	detalheja,			!- Leakage Component Name
-	,			!- External Node Name
-	1,                       !- Window/Door Opening Factor,			!- Window/Door Opening Factor, or Crack Factor {dimensionless}
-	Temperature,			!- Ventilation Control Mode
-	Setpoint_ventilação,			!- Ventilation Control Zone Temperature Setpoint Schedule Name
-	,			!- Minimum Venting Open Factor {dimensionless}
-	,			!- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
-	100,			!- Indoor and Outdoor Temperature Difference Upper Limit for Minimun Venting Open Factor {deltaC}
-	,			!- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
-	300000,			!- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimun Venting Open Factor {deltaJ/kg}
-	Ventilacao_Controle;			!- Venting Availability Schedule Name
-
-AirflowNetwork:MultiZone:Surface,
-	JAZ3,			!- Surface Name
-	detalheja,			!- Leakage Component Name
-	,			!- External Node Name
-	1,                       !- Window/Door Opening Factor,			!- Window/Door Opening Factor, or Crack Factor {dimensionless}
-	Temperature,			!- Ventilation Control Mode
-	Setpoint_ventilação,			!- Ventilation Control Zone Temperature Setpoint Schedule Name
-	,			!- Minimum Venting Open Factor {dimensionless}
-	,			!- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
-	100,			!- Indoor and Outdoor Temperature Difference Upper Limit for Minimun Venting Open Factor {deltaC}
-	,			!- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
-	300000,			!- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimun Venting Open Factor {deltaJ/kg}
-	Ventilacao_Controle;			!- Venting Availability Schedule Name
-
-AirflowNetwork:MultiZone:Surface,
-	PO2Z2,			!- Surface Name
-	detalhepor,			!- Leakage Component Name
-	,			!- External Node Name
-	1,                       !- Window/Door Opening Factor,			!- Window/Door Opening Factor, or Crack Factor {dimensionless}
-	Constant,			!- Ventilation Control Mode
-	,			!- Ventilation Control Zone Temperature Setpoint Schedule Name
-	,			!- Minimum Venting Open Factor {dimensionless}
-	,			!- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
-	100,			!- Indoor and Outdoor Temperature Difference Upper Limit for Minimun Venting Open Factor {deltaC}
-	,			!- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
-	300000,			!- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimun Venting Open Factor {deltaJ/kg}
-	controle_ventnatural_off;			!- Venting Availability Schedule Name
-
-AirflowNetwork:MultiZone:Surface,
-	PO1Z2,			!- Surface Name
-	detalhepor,			!- Leakage Component Name
-	,			!- External Node Name
-	1,                       !- Window/Door Opening Factor,			!- Window/Door Opening Factor, or Crack Factor {dimensionless}
-	Constant,			!- Ventilation Control Mode
-	,			!- Ventilation Control Zone Temperature Setpoint Schedule Name
-	,			!- Minimum Venting Open Factor {dimensionless}
-	,			!- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
-	100,			!- Indoor and Outdoor Temperature Difference Upper Limit for Minimun Venting Open Factor {deltaC}
-	,			!- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
-	300000,			!- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimun Venting Open Factor {deltaJ/kg}
-	controle_ventnatural_off;			!- Venting Availability Schedule Name
-
-AirflowNetwork:SimulationControl,
-	Ventilacao_Natural,			!- Name
-	MultizoneWithoutDistribution,			!- AirflowNetwork Control
-	SurfaceAverageCalculation,			!- Wind Pressure Coefficient Type
-	,			!- AirflowNetwork Wind Pressure Coefficient Array Name
-	,			!- Height Selection for Local Wind Pressure Calculation
-	LowRise,			!- Building Type
-	500,			!- Maximum Number of Iterations {dimensionless}
-	ZeroNodePressures,			!- Initialization Type
-	0.0001,			!- Relative Airflow Convergence Tolerance {dimensionless}
-	0.000001,			!- Absolute Airflow Convergence Tolerance {kg/s}
-	-.5,			!- Convergence Acceleration Limit {dimensionless}
-	0,			!- Azimuth Angle of Long Axis of Building {deg}
-	0.43,			!- Ratio of Building Width Along Short Axis to Width Along Long Axis
-	No;			!- Height Dependence of External Node Temperature
+Schedule:File,
+	IluminacaoZ1,			!- Name
+	Fraction,			!- Schedule Type Limits Name
+	C:\11_norte_10.csv,			!- File Name
+	5,			!- Column Number
+	4,			!- Rows to Skip at Top
+	8760,			!- Number of Hours of Data
+	Comma,			!- Column Separator
+	No;			!- Interpolate to Timestep
 
 Material,
 	blocointer9,			!- Name
@@ -550,36 +293,31 @@ Zone,
 	0.7,			!- Solar Absorptance
 	0.7;			!- Visible Absorptance
 
-Schedule:File,
-	IluminacaoZ3,			!- Name
-	Fraction,			!- Schedule Type Limits Name
-	C:\11_sul_10.csv,			!- File Name
-	5,			!- Column Number
-	4,			!- Rows to Skip at Top
-	8760,			!- Number of Hours of Data
-	Comma,			!- Column Separator
-	No;			!- Interpolate to Timestep
+Material:AirGap,
+	arblococoncr9,			!- Name
+	0.111;			!- Thermal Resistance {m2-K/W}
 
-Schedule:File,
-	IluminacaoZ1,			!- Name
-	Fraction,			!- Schedule Type Limits Name
-	C:\11_norte_10.csv,			!- File Name
-	5,			!- Column Number
-	4,			!- Rows to Skip at Top
-	8760,			!- Number of Hours of Data
-	Comma,			!- Column Separator
-	No;			!- Interpolate to Timestep
+Material:AirGap,
+	arblococoncr19,			!- Name
+	0.115;			!- Thermal Resistance {m2-K/W}
 
-OutputControl:Table:Style,
-	Comma,			!- Column Separator
-	JtoKWH;			!- Unit Conversion
-
-SimulationControl,
-	No,			!- Do Zone Sizing Calculation
-	No,			!- Do System Sizing Calculation
-	No,			!- Do Plant Sizing Calculation
-	No,			!- Run Simulation for Sizing Periods
-	Yes;			!- Run Simulation for Weather File Run Periods
+WindowMaterial:Glazing,
+	vidro 6mm,			!- Name
+	SpectralAverage,			!- Optical Data Type
+	,			!- Window Glass Spectral Data Set Name
+	0.006,			!- Thickness {m}
+	0.814,			!- Solar Transmittance at Normal Incidence
+	0.086,			!- Front Side Solar Reflectance at Normal Incidence
+	0.086,			!- Back Side Solar Reflectance at Normal Incidence
+	0.847,			!- Visible Transmittance at Normal Incidence
+	0.099,			!- Front Side Visible Reflectance at Normal Incidence
+	0.099,			!- Back Side Visible Reflectance at Normal Incidence
+	0,			!- Infrared Transmittance at Normal Incidence
+	0.84,			!- Front Side Infrared Hemispherical Emissivity
+	0.84,			!- Back Side Infrared Hemispherical Emissivity
+	0.9,			!- Conductivity {W/m-K}
+	,			!- Dirt Correction Factor for Solar and Visible Transmittance
+	Yes;			!- Solar Diffusing
 
 Construction,
 	ExteriorWindow,			!- Name
@@ -617,26 +355,45 @@ Zone,
 	argamaint,			!- Layer 3
 	pisoceramico;			!- Layer 4
 
-Output:VariableDictionary,
-	IDF,			!- Key Field
-	Unsorted;			!- Sort Option
+GlobalGeometryRules,
+	UpperLeftCorner,			!- Starting Vertex Position
+	Counterclockwise,			!- Vertex Entry Direction
+	Relative,			!- Coordinate System
+	Relative,			!- Daylighting Reference Point Coordinate System
+	Relative;			!- Rectangular Surface Coordinate System
 
-Building,
-	Building 1,			!- Name
-	0,			!- North Axis {deg}
-	City,			!- Terrain
-	0.04,			!- Loads Convergence Tolerance Value
-	0.4,			!- Temperature Convergence Tolerance Value {deltaC}
-	FullInteriorAndExterior,			!- Solar Distribution
-	25,			!- Maximum Number of Warmup Days
-	;			!- Minimum Number of Warmup Days
+Zone,
+	Z1,			!- Name
+	-0,			!- Direction of Relative North {deg}
+	0,			!- X Origin {m}
+	8,			!- Y Origin {m}
+	0,			!- Z Origin {m}
+	,			!- Type
+	1,			!- Multiplier
+	2.7,			!- Ceiling Height {m}
+	97.2;			!- Volume {m3}
 
-Site:Location,
-	Site 1,			!- Name
-	-23.85,			!- Latitude {deg}
-	-46.64,			!- Longitude {deg}
-	-3,			!- Time Zone {hr}
-	792;			!- Elevation {m}
+Zone,
+	Z2,			!- Name
+	-0,			!- Direction of Relative North {deg}
+	0,			!- X Origin {m}
+	6,			!- Y Origin {m}
+	0,			!- Z Origin {m}
+	,			!- Type
+	1,			!- Multiplier
+	2.7,			!- Ceiling Height {m}
+	32.4;			!- Volume {m3}
+
+Zone,
+	Z3,			!- Name
+	-0,			!- Direction of Relative North {deg}
+	6,			!- X Origin {m}
+	0,			!- Y Origin {m}
+	0,			!- Z Origin {m}
+	,			!- Type
+	1,			!- Multiplier
+	2.7,			!- Ceiling Height {m}
+	97.2;			!- Volume {m3}
 
 BuildingSurface:Detailed,
 	P2Z1,			!- Name
@@ -906,8 +663,8 @@ Zone,
 	P4Z1,			!- Name
 	Wall,			!- Surface Type
 	InteriorWall,			!- Construction Name
-	Surface,			!- Outside Boundary Condition
 	Z1,			!- Zone Name
+	Surface,			!- Outside Boundary Condition
 	P1Z2,			!- Outside Boundary Condition Object
 	NoSun,			!- Sun Exposure
 	NoWind,			!- Wind Exposure
@@ -1070,216 +827,149 @@ Zone,
 	6,			!- Vertex 4 Y-coordinate {m}
 	2.7;			!- Vertex 4 Z-coordinate {m}
 
-HVACTemplate:Zone:IdealLoadsAirSystem,
-	Z1,			!- Zone Name
-	Constant Setpoint Thermostat,			!- Template Thermostat Name
-	Vent_hibrida_controletipo,			!- System Availability Schedule Name
-	50,			!- Maximum Heating Supply Air Temperature {C}
-	13,			!- Minimum Cooling Supply Air Temperature {C}
-	0.0156,			!- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-	0.0077,			!- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-	,			!- Heating Limit
-	,			!- Maximum Heating Air Flow Rate {m3/s}
-	,			!- Maximum Sensible Heating Capacity {W}
-	,			!- Cooling Limit
-	,			!- Maximum Cooling Air Flow Rate {m3/s}
-	,			!- Maximum Total Cooling Capacity {W}
-	Ar_Condicion_Aque,			!- Heating Availability Schedule Name
-	Ar_Condicion_Resfri,			!- Cooling Availability Schedule Name
-	,			!- Dehumidification Control Type
-	0.7,			!- Cooling Sensible Heat Ratio {dimensionless}
-	,			!- Dehumidification Setpoint {percent}
-	,			!- Humidification Control Type
-	,			!- Humidification Setpoint {percent}
-	,			!- Outdoor Air Method
-	,			!- Outdoor Air Flow Rate per Person {m3/s}
-	,			!- Outdoor Air Flow Rate per Zone Floor Area {m3/s-m2}
-	,			!- Outdoor Air Flow Rate per Zone {m3/s}
-	,			!- Design Specification Outdoor Air Object Name
-	;			!- Demand Controlled Ventilation Type
+FenestrationSurface:Detailed,
+	JAZ1,			!- Name
+	Window,			!- Surface Type
+	ExteriorWindow,			!- Construction Name
+	P1Z1,			!- Building Surface Name
+	,			!- Outside Boundary Condition Object
+	,			!- View Factor to Ground
+	,			!- Shading Control Name
+	,			!- Frame and Divider Name
+	,			!- Multiplier
+	,			!- Number of Vertices
+	5.9746,			!- Vertex 1 X-coordinate {m}
+	6,			!- Vertex 1 Y-coordinate {m}
+	2.67,			!- Vertex 1 Z-coordinate {m}
+	5.9746,			!- Vertex 2 X-coordinate {m}
+	6,			!- Vertex 2 Y-coordinate {m}
+	2.39769447993007,			!- Vertex 2 Z-coordinate {m}
+	0.0253999999999994,			!- Vertex 3 X-coordinate {m}
+	6,			!- Vertex 3 Y-coordinate {m}
+	2.39769447993007,			!- Vertex 3 Z-coordinate {m}
+	0.0253999999999994,			!- Vertex 4 X-coordinate {m}
+	6,			!- Vertex 4 Y-coordinate {m}
+	2.67;			!- Vertex 4 Z-coordinate {m}
 
-HVACTemplate:Zone:IdealLoadsAirSystem,
-	Z3,			!- Zone Name
-	Constant Setpoint Thermostat,			!- Template Thermostat Name
-	Vent_hibrida_controletipo,			!- System Availability Schedule Name
-	50,			!- Maximum Heating Supply Air Temperature {C}
-	13,			!- Minimum Cooling Supply Air Temperature {C}
-	0.0156,			!- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
-	0.0077,			!- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
-	,			!- Heating Limit
-	,			!- Maximum Heating Air Flow Rate {m3/s}
-	,			!- Maximum Sensible Heating Capacity {W}
-	,			!- Cooling Limit
-	,			!- Maximum Cooling Air Flow Rate {m3/s}
-	,			!- Maximum Total Cooling Capacity {W}
-	Ar_Condicion_Aque,			!- Heating Availability Schedule Name
-	Ar_Condicion_Resfri,			!- Cooling Availability Schedule Name
-	,			!- Dehumidification Control Type
-	0.7,			!- Cooling Sensible Heat Ratio {dimensionless}
-	,			!- Dehumidification Setpoint {percent}
-	,			!- Humidification Control Type
-	,			!- Humidification Setpoint {percent}
-	,			!- Outdoor Air Method
-	,			!- Outdoor Air Flow Rate per Person {m3/s}
-	,			!- Outdoor Air Flow Rate per Zone Floor Area {m3/s-m2}
-	,			!- Outdoor Air Flow Rate per Zone {m3/s}
-	,			!- Design Specification Outdoor Air Object Name
-	;			!- Demand Controlled Ventilation Type
+FenestrationSurface:Detailed,
+	POZ1,			!- Name
+	Door,			!- Surface Type
+	InteriorDoor,			!- Construction Name
+	P4Z1,			!- Building Surface Name
+	PO1Z2,			!- Outside Boundary Condition Object
+	,			!- View Factor to Ground
+	,			!- Shading Control Name
+	,			!- Frame and Divider Name
+	,			!- Multiplier
+	,			!- Number of Vertices
+	5.1,			!- Vertex 1 X-coordinate {m}
+	0,			!- Vertex 1 Y-coordinate {m}
+	2.1,			!- Vertex 1 Z-coordinate {m}
+	5.1,			!- Vertex 2 X-coordinate {m}
+	0,			!- Vertex 2 Y-coordinate {m}
+	0,			!- Vertex 2 Z-coordinate {m}
+	5.9,			!- Vertex 3 X-coordinate {m}
+	0,			!- Vertex 3 Y-coordinate {m}
+	0,			!- Vertex 3 Z-coordinate {m}
+	5.9,			!- Vertex 4 X-coordinate {m}
+	0,			!- Vertex 4 Y-coordinate {m}
+	2.1;			!- Vertex 4 Z-coordinate {m}
 
-Output:Table:SummaryReports,
-	AllSummary;			!- Report 1 Name
+FenestrationSurface:Detailed,
+	POZ3,			!- Name
+	Door,			!- Surface Type
+	InteriorDoor,			!- Construction Name
+	P1Z3,			!- Building Surface Name
+	PO2Z2,			!- Outside Boundary Condition Object
+	,			!- View Factor to Ground
+	,			!- Shading Control Name
+	,			!- Frame and Divider Name
+	,			!- Multiplier
+	,			!- Number of Vertices
+	-0.1,			!- Vertex 1 X-coordinate {m}
+	6,			!- Vertex 1 Y-coordinate {m}
+	2.1,			!- Vertex 1 Z-coordinate {m}
+	-0.1,			!- Vertex 2 X-coordinate {m}
+	6,			!- Vertex 2 Y-coordinate {m}
+	0,			!- Vertex 2 Z-coordinate {m}
+	-0.9,			!- Vertex 3 X-coordinate {m}
+	6,			!- Vertex 3 Y-coordinate {m}
+	0,			!- Vertex 3 Z-coordinate {m}
+	-0.9,			!- Vertex 4 X-coordinate {m}
+	6,			!- Vertex 4 Y-coordinate {m}
+	2.1;			!- Vertex 4 Z-coordinate {m}
 
-ElectricEquipment,
-	equipamentosZ3,			!- Name
-	Z3,			!- Zone or ZoneList Name
-	Equipamentos,			!- Schedule Name
-	Watts/Area,			!- Design Level Calculation Method
-	,			!- Design Level {W}
-	10.7,			!- Watts per Zone Floor Area {W/m2}
-	,			!- Watts per Person {W/person}
-	0,			!- Fraction Latent
-	0.3,			!- Fraction Radiant
-	0,			!- Fraction Lost
-	General;			!- End-Use Subcategory
+FenestrationSurface:Detailed,
+	PO1Z2,			!- Name
+	Door,			!- Surface Type
+	InteriorDoor,			!- Construction Name
+	P1Z2,			!- Building Surface Name
+	POZ1,			!- Outside Boundary Condition Object
+	,			!- View Factor to Ground
+	,			!- Shading Control Name
+	,			!- Frame and Divider Name
+	,			!- Multiplier
+	,			!- Number of Vertices
+	5.9,			!- Vertex 1 X-coordinate {m}
+	2,			!- Vertex 1 Y-coordinate {m}
+	2.1,			!- Vertex 1 Z-coordinate {m}
+	5.9,			!- Vertex 2 X-coordinate {m}
+	2,			!- Vertex 2 Y-coordinate {m}
+	0,			!- Vertex 2 Z-coordinate {m}
+	5.1,			!- Vertex 3 X-coordinate {m}
+	2,			!- Vertex 3 Y-coordinate {m}
+	0,			!- Vertex 3 Z-coordinate {m}
+	5.1,			!- Vertex 4 X-coordinate {m}
+	2,			!- Vertex 4 Y-coordinate {m}
+	2.1;			!- Vertex 4 Z-coordinate {m}
 
-ElectricEquipment,
-	equipamentosZ1,			!- Name
-	Z1,			!- Zone or ZoneList Name
-	Equipamentos,			!- Schedule Name
-	Watts/Area,			!- Design Level Calculation Method
-	,			!- Design Level {W}
-	10.7,			!- Watts per Zone Floor Area {W/m2}
-	,			!- Watts per Person {W/person}
-	0,			!- Fraction Latent
-	0.3,			!- Fraction Radiant
-	0,			!- Fraction Lost
-	General;			!- End-Use Subcategory
+FenestrationSurface:Detailed,
+	PO2Z2,			!- Name
+	Door,			!- Surface Type
+	InteriorDoor,			!- Construction Name
+	P4Z2,			!- Building Surface Name
+	POZ3,			!- Outside Boundary Condition Object
+	,			!- View Factor to Ground
+	,			!- Shading Control Name
+	,			!- Frame and Divider Name
+	,			!- Multiplier
+	,			!- Number of Vertices
+	5.1,			!- Vertex 1 X-coordinate {m}
+	0,			!- Vertex 1 Y-coordinate {m}
+	2.1,			!- Vertex 1 Z-coordinate {m}
+	5.1,			!- Vertex 2 X-coordinate {m}
+	0,			!- Vertex 2 Y-coordinate {m}
+	0,			!- Vertex 2 Z-coordinate {m}
+	5.9,			!- Vertex 3 X-coordinate {m}
+	0,			!- Vertex 3 Y-coordinate {m}
+	0,			!- Vertex 3 Z-coordinate {m}
+	5.9,			!- Vertex 4 X-coordinate {m}
+	0,			!- Vertex 4 Y-coordinate {m}
+	2.1;			!- Vertex 4 Z-coordinate {m}
 
-ScheduleTypeLimits,
-	Control Type,			!- Name
-	0,			!- Lower Limit Value
-	4,			!- Upper Limit Value
-	DISCRETE;			!- Numeric Type
-
-ScheduleTypeLimits,
-	Hybrid Control Mode Type,			!- Name
-	0,			!- Lower Limit Value
-	4,			!- Upper Limit Value
-	DISCRETE;			!- Numeric Type
-
-ScheduleTypeLimits,
-	Any Number,			!- Name
-	,			!- Lower Limit Value
-	,			!- Upper Limit Value
-	,			!- Numeric Type
-	Dimensionless;			!- Unit Type
-
-ScheduleTypeLimits,
-	Temperature,			!- Name
-	-60,			!- Lower Limit Value
-	200,			!- Upper Limit Value
-	Continuous,			!- Numeric Type
-	temperature;			!- Unit Type
-
-ScheduleTypeLimits,
-	ActivityLevel,			!- Name
-	0,			!- Lower Limit Value
-	,			!- Upper Limit Value
-	Continuous,			!- Numeric Type
-	activitylevel;			!- Unit Type
-
-ScheduleTypeLimits,
-	Humidity,			!- Name
-	10,			!- Lower Limit Value
-	90,			!- Upper Limit Value
-	Continuous;			!- Numeric Type
-
-ScheduleTypeLimits,
-	On/Off,			!- Name
-	0,			!- Lower Limit Value
-	1,			!- Upper Limit Value
-	Discrete,			!- Numeric Type
-	availability;			!- Unit Type
-
-ScheduleTypeLimits,
-	Fraction,			!- Name
-	0,			!- Lower Limit Value
-	1,			!- Upper Limit Value
-	Continuous;			!- Numeric Type
-
-Schedule:Constant,
-	controle_ventnatural_off,			!- Name
-	On/Off,			!- Schedule Type Limits Name
-	0;			!- Hourly Value
-
-WindowMaterial:Glazing,
-	vidro 6mm,			!- Name
-	SpectralAverage,			!- Optical Data Type
-	,			!- Window Glass Spectral Data Set Name
-	0.006,			!- Thickness {m}
-	0.814,			!- Solar Transmittance at Normal Incidence
-	0.086,			!- Front Side Solar Reflectance at Normal Incidence
-	0.086,			!- Back Side Solar Reflectance at Normal Incidence
-	0.847,			!- Visible Transmittance at Normal Incidence
-	0.099,			!- Front Side Visible Reflectance at Normal Incidence
-	0.099,			!- Back Side Visible Reflectance at Normal Incidence
-	0,			!- Infrared Transmittance at Normal Incidence
-	0.84,			!- Front Side Infrared Hemispherical Emissivity
-	0.84,			!- Back Side Infrared Hemispherical Emissivity
-	0.9,			!- Conductivity {W/m-K}
-	,			!- Dirt Correction Factor for Solar and Visible Transmittance
-	Yes;			!- Solar Diffusing
-
-Output:SQLite,
-	SimpleAndTabular;			!- Option Type
-
-GlobalGeometryRules,
-	UpperLeftCorner,			!- Starting Vertex Position
-	Counterclockwise,			!- Vertex Entry Direction
-	Relative,			!- Coordinate System
-	Relative,			!- Daylighting Reference Point Coordinate System
-	Relative;			!- Rectangular Surface Coordinate System
-
-AvailabilityManager:HybridVentilation,
-	VH_Z3,			!- Name
-	,			!- HVAC Air Loop Name
-	Z3,			!- Controlled Zone Name
-	Vent_hibrida_controletipo,			!- Ventilation Control Mode Schedule Name
-	Yes,			!- Use Weather File Rain Indicators
-	40,			!- Maximum Wind Speed {m/s}
-	-100,			!- Minimum Outdoor Temperature {C}
-	100,			!- Maximum Outdoor Temperature {C}
-	2000,			!- Minimum Outdoor Enthalpy {J/kg}
-	3000,			!- Maximum Outdoor Enthalpy {J/kg}
-	-100,			!- Minimum Outdoor Dewpoint {C}
-	100,			!- Maximum Outdoor Dewpoint {C}
-	Outdoor_air,			!- Minimum Outdoor Ventilation Air Schedule Name
-	,			!- Opening Factor Function of Wind Speed Curve Name
-	Ventilacao_Controle;			!- AirflowNetwork Control Type Schedule Name
-
-AvailabilityManager:HybridVentilation,
-	VH_Z1,			!- Name
-	,			!- HVAC Air Loop Name
-	Z1,			!- Controlled Zone Name
-	Vent_hibrida_controletipo,			!- Ventilation Control Mode Schedule Name
-	Yes,			!- Use Weather File Rain Indicators
-	40,			!- Maximum Wind Speed {m/s}
-	-100,			!- Minimum Outdoor Temperature {C}
-	100,			!- Maximum Outdoor Temperature {C}
-	2000,			!- Minimum Outdoor Enthalpy {J/kg}
-	3000,			!- Maximum Outdoor Enthalpy {J/kg}
-	-100,			!- Minimum Outdoor Dewpoint {C}
-	100,			!- Maximum Outdoor Dewpoint {C}
-	Outdoor_air,			!- Minimum Outdoor Ventilation Air Schedule Name
-	,			!- Opening Factor Function of Wind Speed Curve Name
-	Ventilacao_Controle;			!- AirflowNetwork Control Type Schedule Name
-
-HVACTemplate:Thermostat,
-	Constant Setpoint Thermostat,			!- Name
-	Ar_Condicion_Aque,			!- Heating Setpoint Schedule Name
-	,			!- Constant Heating Setpoint {C}
-	Ar_Condicion_Resfri,			!- Cooling Setpoint Schedule Name
-	;			!- Constant Cooling Setpoint {C}
+FenestrationSurface:Detailed,
+	JAZ3,			!- Name
+	Window,			!- Surface Type
+	ExteriorWindow,			!- Construction Name
+	P4Z3,			!- Building Surface Name
+	,			!- Outside Boundary Condition Object
+	,			!- View Factor to Ground
+	,			!- Shading Control Name
+	,			!- Frame and Divider Name
+	,			!- Multiplier
+	,			!- Number of Vertices
+	-5.9746,			!- Vertex 1 X-coordinate {m}
+	0,			!- Vertex 1 Y-coordinate {m}
+	2.67,			!- Vertex 1 Z-coordinate {m}
+	-5.9746,			!- Vertex 2 X-coordinate {m}
+	0,			!- Vertex 2 Y-coordinate {m}
+	2.39769447993007,			!- Vertex 2 Z-coordinate {m}
+	-0.0253999999999993,			!- Vertex 3 X-coordinate {m}
+	0,			!- Vertex 3 Y-coordinate {m}
+	2.39769447993007,			!- Vertex 3 Z-coordinate {m}
+	-0.0253999999999993,			!- Vertex 4 X-coordinate {m}
+	0,			!- Vertex 4 Y-coordinate {m}
+	2.67;			!- Vertex 4 Z-coordinate {m}
 
 People,
 	Pessoas_Z1,			!- Name
@@ -1311,53 +1001,254 @@ Zone,
 	No,			!- Enable ASHRAE 55 Comfort Warnings
 	ZoneAveraged;			!- Mean Radiant Temperature Calculation Type
 
-Material:AirGap,
-	arblococoncr9,			!- Name
-	0.111;			!- Thermal Resistance {m2-K/W}
+Lights,
+	IluminacaoZ3,			!- Name
+	Z3,			!- Zone or ZoneList Name
+	IluminacaoZ3,			!- Schedule Name
+	Watts/Area,			!- Design Level Calculation Method
+	,			!- Lighting Level {W}
+	9.7,			!- Watts per Zone Floor Area {W/m2}
+	,			!- Watts per Person {W/person}
+	0,			!- Return Air Fraction
+	0.72,			!- Fraction Radiant
+	0.18,			!- Fraction Visible
+	1,			!- Fraction Replaceable
+	General,			!- End-Use Subcategory
+	No;			!- Return Air Fraction Calculated from Plenum Temperature
 
-Material:AirGap,
-	arblococoncr19,			!- Name
-	0.115;			!- Thermal Resistance {m2-K/W}
+Lights,
+	IluminacaoZ1,			!- Name
+	Z1,			!- Zone or ZoneList Name
+	IluminacaoZ1,			!- Schedule Name
+	Watts/Area,			!- Design Level Calculation Method
+	,			!- Lighting Level {W}
+	9.7,			!- Watts per Zone Floor Area {W/m2}
+	,			!- Watts per Person {W/person}
+	0,			!- Return Air Fraction
+	0.72,			!- Fraction Radiant
+	0.18,			!- Fraction Visible
+	1,			!- Fraction Replaceable
+	General,			!- End-Use Subcategory
+	No;			!- Return Air Fraction Calculated from Plenum Temperature
 
-Timestep,
-	6;			!- Number of Timesteps per Hour
+ElectricEquipment,
+	equipamentosZ3,			!- Name
+	Z3,			!- Zone or ZoneList Name
+	Equipamentos,			!- Schedule Name
+	Watts/Area,			!- Design Level Calculation Method
+	,			!- Design Level {W}
+	10.7,			!- Watts per Zone Floor Area {W/m2}
+	,			!- Watts per Person {W/person}
+	0,			!- Fraction Latent
+	0.3,			!- Fraction Radiant
+	0,			!- Fraction Lost
+	General;			!- End-Use Subcategory
 
-AirflowNetwork:MultiZone:Zone,
+ElectricEquipment,
+	equipamentosZ1,			!- Name
+	Z1,			!- Zone or ZoneList Name
+	Equipamentos,			!- Schedule Name
+	Watts/Area,			!- Design Level Calculation Method
+	,			!- Design Level {W}
+	10.7,			!- Watts per Zone Floor Area {W/m2}
+	,			!- Watts per Person {W/person}
+	0,			!- Fraction Latent
+	0.3,			!- Fraction Radiant
+	0,			!- Fraction Lost
+	General;			!- End-Use Subcategory
+
+HVACTemplate:Thermostat,
+	Constant Setpoint Thermostat,			!- Name
+	,			!- Heating Setpoint Schedule Name
+	18,			!- Constant Heating Setpoint {C}
+	,			!- Cooling Setpoint Schedule Name
+	25;			!- Constant Cooling Setpoint {C}
+
+HVACTemplate:Zone:IdealLoadsAirSystem,
 	Z1,			!- Zone Name
-	Temperature,			!- Ventilation Control Mode
-	Setpoint_ventilação,			!- Ventilation Control Zone Temperature Setpoint Schedule Name
-	,			!- Minimum Venting Open Factor {dimensionless}
-	,			!- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
-	100,			!- Indoor and Outdoor Temperature Difference Upper Limit for Minimun Venting Open Factor {deltaC}
-	,			!- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
-	300000,			!- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimun Venting Open Factor {deltaJ/kg}
-	Ventilacao_Controle;			!- Venting Availability Schedule Name
+	Constant Setpoint Thermostat,			!- Template Thermostat Name
+	AC,			!- System Availability Schedule Name
+	50,			!- Maximum Heating Supply Air Temperature {C}
+	13,			!- Minimum Cooling Supply Air Temperature {C}
+	0.0156,			!- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+	0.0077,			!- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+	NoLimit,			!- Heating Limit
+	,			!- Maximum Heating Air Flow Rate {m3/s}
+	,			!- Maximum Sensible Heating Capacity {W}
+	NoLimit,			!- Cooling Limit
+	,			!- Maximum Cooling Air Flow Rate {m3/s}
+	,			!- Maximum Total Cooling Capacity {W}
+	,			!- Heating Availability Schedule Name
+	,			!- Cooling Availability Schedule Name
+	,			!- Dehumidification Control Type
+	0.7,			!- Cooling Sensible Heat Ratio {dimensionless}
+	,			!- Dehumidification Setpoint {percent}
+	,			!- Humidification Control Type
+	,			!- Humidification Setpoint {percent}
+	,			!- Outdoor Air Method
+	,			!- Outdoor Air Flow Rate per Person {m3/s}
+	,			!- Outdoor Air Flow Rate per Zone Floor Area {m3/s-m2}
+	,			!- Outdoor Air Flow Rate per Zone {m3/s}
+	,			!- Design Specification Outdoor Air Object Name
+	;			!- Demand Controlled Ventilation Type
 
-AirflowNetwork:MultiZone:Zone,
-	Z2,			!- Zone Name
-	NoVent,			!- Ventilation Control Mode
-	,			!- Ventilation Control Zone Temperature Setpoint Schedule Name
-	,			!- Minimum Venting Open Factor {dimensionless}
-	,			!- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
-	100,			!- Indoor and Outdoor Temperature Difference Upper Limit for Minimun Venting Open Factor {deltaC}
-	,			!- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
-	300000,			!- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimun Venting Open Factor {deltaJ/kg}
-	controle_ventnatural_off;			!- Venting Availability Schedule Name
-
-AirflowNetwork:MultiZone:Zone,
+HVACTemplate:Zone:IdealLoadsAirSystem,
 	Z3,			!- Zone Name
-	Temperature,			!- Ventilation Control Mode
-	Setpoint_ventilação,			!- Ventilation Control Zone Temperature Setpoint Schedule Name
-	,			!- Minimum Venting Open Factor {dimensionless}
-	,			!- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
-	100,			!- Indoor and Outdoor Temperature Difference Upper Limit for Minimun Venting Open Factor {deltaC}
-	,			!- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
-	300000,			!- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimun Venting Open Factor {deltaJ/kg}
-	Ventilacao_Controle;			!- Venting Availability Schedule Name
+	Constant Setpoint Thermostat,			!- Template Thermostat Name
+	AC,			!- System Availability Schedule Name
+	50,			!- Maximum Heating Supply Air Temperature {C}
+	13,			!- Minimum Cooling Supply Air Temperature {C}
+	0.0156,			!- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+	0.0077,			!- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+	NoLimit,			!- Heating Limit
+	,			!- Maximum Heating Air Flow Rate {m3/s}
+	,			!- Maximum Sensible Heating Capacity {W}
+	NoLimit,			!- Cooling Limit
+	,			!- Maximum Cooling Air Flow Rate {m3/s}
+	,			!- Maximum Total Cooling Capacity {W}
+	,			!- Heating Availability Schedule Name
+	,			!- Cooling Availability Schedule Name
+	,			!- Dehumidification Control Type
+	0.7,			!- Cooling Sensible Heat Ratio {dimensionless}
+	,			!- Dehumidification Setpoint {percent}
+	,			!- Humidification Control Type
+	,			!- Humidification Setpoint {percent}
+	,			!- Outdoor Air Method
+	,			!- Outdoor Air Flow Rate per Person {m3/s}
+	,			!- Outdoor Air Flow Rate per Zone Floor Area {m3/s-m2}
+	,			!- Outdoor Air Flow Rate per Zone {m3/s}
+	,			!- Design Specification Outdoor Air Object Name
+	;			!- Demand Controlled Ventilation Type
+
+Output:VariableDictionary,
+	IDF,			!- Key Field
+	Unsorted;			!- Sort Option
+
+Output:Table:SummaryReports,
+	AllSummary;			!- Report 1 Name
+
+OutputControl:Table:Style,
+	Comma,			!- Column Separator
+	JtoKWH;			!- Unit Conversion
 
 Output:Variable,
 	*,			!- Key Value
-	Site Wind Speed,			!- Variable Name
+	Site Outdoor Air Drybulb Temperature,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	Z1,			!- Key Value
+	Zone People Total Heating Rate,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Zone Lights Total Heating Rate,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	Z1,			!- Key Value
+	Zone Electric Equipment Total Heating Rate,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Zone Windows Total Transmitted Solar Radiation Rate,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Zone Windows Total Heat Gain Rate,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Zone Windows Total Heat Gain Rate,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Zone Windows Total Heat Loss Rate,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Surface Inside Face Conduction Heat Transfer Rate,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Zone Mean Air Temperature,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	Z1,			!- Key Value
+	Zone Operative Temperature,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	AFN Surface Venting Availability Status,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	AFN Zone Infiltration Sensible Heat Gain Rate,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	AFN Zone Infiltration Sensible Heat Loss Rate,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	AFN Zone Infiltration Volume,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	AFN Zone Infiltration Air Change Rate,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Availability Manager Hybrid Ventilation Control Status,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Availability Manager Hybrid Ventilation Control Mode,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Zone Ideal Loads Supply Air Total Heating Rate,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Zone Ideal Loads Supply Air Total Cooling Rate,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Lights Electric Energy,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	Z3,			!- Key Value
+	Zone Operative Temperature,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Zone Ideal Loads Supply Air Total Heating Energy,			!- Variable Name
+	Hourly;			!- Reporting Frequency
+
+Output:Variable,
+	*,			!- Key Value
+	Zone Ideal Loads Zone Total Cooling Energy,			!- Variable Name
 	Hourly;			!- Reporting Frequency
 
 Output:Variable,
@@ -1366,47 +1257,16 @@ Zone,
 	Hourly;			!- Reporting Frequency
 
 Output:Variable,
-	Z3,			!- Key Value
-	Zone Operative Temperature,			!- Variable Name
+	*,			!- Key Value
+	AFN Surface Venting Window or Door Opening Factor,			!- Variable Name
 	Hourly;			!- Reporting Frequency
 
-AirflowNetwork:MultiZone:Component:DetailedOpening,
-	detalhepor,			!- Name
-	0.001,			!- Air Mass Flow Coefficient When Opening is Closed {kg/s-m}
-	0.65,			!- Air Mass Flow Exponent When Opening is Closed {dimensionless}
-	NonPivoted,			!- Type of Rectanguler Large Vertical Opening (LVO)
-	0,			!- Extra Crack Length or Height of Pivoting Axis {m}
-	2,			!- Number of Sets of Opening Factor Data
-	0,			!- Opening Factor 1 {dimensionless}
-	0.001,			!- Discharge Coefficient for Opening Factor 1 {dimensionless}
-	0,			!- Width Factor for Opening Factor 1 {dimensionless}
-	0,			!- Height Factor for Opening Factor 1 {dimensionless}
-	0,			!- Start Height Factor for Opening Factor 1 {dimensionless}
-	1,			!- Opening Factor 2 {dimensionless}
-	0.6,			!- Discharge Coefficient for Opening Factor 2 {dimensionless}
-	1,			!- Width Factor for Opening Factor 2 {dimensionless}
-	1,			!- Height Factor for Opening Factor 2 {dimensionless}
-	0;			!- Start Height Factor for Opening Factor 2 {dimensionless}
+Output:Variable,
+	*,			!- Key Value
+	Site Wind Speed,			!- Variable Name
+	Hourly;			!- Reporting Frequency
 
-AirflowNetwork:MultiZone:Component:DetailedOpening,
-	detalheja,			!- Name
-	0.001,			!- Air Mass Flow Coefficient When Opening is Closed {kg/s-m}
-	0.65,			!- Air Mass Flow Exponent When Opening is Closed {dimensionless}
-	NonPivoted,			!- Type of Rectanguler Large Vertical Opening (LVO)
-	0,			!- Extra Crack Length or Height of Pivoting Axis {m}
-	2,			!- Number of Sets of Opening Factor Data
-	0,			!- Opening Factor 1 {dimensionless}
-	0.001,			!- Discharge Coefficient for Opening Factor 1 {dimensionless}
-	0,			!- Width Factor for Opening Factor 1 {dimensionless}
-	0,			!- Height Factor for Opening Factor 1 {dimensionless}
-	0,			!- Start Height Factor for Opening Factor 1 {dimensionless}
-	1,			!- Opening Factor 2 {dimensionless}
-	0.6,			!- Discharge Coefficient for Opening Factor 2 {dimensionless}
-	1,			!- Width Factor for Opening Factor 2 {dimensionless}
-	1,			!- Height Factor for Opening Factor 2 {dimensionless}
-	0;			!- Start Height Factor for Opening Factor 2 {dimensionless}
-
-SurfaceConvectionAlgorithm:Inside,
-	TARP;			!- Algorithm
+Output:SQLite,
+	SimpleAndTabular;			!- Option Type
 
 

@@ -7,7 +7,7 @@ import idfobject
 import idfset
 
 
-idf = idfset.IDFSet('files/base.idf')
+idf = idfset.IDFSet('files/base2.idf')
 # print(idf.getObjectByClass('BuildingSurface:Detailed', 'P3Z1').getParameterByName('Outside Boundary Condition'))
 
 # idf.getObjectByClass('BuildingSurface:Detailed', 'P3Z1').setParameterByName('Outside Boundary Condition', 'Vinicius')

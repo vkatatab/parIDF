@@ -1,4 +1,5 @@
 import re
+import collections
 
 import idfobject
 
@@ -6,7 +7,7 @@ class IDFSet(object):
     # O construtor da classe recebe por parametro o caminho do arquivo IDF base
     def __init__(self, path):
         self.path = path
-        self.set = {}
+        self.set = collections.OrderedDict()
         self.parseFile()
 
     def parseFile(self):
@@ -16,7 +17,13 @@ class IDFSet(object):
         for objectString in objectStrings:
             tempObject = idfobject.IDFObject(objectString[0])
             tempObjectClass = tempObject.getIdfClass()
-            if (tempObjectClass in self.set):
+
+            if (tempObjectClass == 'Output:Variable'):
+                if (tempObjectClass not in self.set):
+                    self.set[tempObjectClass] = []
+                self.set[tempObjectClass].append(tempObject)
+
+            elif (tempObjectClass in self.set):
                 conflictClass = self.set[tempObjectClass]
 
                 if (len(conflictClass) == 1):
@@ -30,7 +37,7 @@ class IDFSet(object):
                 self.set[tempObjectClass][identifierValue] = tempObject
 
             else:
-                self.set[tempObject.getIdfClass()] = tempObject
+                self.set[tempObjectClass] = tempObject
 
     def getObjectByClass(self, className, identifierName = None):
         if (className in self.set):
@@ -50,7 +57,11 @@ class IDFSet(object):
     def generateIdf(self, path):
         fp = open(path, 'w')
         for (className, idfobject) in self.set.items():
-            if (len(idfobject) > 1):
+            if (className == 'Output:Variable'):
+                for idfobjectChild in idfobject:
+                    fp.write(idfobjectChild.getObjectString())
+                    fp.write('\n\r');
+            elif (len(idfobject) > 1):
                 for (className, idfobjectChildren) in idfobject.items():
                     # print (idfobjectChildren)
                     fp.write(idfobjectChildren.getObjectString())
