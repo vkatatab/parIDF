@@ -1,43 +1,36 @@
 import sys
-import re
 
 sys.path.insert(0, 'classes')
 
+import re
 import idfobject
 import idfset
+import json
 
+fp = open('config.json')
+file = fp.read()
+config = json.loads(file)
 
-idf = idfset.IDFSet('files/base2.idf')
-# print(idf.getObjectByClass('BuildingSurface:Detailed', 'P3Z1').getParameterByName('Outside Boundary Condition'))
+for x in xrange(1,config['quantity']+1):
+    idf = idfset.IDFSet(config['path']['base'])
+    for (className, classConfig) in config['variables'].items():
+        if ('identifiers' in classConfig):
+            for (identifier, identifierConfig) in classConfig['identifiers'].items():
+                for (variable, variableConfig) in identifierConfig.items():
 
-# idf.getObjectByClass('BuildingSurface:Detailed', 'P3Z1').setParameterByName('Outside Boundary Condition', 'Vinicius')
+                    algName = variableConfig['alg']
+                    module = __import__(algName.lower())
+                    class_ = getattr(module, algName)
+                    instance = class_(variableConfig['parameters'])
 
-# print(idf.getObjectByClass('BuildingSurface:Detailed', 'P3Z1'))
+                    idf.getObjectByClass(className, identifier).setParameterByName(variable, instance.getNewValue())
+        else:
+            for (variable, variableConfig) in classConfig.items():
 
-idf.generateIdf('output/teste.idf')
-# aux = []
-# fp = open()
-# file = fp.read()
+                algName = variableConfig['alg']
+                module = __import__(algName.lower())
+                class_ = getattr(module, algName)
+                instance = class_(variableConfig['parameters'])
 
-# idfobjects = {}
-
-# objects = re.findall('((.+),[\n\r]+((.+)[,;]\s*!-.+[\n\r])+)', file)
-# i = 0
-# for objeto in objects:
-#     aux = idfobject.IDFObject(objeto[0])
-#     idfobjects[aux.getIdfClass()] = aux
-
-# # print ('Carol' in idfobjects);
-
-# print (len(idfobjects))
-# # print(idfobjects['ElectricEquipment'].getParameterByClass('Watts per Zone Floor Area {W/m2}'))
-
-
-# teste = idfobject.IDFObject(""" SimulationControl,
-#     No,                      !- Do Zone Sizing Calculation
-#     ,                      !- Do System Sizing Calculation
-#     No,                      !- Do Plant Sizing Calculation
-#     No,                      !- Run Simulation for Sizing Periods
-#     Yes;                     !- Run Simulation for Weather File Run Periods """)
-
-# print(teste.getParameterByName('Do System Sizing Calculation'))
+                idf.getObjectByClass(className).setParameterByName(variable, instance.getNewValue())
+    idf.generateIdf( config['path']['destination'] + '/' + config['path']['filename'] + '' + str(x) + '.idf')

@@ -1,0 +1,52 @@
+{
+    "quantity": 10,
+    "path": {
+        "base": "/home/vinicius/Documents/parIDF/files/base2.idf",
+        "destination" : "/home/vinicius/Documents/parIDF/output",
+        "filename": "saida"
+    },
+    "variables" : {
+        "ElectricEquipment": {
+            "identifiers": {
+                "equipamentosZ1": {
+                    "Watts per Zone Floor Area {W/m2}": {
+                        "alg": "MonteCarlo",
+                        "parameters": {
+                            "min": 5,
+                            "max": 20,
+                            "precision": 1
+                        }
+                    }
+                },
+                "equipamentosZ3": {
+                    "Watts per Zone Floor Area {W/m2}": {
+                        "alg": "MonteCarlo",
+                        "parameters": {
+                            "min": 5,
+                            "max": 6,
+                            "precision": 0.2
+                        }
+                    }
+                }
+            }
+        },
+        "WindowMaterial:Glazing": {
+            "Thickness {m}": {
+                "alg": "MonteCarlo",
+                "parameters": {
+                    "min": 0,
+                    "max": 0.1,
+                    "precision": 0.001
+                }
+            }
+        },
+        "SimulationControl": {
+            "Run Simulation for Weather File Run Periods": {
+                "alg": "Predefined",
+                "parameters": {
+                    "values": ["Yes", "No"]
+                }
+            }
+        }
+    }
+}
