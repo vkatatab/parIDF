@@ -44,7 +44,7 @@
             "Run Simulation for Weather File Run Periods": {
                 "alg": "Predefined",
                 "parameters": {
-                    "values": ["Yes", "No"]
+                    "values": ["Yes"]
                 }
             }
         }
