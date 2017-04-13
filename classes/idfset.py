@@ -60,7 +60,7 @@ class IDFSet(object):
             if (className == 'Output:Variable'):
                 for idfobjectChild in idfobject:
                     fp.write(idfobjectChild.getObjectString())
-                    fp.write('\n');
+                    fp.write('\n\r');
             elif (len(idfobject) > 1):
                 for (className, idfobjectChildren) in idfobject.items():
                     # print (idfobjectChildren)

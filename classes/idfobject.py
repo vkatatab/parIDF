@@ -72,9 +72,21 @@ class IDFObject(object):
         countParameters = len(self.parameters)
         counter = 1
         for (name, parameter) in self.parameters.items():
+            spaces = self.getSpaces(parameter)
             if (counter == countParameters):
-                string += '\t' + parameter + ';\t\t\t!- ' + name  + '\n\r'
+                string += '    ' + parameter + ';' + spaces + '!- ' + name  + '\n'
             else:
-                string += '\t' + parameter + ',\t\t\t!- ' + name  + '\n\r'
+                string += '    ' + parameter + ',' + spaces + '!- ' + name  + '\n'
             counter += 1
         return string
+
+
+    def getSpaces(self, parameter):
+        quantity = 30 - len(parameter) + 4
+        string = ""
+        if (quantity < 0):
+            quantity = 2
+        for x in range(0,quantity):
+            string += " "
+        return string
+
