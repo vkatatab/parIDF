@@ -243,7 +243,7 @@ Schedule:Compact,
     0;                       !- Field 11
 
 Schedule:Compact,
-    Setpoint_ventilação,     !- Name
+    Setpoint_ventilaï¿½ï¿½o,     !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: Weekdays,           !- Field 2
@@ -1219,7 +1219,7 @@ AirflowNetwork:SimulationControl,
 AirflowNetwork:MultiZone:Zone,
     Z1,                      !- Zone Name
     Temperature,             !- Ventilation Control Mode
-    Setpoint_ventilação,     !- Ventilation Control Zone Temperature Setpoint Schedule Name
+    Setpoint_ventilaï¿½ï¿½o,     !- Ventilation Control Zone Temperature Setpoint Schedule Name
     ,                        !- Minimum Venting Open Factor {dimensionless}
     ,                        !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
     100,                     !- Indoor and Outdoor Temperature Difference Upper Limit for Minimun Venting Open Factor {deltaC}
@@ -1241,7 +1241,7 @@ AirflowNetwork:MultiZone:Zone,
 AirflowNetwork:MultiZone:Zone,
     Z3,                      !- Zone Name
     Temperature,             !- Ventilation Control Mode
-    Setpoint_ventilação,     !- Ventilation Control Zone Temperature Setpoint Schedule Name
+    Setpoint_ventilaï¿½ï¿½o,     !- Ventilation Control Zone Temperature Setpoint Schedule Name
     ,                        !- Minimum Venting Open Factor {dimensionless}
     ,                        !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
     100,                     !- Indoor and Outdoor Temperature Difference Upper Limit for Minimun Venting Open Factor {deltaC}
@@ -1258,7 +1258,7 @@ AirflowNetwork:MultiZone:Surface,
     ,                        !- External Node Name
     1,                       !- Window/Door Opening Factor, or Crack Factor {dimensionless}
     Temperature,             !- Ventilation Control Mode
-    Setpoint_ventilação,     !- Ventilation Control Zone Temperature Setpoint Schedule Name
+    Setpoint_ventilaï¿½ï¿½o,     !- Ventilation Control Zone Temperature Setpoint Schedule Name
     ,                        !- Minimum Venting Open Factor {dimensionless}
     ,                        !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
     100,                     !- Indoor and Outdoor Temperature Difference Upper Limit for Minimun Venting Open Factor {deltaC}
@@ -1272,7 +1272,7 @@ AirflowNetwork:MultiZone:Surface,
     ,                        !- External Node Name
     1,                       !- Window/Door Opening Factor, or Crack Factor {dimensionless}
     Temperature,             !- Ventilation Control Mode
-    Setpoint_ventilação,     !- Ventilation Control Zone Temperature Setpoint Schedule Name
+    Setpoint_ventilaï¿½ï¿½o,     !- Ventilation Control Zone Temperature Setpoint Schedule Name
     ,                        !- Minimum Venting Open Factor {dimensionless}
     ,                        !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
     100,                     !- Indoor and Outdoor Temperature Difference Upper Limit for Minimun Venting Open Factor {deltaC}
@@ -1616,4 +1616,3 @@ Output:Variable,
 
 Output:SQLite,
     SimpleAndTabular;        !- Option Type
-

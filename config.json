@@ -1,7 +1,7 @@
 {
     "quantity": 10,
     "path": {
-        "base": "/home/vinicius/Documents/parIDF/files/base2.idf",
+        "base": "/home/vinicius/Documents/parIDF/files/IDFBase.idf",
         "destination" : "/home/vinicius/Documents/parIDF/output",
         "filename": "saida"
     },

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Esse arquivo modela e ordena as classes com os respectivos parâmetros do IDF
 # Além disso é reponsável por escrever um novo IDF
 # A organização é realizada:

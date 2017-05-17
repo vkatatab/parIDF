@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Esse arquivo é um modelo de uma classe do arquivo IDF
 # A classe contém:
 #   - Nome (Nome da classe)
@@ -107,4 +108,3 @@ class IDFObject(object):
         for x in range(0,quantity):
             string += " "
         return string
-

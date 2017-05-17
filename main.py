@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Este arquivo (main.py) carrega um arquivo de configuração (config.json) que está situado na mesma pasta
 # O arquivo de configuração (config.json) fornece os parâmetros e indica as variáveis e valores que serão alterados no idf
 
