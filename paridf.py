@@ -6,15 +6,15 @@ sys.path.insert(0, 'classes')
 
 import main
 
-# idf = main.Main('files/config.json')
+idf = main.Main('files/config.json')
 
-# idf.createIdfs()
+idf.createIdfs()
 
-run = input ("Do you want to simulate all the created IDF's files? (Y/n):\n")
-# Y representa Yes e será o default e n representa No
-if run.lower() == "y" or run.lower() == "":
-    print ("executando")
+# run = input ("Do you want to simulate all the created IDF's files? (Y/n):\n")
+# # Y representa Yes e será o default e n representa No
+# if run.lower() == "y" or run.lower() == "":
+#     print ("executando")
 
 
-if run.lower () == "n":
-     print ("não executado")
+# if run.lower () == "n":
+#      print ("não executado")

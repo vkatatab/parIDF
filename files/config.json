@@ -1,8 +1,9 @@
 {
-    "quantity": 100,
+    "quantity": 10,
     "path": {
-        "base": "/home/vinicius/Documents/parIDF/files/IDFBase.idf",
-        "destination" : "/home/vinicius/Documents/parIDF/output",
+        "base": "/home/vbiondo/Documents/parIdf/files/IDFBase.idf",
+        "destination" : "/home/vbiondo/Documents/parIdf/output",
+        "parameterFile": "parameter.csv",
         "filename": "saida"
     },
     "variables" : {
