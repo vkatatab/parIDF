@@ -16,16 +16,28 @@
                             "min": 5,
                             "max": 20,
                             "precision": 1
-                        }
-                    }
-                },
-                "equipamentosZ3": {
-                    "Watts per Zone Floor Area {W/m2}": {
-                        "alg": "MonteCarlo",
-                        "parameters": {
-                            "min": 5,
-                            "max": 6,
-                            "precision": 0.2
+                        },
+                        "change": {
+                            "ElectricEquipment": {
+                                "identifiers": {
+                                    "equipamentosZ3": {
+                                        "Watts per Zone Floor Area {W/m2}": {
+                                            "alg": "Multiple",
+                                            "parameters": {
+                                                "value": "parent"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "RunPeriod": {
+                                "End Day of Month": {
+                                    "alg": "Multiple",
+                                    "parameters": {
+                                        "value": "parent"
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -46,6 +58,24 @@
                 "alg": "Predefined",
                 "parameters": {
                     "values": ["Yes"]
+                }
+            }
+        },
+        "Building": {
+            "North Axis {deg}": {
+                "alg": "Predefined",
+                "parameters": {
+                    "values": ["0", "45", "90", "135", "180", "225", "270", "315"]
+                },
+                "change": {
+                    "AirflowNetwork:SimulationControl": {
+                        "Azimuth Angle of Long Axis of Building {deg}": {
+                            "alg": "Orientation",
+                            "parameters": {
+                                "value": "parent"
+                            }
+                        }
+                    }
                 }
             }
         }
