@@ -29,7 +29,6 @@ class Main(object):
         self.configString = ''
         if (os.path.isfile(self.parameterFile)):
             os.remove(self.parameterFile)
-        # finaliza a leitura do arquivo de configuração
 
     def createParameterFile(self, line):
         fp = open(self.parameterFile, 'a')
@@ -102,4 +101,3 @@ class Main(object):
             idf.generateIdf(self.config['path']['destination'] + '/' + filename)
 
             progressbar.printProgressBar(x+1, self.config['quantity']+1, prefix = 'Progress:', suffix = 'Complete', length = 50)
-            

@@ -70,7 +70,7 @@ class IDFObject(object):
     # Identifica e seta o nome da classe do IDF
     def setIdfClass(self):
         teste = self.idfObjectLines[0].strip(',')
-        self.idfClass = teste
+        self.idfClass = teste.strip()
         del self.idfObjectLines[0]
 
     # Retorna o nome da classe do IDF

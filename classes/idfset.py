@@ -66,7 +66,6 @@ class IDFSet(object):
                     return self.set[className][identifierName]
                 else:
                     return None
-                print('className')
             else:
                 return self.set[className]
         else:

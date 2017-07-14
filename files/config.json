@@ -1,8 +1,8 @@
 {
     "quantity": 10,
     "path": {
-        "base": "/home/vbiondo/Documents/parIdf/files/IDFBase.idf",
-        "destination" : "/home/vbiondo/Documents/parIdf/output",
+        "base": "/home/vinicius/Documents/Workspace/parIdf/files/IDFBase2.idf",
+        "destination" : "/home/vinicius/Documents/Workspace/parIdf/output",
         "parameterFile": "parameter.csv",
         "filename": "saida"
     },
@@ -43,12 +43,12 @@
                 }
             }
         },
-        "WindowMaterial:Glazing": {
-            "Thickness {m}": {
+        "WindowMaterial:SimpleGlazingSystem": {
+            "U-Factor {W/m2-K}": {
                 "alg": "MonteCarlo",
                 "parameters": {
                     "min": 0,
-                    "max": 0.1,
+                    "max": 5,
                     "precision": 0.001
                 }
             }
