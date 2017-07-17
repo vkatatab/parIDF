@@ -1,8 +1,9 @@
 {
-    "quantity": 10,
+    "quantity": 2,
     "path": {
         "base": "/home/vinicius/Documents/Workspace/parIdf/files/IDFBase2.idf",
-        "destination" : "/home/vinicius/Documents/Workspace/parIdf/output",
+        "destination": "/home/vinicius/Documents/Workspace/parIdf/output",
+        "weatherFilename": "BRA_SP_Sao_Paulo.epw",
         "parameterFile": "parameter.csv",
         "filename": "saida"
     },
@@ -27,14 +28,6 @@
                                                 "value": "parent"
                                             }
                                         }
-                                    }
-                                }
-                            },
-                            "RunPeriod": {
-                                "End Day of Month": {
-                                    "alg": "Multiple",
-                                    "parameters": {
-                                        "value": "parent"
                                     }
                                 }
                             }
