@@ -1,0 +1,24 @@
+{
+  "path":{
+    "source": "/home/vinicius/Documents/Workspace/parIdf/output/Output/csv",
+    "destination": "/home/vinicius/Documents/Workspace/parIdf/output",
+    "filename": "saida"
+  },
+  "results": {
+      "teste.csv": {
+        "meter": false,
+        "columns": [
+            "Electricity:Facility [J](Hourly)",
+            "Date/Time",
+            "Carbon Equivalent:Facility [kg](Hourly) "
+        ]
+      },
+      "teste2.csv": {
+        "meter": true,
+        "columns": [
+            "Electricity:Facility [J](Hourly)",
+            "Carbon Equivalent:Facility [kg](Hourly) "
+        ]
+      }
+  }
+}
