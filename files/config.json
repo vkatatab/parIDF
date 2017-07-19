@@ -1,58 +1,86 @@
 {
-    "quantity": 2,
+    "quantity": 5,
     "path": {
-        "base": "/home/vinicius/Documents/Workspace/parIdf/files/IDFBase2.idf",
-        "destination": "/home/vinicius/Documents/Workspace/parIdf/output",
+        "base": "/home/caroline/Documents/parIdf/files/IDFBase.idf",
+        "destination": "/home/caroline/Documents/parIdf/output",
         "weatherFilename": "BRA_SP_Sao_Paulo.epw",
         "parameterFile": "parameter.csv",
         "filename": "saida"
     },
     "variables" : {
-        "ElectricEquipment": {
+        "AirflowNetwork:SimulationControl": {
             "identifiers": {
-                "equipamentosZ1": {
-                    "Watts per Zone Floor Area {W/m2}": {
+                "NV": {
+                    "Ratio of Building Width Along Short Axis to Width Along Long Axis": {
                         "alg": "MonteCarlo",
                         "parameters": {
-                            "min": 5,
-                            "max": 20,
-                            "precision": 1
-                        },
-                        "change": {
-                            "ElectricEquipment": {
-                                "identifiers": {
-                                    "equipamentosZ3": {
-                                        "Watts per Zone Floor Area {W/m2}": {
-                                            "alg": "Multiple",
-                                            "parameters": {
-                                                "value": "parent"
-                                            }
-                                        }
-                                    }
-                                }
+                            "min": 0.10,
+                            "max": 1.00,
+                            "precision": 0.01
                             }
                         }
                     }
                 }
-            }
         },
         "WindowMaterial:SimpleGlazingSystem": {
-            "U-Factor {W/m2-K}": {
+            "identifiers": {
+                "glazing": {
+                    "Solar Heat Gain Coefficient": {
+                        "alg": "MonteCarlo",
+                        "parameters": {
+                            "min": 0.20,
+                            "max": 0.90,
+                            "precision": 0.01
+                            }
+                        }
+                    }
+                }
+        },
+        "Material:NoMass": {
+            "identifiers": {
+            "eW_U": {
+                "Thermal Resistance {m2-K/W}": {
                 "alg": "MonteCarlo",
                 "parameters": {
-                    "min": 0,
-                    "max": 5,
-                    "precision": 0.001
-                }
-            }
-        },
-        "SimulationControl": {
-            "Run Simulation for Weather File Run Periods": {
-                "alg": "Predefined",
+                    "min": 0.10,
+                    "max": 0.90,
+                    "precision": 0.01
+                    }
+                },
+                "Solar Absorptance": {
+                "alg": "MonteCarlo",
                 "parameters": {
-                    "values": ["Yes"]
+                    "min": 0.20,
+                    "max": 1.00,
+                    "precision": 0.01
+                    }
                 }
             }
+        }
+        },
+        "AirflowNetwork:MultiZone:Surface": {
+            "identifiers": {
+                "Zn1_par4_jan": {
+                    "Window/Door Opening Factor or Crack Factor {dimensionless}": {
+                        "alg": "MonteCarlo",
+                        "parameters": {
+                            "min": 0.05,
+                            "max": 1.00,
+                            "precision": 0.01
+                            }
+                        }
+                    },
+                "Zn1_par1_jan": {
+                    "Window/Door Opening Factor or Crack Factor {dimensionless}": {
+                        "alg": "MonteCarlo",
+                        "parameters": {
+                            "min": 0.05,
+                            "max": 1.00,
+                            "precision": 0.01
+                            }
+                        }
+                    } 
+                }
         },
         "Building": {
             "North Axis {deg}": {

@@ -1,22 +1,26 @@
 {
   "path":{
-    "source": "/home/vinicius/Documents/Workspace/parIdf/output/Output/csv",
-    "destination": "/home/vinicius/Documents/Workspace/parIdf/output",
+    "source": "/home/caroline/Documents/parIdf/output/Output/csv",
+    "destination": "/home/caroline/Documents/parIdf/output",
     "filename": "saida"
   },
   "results": {
-      "teste.csv": {
+      "eletricity.csv": {
         "meter": false,
         "columns": [
-            "Electricity:Facility [J](Hourly)",
             "Date/Time",
-            "Carbon Equivalent:Facility [kg](Hourly) "
+            "Electricity:Facility [J](Hourly)"
         ]
       },
-      "teste2.csv": {
+      "co2_facility.csv": {
         "meter": true,
         "columns": [
-            "Electricity:Facility [J](Hourly)",
+            "CO2:Facility [kg](Hourly)"
+        ]
+      },
+      "carbon_facility.csv": {
+        "meter": true,
+        "columns": [
             "Carbon Equivalent:Facility [kg](Hourly) "
         ]
       }

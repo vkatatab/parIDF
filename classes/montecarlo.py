@@ -13,4 +13,4 @@ class MonteCarlo(object):
         self.newValue = (rand * precision) + mini
 
     def getNewValue(self):
-        return str(self.newValue)
+        return str(round (self.newValue, 2))
