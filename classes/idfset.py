@@ -23,7 +23,9 @@ class IDFSet(object):
     def parseFile(self):
         fp = open(self.path)
         file = fp.read()
-        objectStrings = re.findall('((.+),[\n\r]+((.+)[,;]\s*!-.+[\n\r])+)', file)
+        objectStrings = re.findall('((.+),[\n\r]+((.+)[,;]\s*!-.+[\n\r]?)+)', file)
+        
+
         # Percorre todas as classes do IDF
         for objectString in objectStrings:
             tempObject = idfobject.IDFObject(objectString[0])

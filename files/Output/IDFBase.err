@@ -1,0 +1,48 @@
+Program Version,EnergyPlus, Version 8.7.0-78a111df4a, YMD=2017.07.19 23:19,IDD_Version 8.7.0
+   ** Warning ** Output:PreprocessorMessage="ExpandObjects" has the following Warning condition:
+   **   ~~~   ** Cannot find Energy+.idd as specified in Energy+.ini.
+   ** Warning ** Output:PreprocessorMessage="ExpandObjects" has the following Warning conditions:
+   **   ~~~   ** Since the Energy+.IDD file cannot be read no range or choice checking was
+   **   ~~~   ** performed.
+   ************* Beginning Zone Sizing Calculations
+   ** Warning ** GetAirflowNetworkInput: SurfaceAverageCalculation is entered for field = Wind Pressure Coefficient Type, but no roof surface is defined using an AirflowNetwork:MultiZone:Surface object.
+   **   ~~~   ** Reconsider if this is your modeling intent. Simulation continues.
+   ** Warning ** GetAirflowNetworkInput: SurfaceAverageCalculation is entered for field = Wind Pressure Coefficient Type.
+   **   ~~~   ** The AirflowNetwork model provides wind pressure coefficients for 4 vertical exterior orientations and 1 horizontal roof.
+   **   ~~~   **  There are only 0 exterior surface orientations defined in this input file using AirflowNetwork:MultiZone:Surface objects.
+   **   ~~~   ** Reconsider if this is your modeling intent. Simulation continues.
+   ************* Beginning System Sizing Calculations
+   ** Warning ** SizeDXCoil Coil:Cooling:DX:SingleSpeed ZN1_HVAC COOLING COIL
+   **   ~~~   ** ...Gross Rated Total Cooling Capacity [W] will be limited by the maximum rated volume flow per rated total capacity ratio.
+   **   ~~~   ** ...DX coil volume flow rate ( m3/s ) = 0.280887
+   **   ~~~   ** ...Requested capacity ( W ) = 4416.470
+   **   ~~~   ** ...Requested flow/capacity ratio ( m3/s/W ) = 6.359E-005
+   **   ~~~   ** ...Maximum flow/capacity ratio ( m3/s/W ) = 6.041E-005
+   **   ~~~   ** ...Adjusted capacity ( W ) = 4649.681
+   ** Warning ** For zone=ZN1 return air heat gain from lights will be applied to the zone air.
+   **   ~~~   **   This zone has no return air or is served by an on/off HVAC system.
+   ************* Testing Individual Branch Integrity
+   ************* All Branches passed integrity testing
+   ************* Testing Individual Supply Air Path Integrity
+   ************* All Supply Air Paths passed integrity testing
+   ************* Testing Individual Return Air Path Integrity
+   ************* All Return Air Paths passed integrity testing
+   ************* No node connection errors were found.
+   ************* Beginning Simulation
+   ** Warning ** GetNextEnvironment: Adaptive Comfort being reported during design day.
+   ** Warning ** GetNextEnvironment: Adaptive Comfort being reported during design day.
+   ** Warning ** GetNextEnvironment: Adaptive Comfort being reported during design day.
+   ** Warning ** More than 4% of time (1.0 hours) uncomfortable in one or more zones 
+   **   ~~~   ** Based on ASHRAE 55-2004 graph (Section 5.2.1.1)
+   **   ~~~   ** During SizingPeriod Environment [02/21 - 02/21]: SAO PAULO AEROPORTO ANN CLG 1% CONDNS WB=>MDB
+   **   ~~~   ** 33.0 hours were uncomfortable in zone: ZN1
+   ** Warning ** More than 4% of time (29.8 hours) uncomfortable in one or more zones 
+   **   ~~~   ** Based on ASHRAE 55-2004 graph (Section 5.2.1.1)
+   **   ~~~   ** During Environment [01/01 - 01/31]: RUN PERIOD 1
+   **   ~~~   ** 141.0 hours were uncomfortable in zone: ZN1
+   ************* Simulation Error Summary *************
+   ************* There are 1 unused schedules in input.
+   ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.
+   ************* EnergyPlus Warmup Error Summary. During Warmup: 1 Warning; 0 Severe Errors.
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 2 Warning; 0 Severe Errors.
+   ************* EnergyPlus Completed Successfully-- 11 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  2.78sec
