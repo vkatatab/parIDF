@@ -36,7 +36,7 @@
 !-   ===========  ALL OBJECTS IN CLASS: SITE:LOCATION ===========
 
   Site:Location,
-    Sao_Paulo_SP_BRA Design_Conditions,  !- Name
+    São Paulo_SP_BRA Design_Conditions,  !- Name
     -23.85,                  !- Latitude {deg}
     -46.64,                  !- Longitude {deg}
     -3.00,                   !- Time Zone {hr}

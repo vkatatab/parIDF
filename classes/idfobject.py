@@ -87,7 +87,7 @@ class IDFObject(object):
 
     # Método responsável por recriar a string do IDF, com os parâmetros atuais
     def getObjectString(self):
-        string = self.getIdfClass() + ',\n\r'
+        string = '  ' + self.getIdfClass() + ',\n\r'
         countParameters = len(self.parameters)
         counter = 1
         for (name, parameter) in self.parameters.items():

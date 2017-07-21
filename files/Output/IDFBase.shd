@@ -1,0 +1,58 @@
+Shadowing Combinations
+..Solar Distribution=FullInteriorAndExterior
+..In the following, only the first 10 reference surfaces will be shown.
+..But all surfaces are used in the calculations.
+==================================
+Surface=ZN1_PAR4 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=6
+...Surface=ZN1_PAR3
+...Surface=ZN1_PAR1
+...Surface=ZN1_PAR1_JAN
+...Surface=ZN1_PAR2
+...Surface=PISO
+...Surface=COBE
+Number of receiving sub surfaces=1
+....Surface=ZN1_PAR4_JAN
+==================================
+Surface=ZN1_PAR4_JAN is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=ZN1_PAR3 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=ZN1_PAR1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=6
+...Surface=ZN1_PAR4
+...Surface=ZN1_PAR4_JAN
+...Surface=ZN1_PAR3
+...Surface=ZN1_PAR2
+...Surface=PISO
+...Surface=COBE
+Number of receiving sub surfaces=1
+....Surface=ZN1_PAR1_JAN
+==================================
+Surface=ZN1_PAR1_JAN is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=ZN1_PAR2 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=PISO is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=COBE is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
