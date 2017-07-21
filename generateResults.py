@@ -33,7 +33,7 @@ for resultName in results:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 for column in resultConfig['columns']:
-                    newColumn = column + '(' + splittedName[0] + ')'
+                    newColumn = column + '<' + splittedName[0] + '>'
                     if (newColumn not in resultDict):
                         resultDict[newColumn] = []
                     resultDict[newColumn].append(row[column])

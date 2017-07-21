@@ -566,6 +566,7 @@
     ,                        !- Outside Boundary Condition Object
     NoSun,                   !- Sun Exposure
     NoWind,                  !- Wind Exposure
+<<<<<<< Updated upstream
     0.0,                     !- View Factor to Ground
     4,                       !- Number of Vertices
     5.000000000000,          !- Vertex 1 X-coordinate {m}
@@ -583,6 +584,26 @@
 
   BuildingSurface:Detailed,
     Zn1_par4,                !- Name
+=======
+    ,                        !- View Factor to Ground
+    ,                        !- Number of Vertices
+    6,                       !- Vertex 1 X-coordinate {m}
+    0,                       !- Vertex 1 Y-coordinate {m}
+    2.7,                     !- Vertex 1 Z-coordinate {m}
+
+    6,                       !- Vertex 2 X-coordinate {m}
+    6,                       !- Vertex 2 Y-coordinate {m}
+    2.7,                     !- Vertex 2 Z-coordinate {m}
+    0,                       !- Vertex 3 X-coordinate {m}
+    6,                       !- Vertex 3 Y-coordinate {m}
+    2.7,                     !- Vertex 3 Z-coordinate {m}
+    0,                       !- Vertex 4 X-coordinate {m}
+    0,                       !- Vertex 4 Y-coordinate {m}
+    2.7;                     !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    P1Z1,                    !- Name
+>>>>>>> Stashed changes
     Wall,                    !- Surface Type
     Wall,                    !- Construction Name
     Zn1,                     !- Zone Name
