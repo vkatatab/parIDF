@@ -1,0 +1,26 @@
+{
+  "path":{
+    "source": "/home/vinicius/Documents/Workspace/parIdf/output"
+  },
+  "files": {
+    "teste2.csv": {
+      "columns": {
+        "Carbon Equivalent:Facility [kg](Hourly) ": {
+          "value": "((AVG)*4.2)/10"
+        },
+        "Carbon Equivalent:Facility [kg](Hourly) ": {
+          "value": "COUNT"
+        },
+        "Carbon Equivalent:Facility [kg](Hourly) ": {
+          "value": "SUM"
+        },
+        "Carbon Equivalent:Facility [kg](Hourly) ": {
+          "value": "MAX"
+        },
+        "Carbon Equivalent:Facility [kg](Hourly) ": {
+          "value": "MIN"
+        }
+      }
+    }
+  }
+}
