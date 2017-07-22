@@ -36,7 +36,7 @@
 !-   ===========  ALL OBJECTS IN CLASS: SITE:LOCATION ===========
 
   Site:Location,
-    Sao_Paulo_SP_BRA Design_Conditions,  !- Name
+    Sao_Paulo_SP_BRA_Design_Conditions,  !- Name
     -23.85,                  !- Latitude {deg}
     -46.64,                  !- Longitude {deg}
     -3.00,                   !- Time Zone {hr}
@@ -460,7 +460,7 @@
     Number,                  !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     for: alldays,            !- Field 2
-    Until: 24:00,	     !- Field 4
+    Until: 24:00,	     !- Field 3
     .01;        	     !- Field 4
 
   Schedule:Compact,
@@ -845,7 +845,7 @@
     Zn1_par1_jan,            !- Surface Name
     window_width,            !- Leakage Component Name
     ,                        !- External Node Name
-    0.27,                    !- Window/Door Opening Factor, or Crack Factor {dimensionless}
+    0.27,                    !- Window/Door Opening Factor or Crack Factor {dimensionless}
     ASHRAE55Adaptive,        !- Ventilation Control Mode
     ,                        !- Ventilation Control Zone Temperature Setpoint Schedule Name
     ,                        !- Minimum Venting Open Factor {dimensionless}
@@ -859,7 +859,7 @@
     Zn1_par4_jan,            !- Surface Name
     window_depth,            !- Leakage Component Name
     ,                        !- External Node Name
-    0.27,                    !- Window/Door Opening Factor, or Crack Factor {dimensionless}
+    0.27,                    !- Window/Door Opening Factor or Crack Factor {dimensionless}
     ASHRAE55Adaptive,        !- Ventilation Control Mode
     ,                        !- Ventilation Control Zone Temperature Setpoint Schedule Name
     ,                        !- Minimum Venting Open Factor {dimensionless}
@@ -1165,4 +1165,3 @@
 
   Output:Diagnostics,
     DisplayExtraWarnings;    !- Key 1
-
