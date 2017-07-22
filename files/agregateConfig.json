@@ -1,20 +1,18 @@
 {
   "path":{
-    "source": "/home/vinicius/Documents/Workspace/parIdf/output",
-    "destination": "/home/vinicius/Documents/Workspace/parIdf/output"
+    "source": "/home/caroline/Documents/parIdf/output",
+    "destination": "/home/caroline/Documents/parIdf/output"
   },
   "files": {
-    "teste2.csv": {
+    "eletricity.csv": {
       "columns": {
         "Electricity:Facility [J](Hourly)": {
           "values": [
-            "AVG",
-            "COUNT"
-          ]
-        },
-        "Carbon Equivalent:Facility [kg](Hourly) ": {
-          "values": [
-            "MIN"
+            "SUM/COUNT",
+            "COUNT",
+            "MIN",
+            "MAX",
+            "SUM"
           ]
         }
       }

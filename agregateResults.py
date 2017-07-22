@@ -6,6 +6,7 @@ import glob
 import ntpath
 import csv
 import re
+import collections
 from subprocess import call
 
 filename = 'files/agregateConfig.json'
@@ -30,8 +31,7 @@ for filename in files:
     outputs = set(outputs)
 
     newHeader = ['file']
-    newRows = []
-    newDict = {}
+    newDict = collections.OrderedDict()
 
     for column in config['files'][filename]['columns']:
         formulas = config['files'][filename]['columns'][column]['values']
@@ -43,12 +43,14 @@ for filename in files:
     for column in config['files'][filename]['columns']:
         formulas = config['files'][filename]['columns'][column]['values']
         for output in outputs:
+            if (output not in newDict):
+                newDict[output] = collections.OrderedDict()
             SUM = 0
             COUNT = 0
             AVG = 0
             MAX = -float("inf")
             MIN = float("inf")
-            newDict['file'] = output
+            newDict[output]['file'] = output
             with open(fullPath) as csvfile:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
@@ -62,19 +64,14 @@ for filename in files:
                     AVG = SUM/COUNT
                     for formula in formulas:
                         header = column + '<' + formula + '>'
-                        newDict[header] = eval(formula)
+                        newDict[output][header] = eval(formula)
 
-                if (len(newHeader) == len(newDict)):
-                    newRows.append(newDict.copy())
-                    newDict = {}
-        print(newRows)
-
-    with open(config['path']['destination'] + '/aaaa.csv', 'w') as csvfile:
+    with open(config['path']['destination'] + '/agregate_' + filename, 'w') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=newHeader)
 
         writer.writeheader()
-        for row in newRows:
-            writer.writerow(row)
+        for (name, parameter) in newDict.items():
+            writer.writerow(parameter)
 
     # resultDict = {}
     # resultConfig = results[resultName]
