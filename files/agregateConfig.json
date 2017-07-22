@@ -1,0 +1,23 @@
+{
+  "path":{
+    "source": "/home/vinicius/Documents/Workspace/parIdf/output",
+    "destination": "/home/vinicius/Documents/Workspace/parIdf/output"
+  },
+  "files": {
+    "teste2.csv": {
+      "columns": {
+        "Electricity:Facility [J](Hourly)": {
+          "values": [
+            "AVG",
+            "COUNT"
+          ]
+        },
+        "Carbon Equivalent:Facility [kg](Hourly) ": {
+          "values": [
+            "MIN"
+          ]
+        }
+      }
+    }
+  }
+}

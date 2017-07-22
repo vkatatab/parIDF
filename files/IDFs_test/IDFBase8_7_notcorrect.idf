@@ -4,7 +4,9 @@
 !-      Use '!' comments if they need to be retained when using the IDFEditor.
 !-   ===========  ALL OBJECTS IN CLASS: VERSION ===========
 
-  Version,8.7;
+Version,
+    8.7;                     !- Version Identifier
+
 
 !-   ===========  ALL OBJECTS IN CLASS: SIMULATIONCONTROL ===========
 
@@ -29,7 +31,8 @@
 
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
 
-  Timestep,4;
+  Timestep,
+      4;                       !- Number of Timesteps per Hour
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:LOCATION ===========
 
@@ -559,10 +562,18 @@
     NoWind,                  !- Wind Exposure
     0.0,                     !- View Factor to Ground
     4,                       !- Number of Vertices
-    5.000000000000,8.000000000000,0.000000000000,  !- X,Y,Z ==> Vertex 1 {m}
-    5.000000000000,0.000000000000,0.000000000000,  !- X,Y,Z ==> Vertex 2 {m}
-    0.000000000000,0.000000000000,0.000000000000,  !- X,Y,Z ==> Vertex 3 {m}
-    0.000000000000,8.000000000000,0.000000000000;  !- X,Y,Z ==> Vertex 4 {m}
+    5.000000000000,          !- X ==> Vertex 1 {m}
+    25.000000000000,          !- Y ==> Vertex 1 {m}
+    0.000000000000,          !- Z ==> Vertex 1 {m}
+    5.000000000000,          !- X ==> Vertex 2 {m}
+    0.000000000000,          !- Y ==> Vertex 2 {m}
+    0.000000000000,          !- Z ==> Vertex 2 {m}
+    0.000000000000,          !- X ==> Vertex 3 {m}
+    0.000000000000,          !- Y ==> Vertex 3 {m}
+    0.000000000000,          !- Z ==> Vertex 3 {m}
+    0.000000000000,          !- X ==> Vertex 4 {m}
+    8.000000000000,          !- Y ==> Vertex 4 {m}
+    0.000000000000;          !- Z ==> Vertex 4 {m}
 
   BuildingSurface:Detailed,
     Zn1_par4,                !- Name
@@ -963,7 +974,10 @@
 
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
 
-  Output:Variable,*,Site Day Type Index,Hourly;
+  Output:Variable,
+  *,
+  Site Day Type Index,
+  Hourly;
 
   Output:Variable,*,Site Outdoor Air Drybulb Temperature,Hourly;
 
