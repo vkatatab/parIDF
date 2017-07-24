@@ -1,24 +1,29 @@
-!-Generator IDFEditor 1.48
+!-Generator IDFEditor 1.49
 !-Option SortedOrder
+
 !-NOTE: All comments with '!-' are ignored by the IDFEditor and are generated automatically.
 !-      Use '!' comments if they need to be retained when using the IDFEditor.
+
+
 !-   ===========  ALL OBJECTS IN CLASS: VERSION ===========
 
-  Version,
-      8.7;                   !- Version Identifier
+Version,
+    8.7;                     !- Version Identifier
+
 
 !-   ===========  ALL OBJECTS IN CLASS: SIMULATIONCONTROL ===========
 
-  SimulationControl,
+SimulationControl,
     Yes,                     !- Do Zone Sizing Calculation
     Yes,                     !- Do System Sizing Calculation
     No,                      !- Do Plant Sizing Calculation
-    Yes,                     !- Run Simulation for Sizing Periods
+    No,                      !- Run Simulation for Sizing Periods
     Yes;                     !- Run Simulation for Weather File Run Periods
+
 
 !-   ===========  ALL OBJECTS IN CLASS: BUILDING ===========
 
-  Building,
+Building,
     MM_split_NVtemperature,  !- Name
     0.0,                     !- North Axis {deg}
     City,                    !- Terrain
@@ -28,23 +33,26 @@
     25,                      !- Maximum Number of Warmup Days
     ;                        !- Minimum Number of Warmup Days
 
+
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
 
-  Timestep,
-      4;                     !- Number of Timesteps per Hour
+Timestep,
+    4;                       !- Number of Timesteps per Hour
+
 
 !-   ===========  ALL OBJECTS IN CLASS: SITE:LOCATION ===========
 
-  Site:Location,
-    São Paulo_SP_BRA Design_Conditions,  !- Name
+Site:Location,
+    Sao_Paulo_SP_BRA_Design_Conditions,  !- Name
     -23.85,                  !- Latitude {deg}
     -46.64,                  !- Longitude {deg}
     -3.00,                   !- Time Zone {hr}
     792.00;                  !- Elevation {m}
 
+
 !-   ===========  ALL OBJECTS IN CLASS: SIZINGPERIOD:DESIGNDAY ===========
 
-  SizingPeriod:DesignDay,
+SizingPeriod:DesignDay,
     Sao Paulo Aeroporto Ann Htg 99.6% Condns DB,  !- Name
     7,                       !- Month
     21,                      !- Day of Month
@@ -72,7 +80,7 @@
     ,                        !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
     0.00;                    !- Sky Clearness
 
-  SizingPeriod:DesignDay,
+SizingPeriod:DesignDay,
     Sao Paulo Aeroporto Ann Clg 1% Condns DB=>MWB,  !- Name
     2,                       !- Month
     21,                      !- Day of Month
@@ -100,7 +108,7 @@
     ,                        !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
     1.00;                    !- Sky Clearness
 
-  SizingPeriod:DesignDay,
+SizingPeriod:DesignDay,
     Sao Paulo Aeroporto Ann Clg 1% Condns WB=>MDB,  !- Name
     2,                       !- Month
     21,                      !- Day of Month
@@ -128,9 +136,10 @@
     ,                        !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
     1.00;                    !- Sky Clearness
 
+
 !-   ===========  ALL OBJECTS IN CLASS: RUNPERIOD ===========
 
-  RunPeriod,
+RunPeriod,
     Run Period 1,            !- Name
     1,                       !- Begin Month
     1,                       !- Begin Day of Month
@@ -144,24 +153,26 @@
     No,                      !- Use Weather File Snow Indicators
     1;                       !- Number of Times Runperiod to be Repeated
 
+
 !-   ===========  ALL OBJECTS IN CLASS: SCHEDULETYPELIMITS ===========
 
-  ScheduleTypeLimits,
+ScheduleTypeLimits,
     Number,                  !- Name
     ,                        !- Lower Limit Value
     ,                        !- Upper Limit Value
     Continuous;              !- Numeric Type
 
-  ScheduleTypeLimits,
+ScheduleTypeLimits,
     Fracao,                  !- Name
     0,                       !- Lower Limit Value
     1,                       !- Upper Limit Value
     Continuous,              !- Numeric Type
     Availability;            !- Unit Type
 
+
 !-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:DAY:HOURLY ===========
 
-  Schedule:Day:Hourly,
+Schedule:Day:Hourly,
     sch_util_OCUP,           !- Name
     Fracao,                  !- Schedule Type Limits Name
     0,                       !- Hour 1
@@ -189,7 +200,7 @@
     0,                       !- Hour 23
     0;                       !- Hour 24
 
-  Schedule:Day:Hourly,
+Schedule:Day:Hourly,
     sch_sab_OCUP,            !- Name
     Fracao,                  !- Schedule Type Limits Name
     0,                       !- Hour 1
@@ -217,7 +228,7 @@
     0,                       !- Hour 23
     0;                       !- Hour 24
 
-  Schedule:Day:Hourly,
+Schedule:Day:Hourly,
     sch_dom,                 !- Name
     Fracao,                  !- Schedule Type Limits Name
     0,                       !- Hour 1
@@ -245,7 +256,7 @@
     0,                       !- Hour 23
     0;                       !- Hour 24
 
-  Schedule:Day:Hourly,
+Schedule:Day:Hourly,
     sch_util_ILUMEQUIP,      !- Name
     Fracao,                  !- Schedule Type Limits Name
     0,                       !- Hour 1
@@ -273,7 +284,7 @@
     0,                       !- Hour 23
     0;                       !- Hour 24
 
-  Schedule:Day:Hourly,
+Schedule:Day:Hourly,
     sch_sab_ILUMEQUIP,       !- Name
     Fracao,                  !- Schedule Type Limits Name
     ,                        !- Hour 1
@@ -301,7 +312,7 @@
     0,                       !- Hour 23
     0;                       !- Hour 24
 
-  Schedule:Day:Hourly,
+Schedule:Day:Hourly,
     sch_util_MM,             !- Name
     Fracao,                  !- Schedule Type Limits Name
     0,                       !- Hour 1
@@ -329,7 +340,7 @@
     0,                       !- Hour 23
     0;                       !- Hour 24
 
-  Schedule:Day:Hourly,
+Schedule:Day:Hourly,
     sch_sab_MM,              !- Name
     Fracao,                  !- Schedule Type Limits Name
     0,                       !- Hour 1
@@ -357,9 +368,10 @@
     0,                       !- Hour 23
     0;                       !- Hour 24
 
+
 !-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:WEEK:COMPACT ===========
 
-  Schedule:Week:Compact,
+Schedule:Week:Compact,
     Sch_Sem_Ocup,            !- Name
     Weekdays,                !- DayType List 1
     sch_util_OCUP,           !- Schedule:Day Name 1
@@ -370,7 +382,7 @@
     AllOtherDays,            !- DayType List 4
     sch_util_OCUP;           !- Schedule:Day Name 4
 
-  Schedule:Week:Compact,
+Schedule:Week:Compact,
     Sch_Sem_ILUMEQUIP,       !- Name
     Weekdays,                !- DayType List 1
     sch_util_ILUMEQUIP,      !- Schedule:Day Name 1
@@ -381,7 +393,7 @@
     AllOtherDays,            !- DayType List 4
     sch_util_ILUMEQUIP;      !- Schedule:Day Name 4
 
-  Schedule:Week:Compact,
+Schedule:Week:Compact,
     Sch_Sem_MM,              !- Name
     Weekdays,                !- DayType List 1
     sch_util_MM,             !- Schedule:Day Name 1
@@ -392,9 +404,10 @@
     AllOtherDays,            !- DayType List 4
     sch_util_MM;             !- Schedule:Day Name 4
 
+
 !-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:YEAR ===========
 
-  Schedule:Year,
+Schedule:Year,
     Sch_Ocup,                !- Name
     Fracao,                  !- Schedule Type Limits Name
     Sch_Sem_Ocup,            !- Schedule:Week Name 1
@@ -403,7 +416,7 @@
     12,                      !- End Month 1
     31;                      !- End Day 1
 
-  Schedule:Year,
+Schedule:Year,
     Sch_light_equip,         !- Name
     Fracao,                  !- Schedule Type Limits Name
     Sch_Sem_ILUMEQUIP,       !- Schedule:Week Name 1
@@ -412,7 +425,7 @@
     12,                      !- End Month 1
     31;                      !- End Day 1
 
-  Schedule:Year,
+Schedule:Year,
     Sch_MM,                  !- Name
     Fracao,                  !- Schedule Type Limits Name
     Sch_Sem_MM,              !- Schedule:Week Name 1
@@ -421,67 +434,69 @@
     12,                      !- End Month 1
     31;                      !- End Day 1
 
+
 !-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:COMPACT ===========
 
-  Schedule:Compact,
+Schedule:Compact,
     sch_acticity,            !- Name
     Number,                  !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     for: alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    117;		     !- Field 4
+    117;                     !- Field 4
 
-  Schedule:Compact,
+Schedule:Compact,
     sch_0,                   !- Name
     Number,                  !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     for: alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    0;		             !- Field 4
+    0;                       !- Field 4
 
-  Schedule:Compact,
+Schedule:Compact,
     sch_clo,                 !- Name
     Number,                  !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     for: alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    .5; 		     !- Field 4 
+    .5;                      !- Field 4
 
-  Schedule:Compact,
+Schedule:Compact,
     sch_airvelocity,         !- Name
     Number,                  !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     for: alldays,            !- Field 2
-    Until: 24:00,	     !- Field 3
-    .2;			     !- Field 4
+    Until: 24:00,            !- Field 3
+    .2;                      !- Field 4
 
-  Schedule:Compact,
+Schedule:Compact,
     sch_minoutdoor,          !- Name
     Number,                  !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     for: alldays,            !- Field 2
-    Until: 24:00,	     !- Field 4
-    .01;        	     !- Field 4
+    Until: 24:00,            !- Field 3
+    .01;                     !- Field 4
 
-  Schedule:Compact,
+Schedule:Compact,
     sch_Temp,                !- Name
     Number,                  !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     for: alldays,            !- Field 2
-    Until: 24:00,	     !- Field 3
+    Until: 24:00,            !- Field 3
     20;                      !- Field 4
 
-  Schedule:Compact,
+Schedule:Compact,
     sch_emissionfactor,      !- Name
     Number,                  !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: Alldays,            !- Field 2
     Until: 24:00,            !- Field 3
-    226944.444; 	     !- Field 4
+    226944.444;              !- Field 4
+
 
 !-   ===========  ALL OBJECTS IN CLASS: MATERIAL ===========
 
-  Material,
+Material,
     eW_HC,                   !- Name
     MediumRough,             !- Roughness
     0.05,                    !- Thickness {m}
@@ -492,7 +507,7 @@
     0.5,                     !- Solar Absorptance
     0.5;                     !- Visible Absorptance
 
-  Material,
+Material,
     concrete slab 10cm,      !- Name
     MediumRough,             !- Roughness
     0.1,                     !- Thickness {m}
@@ -503,9 +518,10 @@
     0.5,                     !- Solar Absorptance
     0.5;                     !- Visible Absorptance
 
+
 !-   ===========  ALL OBJECTS IN CLASS: MATERIAL:NOMASS ===========
 
-  Material:NoMass,
+Material:NoMass,
     eW_U,                    !- Name
     MediumRough,             !- Roughness
     0.19395,                 !- Thermal Resistance {m2-K/W}
@@ -513,40 +529,44 @@
     0.5,                     !- Solar Absorptance
     0.5;                     !- Visible Absorptance
 
+
 !-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:SIMPLEGLAZINGSYSTEM ===========
 
-  WindowMaterial:SimpleGlazingSystem,
+WindowMaterial:SimpleGlazingSystem,
     glazing,                 !- Name
     5.67,                    !- U-Factor {W/m2-K}
     0.87,                    !- Solar Heat Gain Coefficient
     0.87;                    !- Visible Transmittance
 
+
 !-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION ===========
 
-  Construction,
+Construction,
     Wall,                    !- Name
     eW_HC,                   !- Outside Layer
     eW_U,                    !- Layer 2
     eW_HC;                   !- Layer 3
 
-  Construction,
+Construction,
     Slab,                    !- Name
     concrete slab 10cm;      !- Outside Layer
 
-  Construction,
+Construction,
     Window,                  !- Name
     glazing;                 !- Outside Layer
 
+
 !-   ===========  ALL OBJECTS IN CLASS: GLOBALGEOMETRYRULES ===========
 
-  GlobalGeometryRules,
+GlobalGeometryRules,
     UpperLeftCorner,         !- Starting Vertex Position
     Counterclockwise,        !- Vertex Entry Direction
     Relative;                !- Coordinate System
 
+
 !-   ===========  ALL OBJECTS IN CLASS: ZONE ===========
 
-  Zone,
+Zone,
     Zn1,                     !- Name
     225,                     !- Direction of Relative North {deg}
     0.0,                     !- X Origin {m}
@@ -555,9 +575,10 @@
     ,                        !- Type
     1;                       !- Multiplier
 
+
 !-   ===========  ALL OBJECTS IN CLASS: BUILDINGSURFACE:DETAILED ===========
 
-  BuildingSurface:Detailed,
+BuildingSurface:Detailed,
     Piso,                    !- Name
     Floor,                   !- Surface Type
     Slab,                    !- Construction Name
@@ -581,7 +602,7 @@
     8.000000000000,          !- Vertex 4 Y-coordinate {m}
     0.000000000000;          !- Vertex 4 Z-coordinate {m}
 
-  BuildingSurface:Detailed,
+BuildingSurface:Detailed,
     Zn1_par4,                !- Name
     Wall,                    !- Surface Type
     Wall,                    !- Construction Name
@@ -605,7 +626,7 @@
     0.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}
 
-  BuildingSurface:Detailed,
+BuildingSurface:Detailed,
     Zn1_par3,                !- Name
     Wall,                    !- Surface Type
     Wall,                    !- Construction Name
@@ -629,7 +650,7 @@
     8.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}
 
-  BuildingSurface:Detailed,
+BuildingSurface:Detailed,
     Zn1_par1,                !- Name
     Wall,                    !- Surface Type
     Wall,                    !- Construction Name
@@ -653,7 +674,7 @@
     0.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}
 
-  BuildingSurface:Detailed,
+BuildingSurface:Detailed,
     Zn1_par2,                !- Name
     Wall,                    !- Surface Type
     Wall,                    !- Construction Name
@@ -677,7 +698,7 @@
     8.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}
 
-  BuildingSurface:Detailed,
+BuildingSurface:Detailed,
     Cobe,                    !- Name
     Ceiling,                 !- Surface Type
     Slab,                    !- Construction Name
@@ -701,9 +722,10 @@
     8.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.700000000000;          !- Vertex 4 Z-coordinate {m}
 
+
 !-   ===========  ALL OBJECTS IN CLASS: FENESTRATIONSURFACE:DETAILED ===========
 
-  FenestrationSurface:Detailed,
+FenestrationSurface:Detailed,
     Zn1_par1_jan,            !- Name
     Window,                  !- Surface Type
     Window,                  !- Construction Name
@@ -727,7 +749,7 @@
     0.000000000000,          !- Vertex 4 Y-coordinate {m}
     2.650000000000;          !- Vertex 4 Z-coordinate {m}
 
-  FenestrationSurface:Detailed,
+FenestrationSurface:Detailed,
     Zn1_par4_jan,            !- Name
     Window,                  !- Surface Type
     Window,                  !- Construction Name
@@ -751,9 +773,10 @@
     0.050000000000,          !- Vertex 4 Y-coordinate {m}
     2.650000000000;          !- Vertex 4 Z-coordinate {m}
 
+
 !-   ===========  ALL OBJECTS IN CLASS: PEOPLE ===========
 
-  People,
+People,
     Occupancy,               !- Name
     Zn1,                     !- Zone or ZoneList Name
     Sch_Ocup,                !- Number of People Schedule Name
@@ -775,9 +798,10 @@
     sch_airvelocity,         !- Air Velocity Schedule Name
     AdaptiveASH55;           !- Thermal Comfort Model 1 Type
 
+
 !-   ===========  ALL OBJECTS IN CLASS: LIGHTS ===========
 
-  Lights,
+Lights,
     Lights,                  !- Name
     Zn1,                     !- Zone or ZoneList Name
     Sch_light_equip,         !- Schedule Name
@@ -792,9 +816,10 @@
     General,                 !- End-Use Subcategory
     No;                      !- Return Air Fraction Calculated from Plenum Temperature
 
+
 !-   ===========  ALL OBJECTS IN CLASS: ELECTRICEQUIPMENT ===========
 
-  ElectricEquipment,
+ElectricEquipment,
     Equipment,               !- Name
     Zn1,                     !- Zone or ZoneList Name
     Sch_light_equip,         !- Schedule Name
@@ -807,9 +832,10 @@
     0,                       !- Fraction Lost
     General;                 !- End-Use Subcategory
 
+
 !-   ===========  ALL OBJECTS IN CLASS: AIRFLOWNETWORK:SIMULATIONCONTROL ===========
 
-  AirflowNetwork:SimulationControl,
+AirflowNetwork:SimulationControl,
     NV,                      !- Name
     MultizoneWithoutDistribution,  !- AirflowNetwork Control
     SurfaceAverageCalculation,  !- Wind Pressure Coefficient Type
@@ -824,54 +850,57 @@
     0.5,                     !- Ratio of Building Width Along Short Axis to Width Along Long Axis
     No;                      !- Height Dependence of External Node Temperature
 
+
 !-   ===========  ALL OBJECTS IN CLASS: AIRFLOWNETWORK:MULTIZONE:ZONE ===========
 
-  AirflowNetwork:MultiZone:Zone,
+AirflowNetwork:MultiZone:Zone,
     Zn1,                     !- Zone Name
-    ASHRAE55Adaptive,        !- Ventilation Control Mode
-    ,                        !- Ventilation Control Zone Temperature Setpoint Schedule Name
-    ,                        !- Minimum Venting Open Factor {dimensionless}
-    ,                        !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
-    100,                     !- Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor {deltaC}
+    Temperature,             !- Ventilation Control Mode
+    sch_Temp,                !- Ventilation Control Zone Temperature Setpoint Schedule Name
+    1,                       !- Minimum Venting Open Factor {dimensionless}
+    0,                       !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
+    0.000001,                !- Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor {deltaC}
     ,                        !- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
     300000,                  !- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimum Venting Open Factor {deltaJ/kg}
     Sch_MM,                  !- Venting Availability Schedule Name
     Standard,                !- Single Sided Wind Pressure Coefficient Algorithm
     10;                      !- Facade Width {m}
 
+
 !-   ===========  ALL OBJECTS IN CLASS: AIRFLOWNETWORK:MULTIZONE:SURFACE ===========
 
-  AirflowNetwork:MultiZone:Surface,
+AirflowNetwork:MultiZone:Surface,
     Zn1_par1_jan,            !- Surface Name
     window_width,            !- Leakage Component Name
     ,                        !- External Node Name
-    0.27,                    !- Window/Door Opening Factor, or Crack Factor {dimensionless}
-    ASHRAE55Adaptive,        !- Ventilation Control Mode
-    ,                        !- Ventilation Control Zone Temperature Setpoint Schedule Name
-    ,                        !- Minimum Venting Open Factor {dimensionless}
-    ,                        !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
-    100,                     !- Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor {deltaC}
+    0.27,                    !- Window/Door Opening Factor or Crack Factor {dimensionless}
+    Temperature,             !- Ventilation Control Mode
+    sch_Temp,                !- Ventilation Control Zone Temperature Setpoint Schedule Name
+    1,                       !- Minimum Venting Open Factor {dimensionless}
+    0,                       !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
+    0.000001,                !- Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor {deltaC}
     ,                        !- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
     300000,                  !- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimum Venting Open Factor {deltaJ/kg}
     Sch_MM;                  !- Venting Availability Schedule Name
 
-  AirflowNetwork:MultiZone:Surface,
+AirflowNetwork:MultiZone:Surface,
     Zn1_par4_jan,            !- Surface Name
     window_depth,            !- Leakage Component Name
     ,                        !- External Node Name
-    0.27,                    !- Window/Door Opening Factor, or Crack Factor {dimensionless}
-    ASHRAE55Adaptive,        !- Ventilation Control Mode
-    ,                        !- Ventilation Control Zone Temperature Setpoint Schedule Name
-    ,                        !- Minimum Venting Open Factor {dimensionless}
-    ,                        !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
-    100,                     !- Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor {deltaC}
+    0.27,                    !- Window/Door Opening Factor or Crack Factor {dimensionless}
+    Temperature,             !- Ventilation Control Mode
+    sch_Temp,                !- Ventilation Control Zone Temperature Setpoint Schedule Name
+    1,                       !- Minimum Venting Open Factor {dimensionless}
+    0,                       !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
+    0.000001,                !- Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor {deltaC}
     ,                        !- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
     300000,                  !- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimum Venting Open Factor {deltaJ/kg}
     Sch_MM;                  !- Venting Availability Schedule Name
 
+
 !-   ===========  ALL OBJECTS IN CLASS: AIRFLOWNETWORK:MULTIZONE:COMPONENT:DETAILEDOPENING ===========
 
-  AirflowNetwork:MultiZone:Component:DetailedOpening,
+AirflowNetwork:MultiZone:Component:DetailedOpening,
     window_depth,            !- Name
     0.001,                   !- Air Mass Flow Coefficient When Opening is Closed {kg/s-m}
     0.65,                    !- Air Mass Flow Exponent When Opening is Closed {dimensionless}
@@ -889,7 +918,7 @@
     1,                       !- Height Factor for Opening Factor 2 {dimensionless}
     0;                       !- Start Height Factor for Opening Factor 2 {dimensionless}
 
-  AirflowNetwork:MultiZone:Component:DetailedOpening,
+AirflowNetwork:MultiZone:Component:DetailedOpening,
     window_width,            !- Name
     0.001,                   !- Air Mass Flow Coefficient When Opening is Closed {kg/s-m}
     0.65,                    !- Air Mass Flow Exponent When Opening is Closed {dimensionless}
@@ -907,100 +936,57 @@
     1,                       !- Height Factor for Opening Factor 2 {dimensionless}
     0;                       !- Start Height Factor for Opening Factor 2 {dimensionless}
 
+
 !-   ===========  ALL OBJECTS IN CLASS: HVACTEMPLATE:THERMOSTAT ===========
 
-  HVACTemplate:Thermostat,
+HVACTemplate:Thermostat,
     Thermostat,              !- Name
     ,                        !- Heating Setpoint Schedule Name
     20,                      !- Constant Heating Setpoint {C}
     ,                        !- Cooling Setpoint Schedule Name
     25;                      !- Constant Cooling Setpoint {C}
 
-!-   ===========  ALL OBJECTS IN CLASS: HVACTEMPLATE:ZONE:UNITARY ===========
 
-  HVACTemplate:Zone:Unitary,
+!-   ===========  ALL OBJECTS IN CLASS: HVACTEMPLATE:ZONE:IDEALLOADSAIRSYSTEM ===========
+
+HVACTemplate:Zone:IdealLoadsAirSystem,
     Zn1,                     !- Zone Name
-    ZN1_HVAC,                !- Template Unitary System Name
     Thermostat,              !- Template Thermostat Name
-    autosize,                !- Supply Air Maximum Flow Rate {m3/s}
-    ,                        !- Zone Heating Sizing Factor
-    ,                        !- Zone Cooling Sizing Factor
+    Sch_MM,                  !- System Availability Schedule Name
+    31,                      !- Maximum Heating Supply Air Temperature {C}
+    14,                      !- Minimum Cooling Supply Air Temperature {C}
+    0.00924,                 !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.01025,                 !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+    NoLimit,                 !- Heating Limit
+    ,                        !- Maximum Heating Air Flow Rate {m3/s}
+    ,                        !- Maximum Sensible Heating Capacity {W}
+    NoLimit,                 !- Cooling Limit
+    ,                        !- Maximum Cooling Air Flow Rate {m3/s}
+    ,                        !- Maximum Total Cooling Capacity {W}
+    Sch_MM,                  !- Heating Availability Schedule Name
+    Sch_MM,                  !- Cooling Availability Schedule Name
+    None,                    !- Dehumidification Control Type
+    0.7,                     !- Cooling Sensible Heat Ratio {dimensionless}
+    ,                        !- Dehumidification Setpoint {percent}
+    None,                    !- Humidification Control Type
+    ,                        !- Humidification Setpoint {percent}
     Flow/Zone,               !- Outdoor Air Method
     ,                        !- Outdoor Air Flow Rate per Person {m3/s}
     ,                        !- Outdoor Air Flow Rate per Zone Floor Area {m3/s-m2}
     0.026,                   !- Outdoor Air Flow Rate per Zone {m3/s}
-    ,                        !- Supply Plenum Name
-    ,                        !- Return Plenum Name
-    None,                    !- Baseboard Heating Type
-    ,                        !- Baseboard Heating Availability Schedule Name
-    autosize,                !- Baseboard Heating Capacity {W}
-    SystemSupplyAirTemperature,  !- Zone Cooling Design Supply Air Temperature Input Method
-    14,                      !- Zone Cooling Design Supply Air Temperature {C}
-    11,                      !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
-    SystemSupplyAirTemperature,  !- Zone Heating Design Supply Air Temperature Input Method
-    31,                      !- Zone Heating Design Supply Air Temperature {C}
-    11;                      !- Zone Heating Design Supply Air Temperature Difference {deltaC}
-
-!-   ===========  ALL OBJECTS IN CLASS: HVACTEMPLATE:SYSTEM:UNITARY ===========
-
-  HVACTemplate:System:Unitary,
-    ZN1_HVAC,                !- Name
-    Sch_MM,                  !- System Availability Schedule Name
-    Zn1,                     !- Control Zone or Thermostat Location Name
-    autosize,                !- Supply Fan Maximum Flow Rate {m3/s}
-    ,                        !- Supply Fan Operating Mode Schedule Name
-    0.3,                     !- Supply Fan Total Efficiency
-    100,                     !- Supply Fan Delta Pressure {Pa}
-    0.8,                     !- Supply Fan Motor Efficiency
-    1,                       !- Supply Fan Motor in Air Stream Fraction
-    SingleSpeedDX,           !- Cooling Coil Type
-    ,                        !- Cooling Coil Availability Schedule Name
-    14,                      !- Cooling Design Supply Air Temperature {C}
-    autosize,                !- Cooling Coil Gross Rated Total Capacity {W}
-    autosize,                !- Cooling Coil Gross Rated Sensible Heat Ratio
-    3.24,                    !- Cooling Coil Gross Rated COP {W/W}
-    Electric,                !- Heating Coil Type
-    ,                        !- Heating Coil Availability Schedule Name
-    50,                      !- Heating Design Supply Air Temperature {C}
-    autosize,                !- Heating Coil Capacity {W}
-    0.8,                     !- Gas Heating Coil Efficiency
-    ,                        !- Gas Heating Coil Parasitic Electric Load {W}
-    autosize,                !- Maximum Outdoor Air Flow Rate {m3/s}
-    autosize,                !- Minimum Outdoor Air Flow Rate {m3/s}
-    ,                        !- Minimum Outdoor Air Schedule Name
-    NoEconomizer,            !- Economizer Type
-    NoLockout,               !- Economizer Lockout
-    ,                        !- Economizer Upper Temperature Limit {C}
-    ,                        !- Economizer Lower Temperature Limit {C}
-    ,                        !- Economizer Upper Enthalpy Limit {J/kg}
-    ,                        !- Economizer Maximum Limit Dewpoint Temperature {C}
-    ,                        !- Supply Plenum Name
-    ,                        !- Return Plenum Name
-    BlowThrough,             !- Supply Fan Placement
-    StayOff,                 !- Night Cycle Control
-    ,                        !- Night Cycle Control Zone Name
+    ,                        !- Design Specification Outdoor Air Object Name
+    None,                    !- Demand Controlled Ventilation Type
+    NoEconomizer,            !- Outdoor Air Economizer Type
     None,                    !- Heat Recovery Type
-    0.7,                     !- Sensible Heat Recovery Effectiveness
-    0.65,                    !- Latent Heat Recovery Effectiveness
-    None,                    !- Dehumidification Control Type
-    60,                      !- Dehumidification Setpoint {percent}
-    None,                    !- Humidifier Type
-    ,                        !- Humidifier Availability Schedule Name
-    0.000001,                !- Humidifier Rated Capacity {m3/s}
-    autosize,                !- Humidifier Rated Electric Power {W}
-    ,                        !- Humidifier Control Zone Name
-    30,                      !- Humidifier Setpoint {percent}
-    No,                      !- Return Fan
-    0.7,                     !- Return Fan Total Efficiency
-    500,                     !- Return Fan Delta Pressure {Pa}
-    0.9,                     !- Return Fan Motor Efficiency
-    1;                       !- Return Fan Motor in Air Stream Fraction
+    0.7,                     !- Sensible Heat Recovery Effectiveness {dimensionless}
+    0.65;                    !- Latent Heat Recovery Effectiveness {dimensionless}
+
 
 !-   ===========  ALL OBJECTS IN CLASS: AVAILABILITYMANAGER:HYBRIDVENTILATION ===========
 
-  AvailabilityManager:HybridVentilation,
+AvailabilityManager:HybridVentilation,
     Zn1_MM,                  !- Name
-    ZN1_HVAC,                !- HVAC Air Loop Name
+    ,                        !- HVAC Air Loop Name
     Zn1,                     !- Control Zone Name
     Sch_MM,                  !- Ventilation Control Mode Schedule Name
     No,                      !- Use Weather File Rain Indicators
@@ -1015,121 +1001,121 @@
     ,                        !- Opening Factor Function of Wind Speed Curve Name
     Sch_MM;                  !- AirflowNetwork Control Type Schedule Name
 
+
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLEDICTIONARY ===========
 
-  Output:VariableDictionary,
+Output:VariableDictionary,
     regular;                 !- Key Field
+
 
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:SURFACES:DRAWING ===========
 
-  Output:Surfaces:Drawing,
+Output:Surfaces:Drawing,
     DXF,                     !- Report Type
     RegularPolyline;         !- Report Specifications 1
 
+
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:TABLE:SUMMARYREPORTS ===========
 
-  Output:Table:SummaryReports,
+Output:Table:SummaryReports,
     AllSummary;              !- Report 1 Name
+
 
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUTCONTROL:TABLE:STYLE ===========
 
-  OutputControl:Table:Style,
+OutputControl:Table:Style,
     Comma,                   !- Column Separator
     JtoKWH;                  !- Unit Conversion
 
+
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     Site Day Type Index,     !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     Site Outdoor Air Drybulb Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     Site Wind Direction,     !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     Site Wind Speed,         !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     Zone Mean Air Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     Zone Mean Radiant Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     Zone Operative Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     AFN Surface Venting Window or Door Opening Factor,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     AFN Zone Infiltration Volume,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     AFN Zone Infiltration Air Change Rate,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     Zone Thermal Comfort ASHRAE 55 Adaptive Model 80% Acceptability Status,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     Zone Thermal Comfort ASHRAE 55 Adaptive Model Running Average Outdoor Air Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     Availability Manager Hybrid Ventilation Control Mode,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     Availability Manager Hybrid Ventilation Control Status,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
-    Zone Air System Sensible Heating Energy,  !- Variable Name
+    Zone Ideal Loads Supply Air Total Heating Rate,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
-    Zone Air System Sensible Cooling Energy,  !- Variable Name
+    Zone Ideal Loads Supply Air Total Cooling Rate,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     Zone Thermostat Air Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
-  Output:Variable,
-    *,                       !- Key Value
-    Zone Predicted Sensible Load to Setpoint Heat Transfer Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-  Output:Variable,
+Output:Variable,
     *,                       !- Key Value
     Environmental Impact Total CO2 Emissions Carbon Equivalent Mass,  !- Variable Name
     Hourly;                  !- Reporting Frequency
@@ -1137,12 +1123,13 @@
 
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:ENVIRONMENTALIMPACTFACTORS ===========
 
-  Output:EnvironmentalImpactFactors,
+Output:EnvironmentalImpactFactors,
     Hourly;                  !- Reporting Frequency
+
 
 !-   ===========  ALL OBJECTS IN CLASS: ENVIRONMENTALIMPACTFACTORS ===========
 
-  EnvironmentalImpactFactors,
+EnvironmentalImpactFactors,
     0.3,                     !- District Heating Efficiency
     3,                       !- District Cooling COP {W/W}
     0.25,                    !- Steam Conversion Efficiency
@@ -1150,9 +1137,10 @@
     6.2727,                  !- Total Carbon Equivalent Emission Factor From CH4 {kg/kg}
     0.2727;                  !- Total Carbon Equivalent Emission Factor From CO2 {kg/kg}
 
+
 !-   ===========  ALL OBJECTS IN CLASS: FUELFACTORS ===========
 
-  FuelFactors,
+FuelFactors,
     Electricity,             !- Existing Fuel Resource Name
     kg,                      !- Units of Measure
     ,                        !- Energy per Unit Factor
@@ -1161,8 +1149,9 @@
     1,                       !- CO2 Emission Factor {g/MJ}
     sch_emissionfactor;      !- CO2 Emission Factor Schedule Name
 
+
 !-   ===========  ALL OBJECTS IN CLASS: OUTPUT:DIAGNOSTICS ===========
 
-  Output:Diagnostics,
+Output:Diagnostics,
     DisplayExtraWarnings;    !- Key 1
 

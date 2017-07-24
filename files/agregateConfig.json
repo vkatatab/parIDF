@@ -16,6 +16,19 @@
           ]
         }
       }
+    },
+    "carbon_facility.csv": {
+      "columns": {
+        "Carbon Equivalent:Facility [kg](Hourly) ": {
+          "values": [
+            "SUM/COUNT",
+            "COUNT",
+            "MIN",
+            "MAX",
+            "SUM"
+          ]
+        }
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 {
     "quantity": 2,
     "path": {
-        "base": "/home/caroline/Documents/parIdf/files/IDFBase.idf",
+        "base": "/home/caroline/Documents/parIdf/files/IDFBase_ideal.idf",
         "destination": "/home/caroline/Documents/parIdf/output",
         "weatherFilename": "BRA_SP_Sao_Paulo.epw",
         "parameterFile": "parameter.csv",
@@ -44,6 +44,20 @@
                 "parameters": {
                     "min": 0.10,
                     "max": 0.90,
+                    "precision": 0.01
+                    }
+                }
+            }
+        }
+        },
+        "Material": {
+            "identifiers": {
+            "eW_HC": {
+                "Density {kg/m3}": {
+                "alg": "MonteCarlo",
+                "parameters": {
+                    "min": 100,
+                    "max": 500,
                     "precision": 0.01
                     }
                 },

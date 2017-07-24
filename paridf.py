@@ -31,6 +31,10 @@ if run.lower() == "y" or run.lower() == "":
     for outputName in globFiles:
         call(["runenergyplus", outputName, weatherFilename])
 
+# energyplus -i custom.idd -w weather.epw input.idf
+# Example: energyplus -w weather.epw -r input.idf
+#-x, --expandobjects Run ExpandObjects prior to simulation
+
     for extension in ['err', 'csv']:
         extensionFolder = energyplusOutput + '/' + extension
         if not os.path.exists(extensionFolder):
