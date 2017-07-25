@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Este arquivo (main.py) carrega um arquivo de configuração (config.json) que está situado na mesma pasta
+# Este aquivo também carrega as classes idfobject e idfset
 # O arquivo de configuração (config.json) fornece os parâmetros e indica as variáveis e valores que serão alterados no idf
 
 # imports : importa as classes necessárias

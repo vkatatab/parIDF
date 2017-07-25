@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+# Essa classe Orientation é utilizada devido a relacao de dependencia entre parametros
+# quando é alterada a orientação no energyplus do modelo é necessário alterar juntamente outro parâmetro
+# da ventilação natural, no caso de haver o grupo airflownetwork, pois muda os coeficientes de pressão
+
 import random
 import math
 

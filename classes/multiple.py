@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# Essa classe Multiple é um teste de um algotimo que pode ser utilizado para as variações dos parâmetros
 import random
 import math
 

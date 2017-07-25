@@ -52,3 +52,5 @@ for resultName in results:
             for column in resultDict:
                 dictRow[column] = resultDict[column][i].strip()
             writer.writerow(dictRow)
+
+print ("*** The selected columns results of the all simulations have been united ***")

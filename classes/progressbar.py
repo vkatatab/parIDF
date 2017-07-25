@@ -1,5 +1,8 @@
 # http://stackoverflow.com/questions/3173320/text-progress-bar-in-the-console
 # Print iterations progress
+
+# Classe para mostrar ao usuário apenas o progresso da geração dos idf
+
 def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█'):
     """
     Call in a loop to create terminal progress bar

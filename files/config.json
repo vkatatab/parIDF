@@ -42,9 +42,9 @@
                 "Thermal Resistance {m2-K/W}": {
                 "alg": "MonteCarlo",
                 "parameters": {
-                    "min": 0.10,
-                    "max": 0.90,
-                    "precision": 0.01
+                    "min": 0.0803,
+                    "max": 3.159,
+                    "precision": 0.1
                     }
                 }
             }
@@ -57,8 +57,8 @@
                 "alg": "MonteCarlo",
                 "parameters": {
                     "min": 100,
-                    "max": 500,
-                    "precision": 0.01
+                    "max": 5000,
+                    "precision": 0.1
                     }
                 },
                 "Solar Absorptance": {
@@ -113,6 +113,56 @@
                     }
                 }
             }
-        }
+        },
+        "FenestrationSurface:Detailed": {
+            "identifiers": {
+                "Zn1_par1_jan": {
+                    "Vertex 2 Z-coordinate {m}": {
+                    "alg": "MonteCarlo",
+                        "parameters": {
+                            "min": 0.17040816,
+                            "max": 2.3744898,
+                            "precision": 0.01
+                            }
+                        }
+                    }
+                },
+                "change": {
+                    "identifiers": {
+                        "Zn1_par1_jan": {
+                        "Vertex 3 Z-coordinate {m}": {
+                            "alg": "SameValue",
+                            "parameters": {
+                                "value": "parent"
+                                }
+                            }
+                        }
+                    }
+                },  
+                "change": {
+                    "identifiers": {
+                        "Zn1_par4_jan": {
+                        "Vertex 2 Z-coordinate {m}": {
+                            "alg": "SameValue",
+                            "parameters": {
+                                "value": "parent"
+                                }
+                            }
+                        }
+                    }
+                },
+                "change": {
+                    "identifiers": {
+                        "Zn1_par4_jan": {
+                        "Vertex 3 Z-coordinate {m}": {
+                            "alg": "SameValue",
+                            "parameters": {
+                                "value": "parent"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
     }
 }

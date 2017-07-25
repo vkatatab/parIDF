@@ -1,3 +1,7 @@
+# Esse é um código em script para a criação de uma planilha .csv que agrega resultados desejados
+# da planilha .csv denominada generateResults.ṕy, através de relações e formulas fornecidas
+# pelo usuário (exemplo: somatória da coluna, ver o valor minimo e etc) importando um arquivo json
+
 import sys
 import json
 import os
@@ -9,6 +13,8 @@ import re
 import collections
 from subprocess import call
 
+
+# inicia a leitura do arquivo de configuração
 filename = 'files/agregateConfig.json'
 fp = open(filename)
 file = fp.read()
@@ -72,6 +78,8 @@ for filename in files:
         writer.writeheader()
         for (name, parameter) in newDict.items():
             writer.writerow(parameter)
+
+print ("*** The columns calculations results of the files have been created ***")
 
     # resultDict = {}
     # resultConfig = results[resultName]

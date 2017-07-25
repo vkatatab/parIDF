@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Essa classe Predifined é utilizada para escolher entre valores fixos randômicos
+# ao invés de um intervalo de valores 
+
 import random
 import math
 

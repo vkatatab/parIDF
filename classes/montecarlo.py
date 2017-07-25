@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Essa classe MonteCarlo é o algoritmo responsavel por gerar as variações randomicas dos parâmetros
+
 import random
 import math
 
@@ -13,4 +15,4 @@ class MonteCarlo(object):
         self.newValue = (rand * precision) + mini
 
     def getNewValue(self):
-        return str(round (self.newValue, 2))
+        return str(round (self.newValue, 1))

@@ -19,7 +19,7 @@ idf = main.Main(filename)
 
 idf.createIdfs()
 
-run = input ("Do you want to simulate all the created IDF's files? (Y/n):\n")
+run = input ("*** Do you want to simulate all the created IDF's files? (Y/n):\n")
 # # Y representa Yes e será o default e n representa No
 if run.lower() == "y" or run.lower() == "":
     energyplusOutput = config['path']['destination'] + '/Output'
@@ -30,6 +30,7 @@ if run.lower() == "y" or run.lower() == "":
     globFiles = glob.glob(globName)
     for outputName in globFiles:
         call(["runenergyplus", outputName, weatherFilename])
+    print ("*** The IDF files simulations have been successfully completed ***")
 
 # energyplus -i custom.idd -w weather.epw input.idf
 # Example: energyplus -w weather.epw -r input.idf
@@ -44,4 +45,4 @@ if run.lower() == "y" or run.lower() == "":
             os.rename(file, extensionFolder + '/' + ntpath.basename(file))
 
 if run.lower () == "n":
-     print ("Não executado")
+     print ("*** The IDF files haven't been executed by EnergyPlus, but they are saved in the destination folder ***")

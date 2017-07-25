@@ -32,7 +32,7 @@ class IDFObject(object):
     def setParameterByName(self, name, value):
         self.parameters[name] = value
 
-    # Converta cada linha do arquivo IDF em um parâmetro
+    # Converte cada linha do arquivo IDF em um parâmetro
     def convertLinesToParameters(self):
         for line in self.idfObjectLines:
             self.parameters[self.getParameterName(line).strip()] = self.getParameterValue(line).strip()
