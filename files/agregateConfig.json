@@ -4,9 +4,27 @@
     "destination": "/home/caroline/Documents/parIdf/output"
   },
   "files": {
-    "eletricity.csv": {
+    "TotalPowerConsumption.csv": {
       "columns": {
         "Electricity:Facility [J](Hourly)": {
+          "values": [
+            "SUM",
+            "MIN",
+            "MAX"
+          ]
+        },
+        "DistrictCooling:Facility [J](Hourly)": {
+          "values": [
+            "SUM",
+            "MIN",
+            "MAX"
+          ]
+        }
+      }
+    },
+    "CO2eCarbonEquivalent.csv": {
+      "columns": {
+        "CO2:Facility [kg](Hourly)": {
           "values": [
             "SUM/COUNT",
             "COUNT",
@@ -14,18 +32,12 @@
             "MAX",
             "SUM"
           ]
-        }
-      }
-    },
-    "carbon_facility.csv": {
-      "columns": {
+        },
         "Carbon Equivalent:Facility [kg](Hourly) ": {
           "values": [
-            "SUM/COUNT",
-            "COUNT",
+            "SUM",
             "MIN",
-            "MAX",
-            "SUM"
+            "MAX"
           ]
         }
       }

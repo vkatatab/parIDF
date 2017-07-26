@@ -5,7 +5,7 @@
         "destination": "/home/caroline/Documents/parIdf/output",
         "weatherFilename": "BRA_SP_Sao_Paulo.epw",
         "parameterFile": "parameter.csv",
-        "filename": "saida"
+        "filename": "file"
     },
     "variables" : {
         "AirflowNetwork:SimulationControl": {
@@ -38,52 +38,42 @@
         },
         "Material:NoMass": {
             "identifiers": {
-            "eW_U": {
-                "Thermal Resistance {m2-K/W}": {
-                "alg": "MonteCarlo",
-                "parameters": {
-                    "min": 0.0803,
-                    "max": 3.159,
-                    "precision": 0.1
+                "eW_U": {
+                    "Thermal Resistance {m2-K/W}": {
+                        "alg": "MonteCarlo",
+                        "parameters": {
+                            "min": 0.0803,
+                            "max": 3.159,
+                            "precision": 0.1
+                            }
+                        }
                     }
                 }
-            }
-        }
         },
         "Material": {
             "identifiers": {
-            "eW_HC": {
-                "Density {kg/m3}": {
-                "alg": "MonteCarlo",
-                "parameters": {
-                    "min": 100,
-                    "max": 5000,
-                    "precision": 0.1
-                    }
+                "eW_HC": {
+                    "Density {kg/m3}": {
+                        "alg": "MonteCarlo",
+                        "parameters": {
+                            "min": 100,
+                            "max": 5000,
+                            "precision": 0.1
+                            }
                 },
                 "Solar Absorptance": {
-                "alg": "MonteCarlo",
-                "parameters": {
-                    "min": 0.20,
-                    "max": 1.00,
-                    "precision": 0.01
+                    "alg": "MonteCarlo",
+                    "parameters": {
+                        "min": 0.20,
+                        "max": 1.00,
+                        "precision": 0.01
+                        }
                     }
                 }
             }
-        }
         },
         "AirflowNetwork:MultiZone:Surface": {
             "identifiers": {
-                "Zn1_par4_jan": {
-                    "Window/Door Opening Factor or Crack Factor {dimensionless}": {
-                        "alg": "MonteCarlo",
-                        "parameters": {
-                            "min": 0.05,
-                            "max": 1.00,
-                            "precision": 0.01
-                            }
-                        }
-                    },
                 "Zn1_par1_jan": {
                     "Window/Door Opening Factor or Crack Factor {dimensionless}": {
                         "alg": "MonteCarlo",
@@ -91,23 +81,37 @@
                             "min": 0.05,
                             "max": 1.00,
                             "precision": 0.01
+                        },
+                        "change": {
+                            "AirflowNetwork:MultiZone:Surface": {
+                                "identifiers": {
+                                    "Zn1_par4_jan": {
+                                        "Window/Door Opening Factor or Crack Factor {dimensionless}": {
+                                            "alg": "SameValue",
+                                            "parameters": {
+                                            "value": "parent"
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
-                    } 
+                    }
                 }
+            }
         },
         "Building": {
             "North Axis {deg}": {
                 "alg": "Predefined",
                 "parameters": {
-                    "values": ["0", "45", "90", "135", "180", "225", "270", "315"]
+                "values": ["0", "45", "90", "135", "180", "225", "270", "315"]
                 },
                 "change": {
                     "AirflowNetwork:SimulationControl": {
                         "Azimuth Angle of Long Axis of Building {deg}": {
                             "alg": "Orientation",
                             "parameters": {
-                                "value": "parent"
+                            "value": "parent"
                             }
                         }
                     }
@@ -118,7 +122,7 @@
             "identifiers": {
                 "Zn1_par1_jan": {
                     "Vertex 2 Z-coordinate {m}": {
-                    "alg": "MonteCarlo",
+                        "alg": "MonteCarlo",
                         "parameters": {
                             "min": 0.17040816,
                             "max": 2.3744898,
@@ -126,36 +130,35 @@
                 },
                 "change": {
                 	"FenestrationSurface:Detailed": {
-                    "identifiers": {
-                        "Zn1_par1_jan": {
-                        "Vertex 3 Z-coordinate {m}": {
-                            "alg": "SameValue",
-                            "parameters": {
-                                "value": "parent"
+                        "identifiers": {
+                            "Zn1_par1_jan": {
+                                "Vertex 3 Z-coordinate {m}": {
+                                    "alg": "SameValue",
+                                    "parameters": {
+                                    "value": "parent"
+                                    }
                                 }
-                            }
-                    	},
-                        "Zn1_par4_jan": {
-                        "Vertex 2 Z-coordinate {m}": {
-                            "alg": "SameValue",
-                            "parameters": {
-                                "value": "parent"
-                    		}
-                		},
-                        "Vertex 3 Z-coordinate {m}": {
-                            "alg": "SameValue",
-                            "parameters": {
-                                "value": "parent"
-                                		}
-                            		}
+                    	    },
+                            "Zn1_par4_jan": {
+                                "Vertex 2 Z-coordinate {m}": {
+                                    "alg": "SameValue",
+                                    "parameters": {
+                                    "value": "parent"
+                    		        }
+                		        },
+                                "Vertex 3 Z-coordinate {m}": {
+                                    "alg": "SameValue",
+                                    "parameters": {
+                                    "value": "parent"
+                                	       }
+                            		    }
+                                    }
                                 }
                             }
                         }
-                    }
+	                }
 	            }
-	        }
-		}
-	}
-}
-
+		    }
+	    }
+    }
 }

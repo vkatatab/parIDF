@@ -25,7 +25,7 @@ SimulationControl,
 
 Building,
     MM_split_NVtemperature,  !- Name
-    225,                     !- North Axis {deg}
+    0.0,                     !- North Axis {deg}
     City,                    !- Terrain
     0.04,                    !- Loads Convergence Tolerance Value
     0.4,                     !- Temperature Convergence Tolerance Value {deltaC}
@@ -43,7 +43,7 @@ Timestep,
 !-   ===========  ALL OBJECTS IN CLASS: SITE:LOCATION ===========
 
 Site:Location,
-    Sao_Paulo_SP_BRA Design_Conditions,  !- Name
+    Sao_Paulo_SP_BRA_Design_Conditions,  !- Name
     -23.85,                  !- Latitude {deg}
     -46.64,                  !- Longitude {deg}
     -3.00,                   !- Time Zone {hr}
@@ -568,7 +568,7 @@ GlobalGeometryRules,
 
 Zone,
     Zn1,                     !- Name
-    0,                       !- Direction of Relative North {deg}
+    225,                     !- Direction of Relative North {deg}
     0.0,                     !- X Origin {m}
     0.0,                     !- Y Origin {m}
     13.5,                    !- Z Origin {m}
@@ -761,16 +761,16 @@ FenestrationSurface:Detailed,
     ,                        !- Multiplier
     4,                       !- Number of Vertices
     0.000000000000,          !- Vertex 1 X-coordinate {m}
-    7.92,                    !- Vertex 1 Y-coordinate {m}
+    7.950000000000,          !- Vertex 1 Y-coordinate {m}
     2.650000000000,          !- Vertex 1 Z-coordinate {m}
     0.000000000000,          !- Vertex 2 X-coordinate {m}
-    7.92,                    !- Vertex 2 Y-coordinate {m}
-    1.82347,                 !- Vertex 2 Z-coordinate {m}
+    7.950000000000,          !- Vertex 2 Y-coordinate {m}
+    1.829750000000,          !- Vertex 2 Z-coordinate {m}
     0.000000000000,          !- Vertex 3 X-coordinate {m}
-    0.08,                    !- Vertex 3 Y-coordinate {m}
-    1.82347,                 !- Vertex 3 Z-coordinate {m}
+    0.050000000000,          !- Vertex 3 Y-coordinate {m}
+    1.829750000000,          !- Vertex 3 Z-coordinate {m}
     0.000000000000,          !- Vertex 4 X-coordinate {m}
-    0.08,                    !- Vertex 4 Y-coordinate {m}
+    0.050000000000,          !- Vertex 4 Y-coordinate {m}
     2.650000000000;          !- Vertex 4 Z-coordinate {m}
 
 
@@ -1102,47 +1102,22 @@ Output:Variable,
 
 Output:Variable,
     *,                       !- Key Value
-    System Node Wetbulb Temperature,  !- Variable Name
+    Zone Ideal Loads Supply Air Total Heating Rate,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
-    System Node Temperature, !- Variable Name
+    Zone Ideal Loads Supply Air Total Cooling Rate,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
-    Zone Ideal Loads Supply Air Total Cooling Energy,  !- Variable Name
+    Zone Thermostat Air Temperature,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 Output:Variable,
     *,                       !- Key Value
-    Performance Curve Output Value,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    *,                       !- Key Value
-    System Node Mass Flow Rate,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Variable,
-    *,                       !- Key Value
-    Zone Ideal Loads Supply Air Sensible Cooling Energy,  !- Variable Name
-    Hourly;                  !- Reporting Frequency
-
-
-!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:METER ===========
-
-Output:Meter,
-    Electricity:Facility,    !- Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Meter,
-    DistrictCooling:Facility,!- Name
-    Hourly;                  !- Reporting Frequency
-
-Output:Meter,
-    Cooling:EnergyTransfer,  !- Name
+    Environmental Impact Total CO2 Emissions Carbon Equivalent Mass,  !- Variable Name
     Hourly;                  !- Reporting Frequency
 
 
