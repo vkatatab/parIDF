@@ -1,5 +1,5 @@
 {
-    "quantity": 5,
+    "quantity": 50,
     "path": {
         "base": "/home/caroline/Documents/parIdf/files/IDFBase_ideal.idf",
         "destination": "/home/caroline/Documents/parIdf/output",
@@ -44,7 +44,7 @@
                         "parameters": {
                             "min": 0.0803,
                             "max": 3.159,
-                            "precision": 0.1
+                            "precision": 0.01
                             }
                         }
                     }
