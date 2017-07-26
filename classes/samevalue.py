@@ -9,9 +9,7 @@ import math
 class SameValue(object):
 
     def __init__(self, parameters):
-        self.newValue = 0
-        parameters = parameters
-        
+        self.newValue = parameters   
 
     def getNewValue(self):
         return str(self.newValue)

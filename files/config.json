@@ -1,5 +1,5 @@
 {
-    "quantity": 2,
+    "quantity": 5,
     "path": {
         "base": "/home/caroline/Documents/parIdf/files/IDFBase_ideal.idf",
         "destination": "/home/caroline/Documents/parIdf/output",
@@ -123,11 +123,9 @@
                             "min": 0.17040816,
                             "max": 2.3744898,
                             "precision": 0.01
-                            }
-                        }
-                    }
                 },
                 "change": {
+                	"FenestrationSurface:Detailed": {
                     "identifiers": {
                         "Zn1_par1_jan": {
                         "Vertex 3 Z-coordinate {m}": {
@@ -136,33 +134,28 @@
                                 "value": "parent"
                                 }
                             }
-                        }
-                    }
-                },  
-                "change": {
-                    "identifiers": {
+                    	},
                         "Zn1_par4_jan": {
                         "Vertex 2 Z-coordinate {m}": {
                             "alg": "SameValue",
                             "parameters": {
                                 "value": "parent"
-                                }
-                            }
-                        }
-                    }
-                },
-                "change": {
-                    "identifiers": {
-                        "Zn1_par4_jan": {
+                    		}
+                		},
                         "Vertex 3 Z-coordinate {m}": {
                             "alg": "SameValue",
                             "parameters": {
                                 "value": "parent"
+                                		}
+                            		}
                                 }
                             }
                         }
                     }
-                }
-            }
-    }
+	            }
+	        }
+		}
+	}
+}
+
 }
