@@ -7,7 +7,7 @@ class Multiple(object):
 
     def __init__(self, parameters):
         self.newValue = 0
-        self.newValue = float(parameters) * 2
+        self.newValue = float(parameters) * (4.9/7.84)
 
     def getNewValue(self):
         return str(self.newValue)

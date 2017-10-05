@@ -1,164 +1,224 @@
 {
-    "quantity": 50,
-    "path": {
-        "base": "/home/caroline/Documents/parIdf/files/IDFBase_ideal.idf",
-        "destination": "/home/caroline/Documents/parIdf/output",
-        "weatherFilename": "BRA_SP_Sao_Paulo.epw",
-        "parameterFile": "parameter.csv",
-        "filename": "file"
+  "quantity": 5,
+  "path": {
+    "base": "/home/vinicius/Documents/Workspace/paridf/files/IDFBase_ideal_overhand_fin.idf",
+    "destination": "/home/vinicius/Documents/Workspace/paridf/output",
+    "weatherFilename": "BRA_SP_Sao_Paulo.epw",
+    "parameterFile": "parameter.csv",
+    "filename": "file"
+  },
+  "variables": {
+    "AirflowNetwork:SimulationControl": {
+      "identifiers": {
+        "NV": {
+          "Ratio of Building Width Along Short Axis to Width Along Long Axis": {
+            "alg": "MonteCarlo",
+            "parameters": {
+              "min": 0.1,
+              "max": 1,
+              "precision": 0.01
+            }
+          }
+        }
+      }
     },
-    "variables" : {
-        "AirflowNetwork:SimulationControl": {
-            "identifiers": {
-                "NV": {
-                    "Ratio of Building Width Along Short Axis to Width Along Long Axis": {
-                        "alg": "MonteCarlo",
-                        "parameters": {
-                            "min": 0.10,
-                            "max": 1.00,
-                            "precision": 0.01
-                            }
-                        }
-                    }
-                }
-        },
-        "WindowMaterial:SimpleGlazingSystem": {
-            "identifiers": {
-                "glazing": {
-                    "Solar Heat Gain Coefficient": {
-                        "alg": "MonteCarlo",
-                        "parameters": {
-                            "min": 0.20,
-                            "max": 0.90,
-                            "precision": 0.01
-                            }
-                        }
-                    }
-                }
-        },
-        "Material:NoMass": {
-            "identifiers": {
-                "eW_U": {
-                    "Thermal Resistance {m2-K/W}": {
-                        "alg": "MonteCarlo",
-                        "parameters": {
-                            "min": 0.0803,
-                            "max": 3.159,
-                            "precision": 0.01
-                            }
-                        }
-                    }
-                }
-        },
-        "Material": {
-            "identifiers": {
-                "eW_HC": {
-                    "Density {kg/m3}": {
-                        "alg": "MonteCarlo",
-                        "parameters": {
-                            "min": 100,
-                            "max": 5000,
-                            "precision": 0.1
-                            }
-                },
-                "Solar Absorptance": {
-                    "alg": "MonteCarlo",
-                    "parameters": {
-                        "min": 0.20,
-                        "max": 1.00,
-                        "precision": 0.01
-                        }
-                    }
-                }
+    "WindowMaterial:SimpleGlazingSystem": {
+      "identifiers": {
+        "glazing": {
+          "Solar Heat Gain Coefficient": {
+            "alg": "MonteCarlo",
+            "parameters": {
+              "min": 0.2,
+              "max": 0.9,
+              "precision": 0.01
             }
-        },
-        "AirflowNetwork:MultiZone:Surface": {
-            "identifiers": {
-                "Zn1_par1_jan": {
+          }
+        }
+      }
+    },
+    "Material:NoMass": {
+      "identifiers": {
+        "eW_U": {
+          "Thermal Resistance {m2-K/W}": {
+            "alg": "MonteCarlo",
+            "parameters": {
+              "min": 0.0803,
+              "max": 3.159,
+              "precision": 0.01
+            }
+          }
+        }
+      }
+    },
+    "Material": {
+      "identifiers": {
+        "eW_HC": {
+          "Density {kg/m3}": {
+            "alg": "MonteCarlo",
+            "parameters": {
+              "min": 100,
+              "max": 5000,
+              "precision": 0.1
+            }
+          },
+          "Solar Absorptance": {
+            "alg": "MonteCarlo",
+            "parameters": {
+              "min": 0.2,
+              "max": 1,
+              "precision": 0.01
+            }
+          }
+        }
+      }
+    },
+    "AirflowNetwork:MultiZone:Surface": {
+      "identifiers": {
+        "Zn1_par1_jan": {
+          "Window/Door Opening Factor or Crack Factor {dimensionless}": {
+            "alg": "MonteCarlo",
+            "parameters": {
+              "min": 0.05,
+              "max": 1,
+              "precision": 0.01
+            },
+            "change": {
+              "AirflowNetwork:MultiZone:Surface": {
+                "identifiers": {
+                  "Zn1_par4_jan": {
                     "Window/Door Opening Factor or Crack Factor {dimensionless}": {
-                        "alg": "MonteCarlo",
-                        "parameters": {
-                            "min": 0.05,
-                            "max": 1.00,
-                            "precision": 0.01
-                        },
-                        "change": {
-                            "AirflowNetwork:MultiZone:Surface": {
-                                "identifiers": {
-                                    "Zn1_par4_jan": {
-                                        "Window/Door Opening Factor or Crack Factor {dimensionless}": {
-                                            "alg": "SameValue",
-                                            "parameters": {
-                                            "value": "parent"
-                                            }
-                                        }
-                                    }
+                      "alg": "SameValue",
+                      "parameters": {
+                        "value": "parent"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Building": {
+      "North Axis {deg}": {
+        "alg": "Predefined",
+        "parameters": {
+          "values": [
+            "0",
+            "45",
+            "90",
+            "135",
+            "180",
+            "225",
+            "270",
+            "315"
+          ]
+        },
+        "change": {
+          "AirflowNetwork:SimulationControl": {
+            "Azimuth Angle of Long Axis of Building {deg}": {
+              "alg": "Orientation",
+              "parameters": {
+                "value": "parent"
+              }
+            }
+          }
+        }
+      }
+    },
+    "FenestrationSurface:Detailed": {
+      "identifiers": {
+        "Zn1_par1_jan": {
+          "Vertex 2 Z-coordinate {m}": {
+            "alg": "MonteCarlo",
+            "parameters": {
+              "min": 0.17040816,
+              "max": 2.3744898,
+              "precision": 0.01
+            },
+            "change": {
+              "Shading:Fin:Projection": {
+                "identifiers": {
+                  "Fin_par1": {
+                    "Left Depth as Fraction of Window/Door Width {dimensionless}": {
+                      "alg": "Mathematical",
+                      "parameters": {
+                        "value": "parent",
+                        "other": [
+                          {
+                            "Shading:Overhang:Projection": {
+                              "identifiers": {
+                                "Overhang_par1": [
+                                  "Depth as Fraction of Window/Door Height {dimensionless}"
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "change": {
+                        "Shading:Fin:Projection": {
+                          "identifiers": {
+                            "Fin_par1": {
+                              "Right Depth as Fraction of Window/Door Width {dimensionless}": {
+                                "alg": "SameValue",
+                                "parameters": {
+                                  "value": "parent"
                                 }
+                              }
+                            },
+                            "Fin_par4": {
+                              "Right Depth as Fraction of Window/Door Width {dimensionless}": {
+                                "alg": "Multiple",
+                                "parameters": {
+                                  "value": "parent"
+                                }
+                              },
+                              "Left Depth as Fraction of Window/Door Width {dimensionless}": {
+                                "alg": "Multiple",
+                                "parameters": {
+                                  "value": "parent"
+                                }
+                              }
                             }
+                          }
                         }
+                      }
                     }
+                  }
                 }
-            }
-        },
-        "Building": {
-            "North Axis {deg}": {
-                "alg": "Predefined",
-                "parameters": {
-                "values": ["0", "45", "90", "135", "180", "225", "270", "315"]
-                },
-                "change": {
-                    "AirflowNetwork:SimulationControl": {
-                        "Azimuth Angle of Long Axis of Building {deg}": {
-                            "alg": "Orientation",
-                            "parameters": {
-                            "value": "parent"
-                            }
-                        }
+              },
+              "FenestrationSurface:Detailed": {
+                "identifiers": {
+                  "Zn1_par1_jan": {
+                    "Vertex 3 Z-coordinate {m}": {
+                      "alg": "SameValue",
+                      "parameters": {
+                        "value": "parent"
+                      }
                     }
-                }
-            }
-        },
-        "FenestrationSurface:Detailed": {
-            "identifiers": {
-                "Zn1_par1_jan": {
+                  },
+                  "Zn1_par4_jan": {
                     "Vertex 2 Z-coordinate {m}": {
-                        "alg": "MonteCarlo",
-                        "parameters": {
-                            "min": 0.17040816,
-                            "max": 2.3744898,
-                            "precision": 0.01
-                },
-                "change": {
-                	"FenestrationSurface:Detailed": {
-                        "identifiers": {
-                            "Zn1_par1_jan": {
-                                "Vertex 3 Z-coordinate {m}": {
-                                    "alg": "SameValue",
-                                    "parameters": {
-                                    "value": "parent"
-                                    }
-                                }
-                    	    },
-                            "Zn1_par4_jan": {
-                                "Vertex 2 Z-coordinate {m}": {
-                                    "alg": "SameValue",
-                                    "parameters": {
-                                    "value": "parent"
-                    		        }
-                		        },
-                                "Vertex 3 Z-coordinate {m}": {
-                                    "alg": "SameValue",
-                                    "parameters": {
-                                    "value": "parent"
-                                	       }
-                            		    }
-                                    }
-                                }
-                            }
-                        }
-	                }
-	            }
-		    }
-	    }
+                      "alg": "SameValue",
+                      "parameters": {
+                        "value": "parent"
+                      }
+                    },
+                    "Vertex 3 Z-coordinate {m}": {
+                      "alg": "SameValue",
+                      "parameters": {
+                        "value": "parent"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
+  }
 }

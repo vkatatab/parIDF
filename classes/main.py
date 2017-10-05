@@ -31,20 +31,51 @@ class Main(object):
         if (os.path.isfile(self.parameterFile)):
             os.remove(self.parameterFile)
 
+    def merge_dicts(self, *dict_args):
+        result = {}
+        for dictionary in dict_args:
+            result.update(dictionary)
+        return result
+
     def createParameterFile(self, line):
         fp = open(self.parameterFile, 'a')
         fp.write(line)
         fp.write('\n\r')
         fp.close()
 
-    def getNewValueFromConfig(self, alg, parameters, parentValue):
+    def getValueFromObject(self, otherParameter, idf):
+        returnedValue = {};
+        for parameter in otherParameter:
+            for className in parameter:
+                if ('identifiers' in parameter[className]):
+                    for (identifier, identifierConfig) in sorted(parameter[className]['identifiers'].items()):
+                        for variable in parameter[className]['identifiers'][identifier]:
+                            value = idf.getObjectByClass(className, identifier).getParameterByName(variable)
+                            parameterName = className + ':' + identifier + ':' + variable
+                            returnedValue.update({parameterName : value})
+                else:
+                    for variable in parameter[className]:
+                        value = idf.getObjectByClass(className).getParameterByName(variable)
+                        parameterName = className + ':' + variable
+                        returnedValue.update({parameterName : value})
+        return returnedValue
+
+
+    def getNewValueFromConfig(self, alg, parameters, parentValue, idf):
+        newParameters = {}
+        functionParameters = parameters
         algName = alg
         module = __import__(algName.lower())
         class_ = getattr(module, algName)
         if ('value' in parameters):
             if (parameters['value'] == 'parent'):
-                parameters = parentValue
-        instance = class_(parameters)
+                functionParameters = parentValue
+        if ('other' in parameters):
+            newParameters.update({'value':functionParameters})
+            newParameters = self.merge_dicts(newParameters, self.getValueFromObject(parameters['other'], idf))
+            instance = class_(newParameters)
+        else:
+            instance = class_(functionParameters)
         return instance.getNewValue()
 
     def iterateOverClasses(self, idf, items, newValue):
@@ -67,7 +98,7 @@ class Main(object):
                     self.alterValue(idf, classNameChild, variable, variableConfigChild, newValue)
 
     def alterValue(self, idf, className, variable, variableConfig, parentValue, identifier = None):
-        newValue = self.getNewValueFromConfig(variableConfig['alg'], variableConfig['parameters'], parentValue)
+        newValue = self.getNewValueFromConfig(variableConfig['alg'], variableConfig['parameters'], parentValue, idf)
         self.configString += ',' + newValue
         if (identifier == None):
             idf.getObjectByClass(className).setParameterByName(variable, newValue)
