@@ -123,6 +123,26 @@
                 "value": "parent"
               }
             }
+          },
+          "Shading:Overhang:Projection": {
+            "identifiers": {
+              "Overhang_par1": {
+                "Depth as Fraction of Window/Door Height {dimensionless}": {
+                  "alg": "Overhang1",
+                  "parameters": {
+                    "value": "parent"
+                  }
+                }
+              },
+              "Overhang_par4": {
+                "Depth as Fraction of Window/Door Height {dimensionless}": {
+                  "alg": "Overhang4",
+                  "parameters": {
+                    "value": "parent"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -167,16 +187,35 @@
                                   "value": "parent"
                                 }
                               }
-                            },
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Fin_par4": {
+                    "Left Depth as Fraction of Window/Door Width {dimensionless}": {
+                      "alg": "Mathematical4",
+                      "parameters": {
+                        "value": "parent",
+                        "other": [
+                          {
+                            "Shading:Overhang:Projection": {
+                              "identifiers": {
+                                "Overhang_par4": [
+                                  "Depth as Fraction of Window/Door Height {dimensionless}"
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "change": {
+                        "Shading:Fin:Projection": {
+                          "identifiers": {
                             "Fin_par4": {
                               "Right Depth as Fraction of Window/Door Width {dimensionless}": {
-                                "alg": "Multiple",
-                                "parameters": {
-                                  "value": "parent"
-                                }
-                              },
-                              "Left Depth as Fraction of Window/Door Width {dimensionless}": {
-                                "alg": "Multiple",
+                                "alg": "SameValue",
                                 "parameters": {
                                   "value": "parent"
                                 }
