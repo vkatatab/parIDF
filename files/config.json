@@ -123,132 +123,143 @@
                 "value": "parent"
               }
             }
-          },
-          "Shading:Overhang:Projection": {
-            "identifiers": {
-              "Overhang_par1": {
-                "Depth as Fraction of Window/Door Height {dimensionless}": {
-                  "alg": "Overhang1",
-                  "parameters": {
-                    "value": "parent"
-                  }
-                }
-              },
-              "Overhang_par4": {
-                "Depth as Fraction of Window/Door Height {dimensionless}": {
-                  "alg": "Overhang4",
-                  "parameters": {
-                    "value": "parent"
-                  }
-                }
-              }
-            }
           }
         }
       }
     },
-    "FenestrationSurface:Detailed": {
-      "identifiers": {
-        "Zn1_par1_jan": {
-          "Vertex 2 Z-coordinate {m}": {
-            "alg": "MonteCarlo",
-            "parameters": {
-              "min": 0.17040816,
-              "max": 2.3744898,
-              "precision": 0.01
-            },
-            "change": {
-              "Shading:Fin:Projection": {
-                "identifiers": {
-                  "Fin_par1": {
-                    "Left Depth as Fraction of Window/Door Width {dimensionless}": {
-                      "alg": "Mathematical",
-                      "parameters": {
-                        "value": "parent",
-                        "other": [
-                          {
-                            "Shading:Overhang:Projection": {
-                              "identifiers": {
-                                "Overhang_par1": [
-                                  "Depth as Fraction of Window/Door Height {dimensionless}"
-                                ]
-                              }
-                            }
-                          }
-                        ]
-                      },
-                      "change": {
-                        "Shading:Fin:Projection": {
-                          "identifiers": {
-                            "Fin_par1": {
-                              "Right Depth as Fraction of Window/Door Width {dimensionless}": {
-                                "alg": "SameValue",
-                                "parameters": {
-                                  "value": "parent"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "Fin_par4": {
-                    "Left Depth as Fraction of Window/Door Width {dimensionless}": {
-                      "alg": "Mathematical4",
-                      "parameters": {
-                        "value": "parent",
-                        "other": [
-                          {
-                            "Shading:Overhang:Projection": {
-                              "identifiers": {
-                                "Overhang_par4": [
-                                  "Depth as Fraction of Window/Door Height {dimensionless}"
-                                ]
-                              }
-                            }
-                          }
-                        ]
-                      },
-                      "change": {
-                        "Shading:Fin:Projection": {
-                          "identifiers": {
-                            "Fin_par4": {
-                              "Right Depth as Fraction of Window/Door Width {dimensionless}": {
-                                "alg": "SameValue",
-                                "parameters": {
-                                  "value": "parent"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
+
+    "Shading:Overhang:Projection": {
+            "identifiers": {
+              "Overhang_par1": {
+                "Depth as Fraction of Window/Door Height {dimensionless}": {
+                  "alg": "MonteCarlo",
+                  "parameters": {
+                    "min": 0.01,
+                    "max": 2.75,
+                    "precision": 0.01
               },
-              "FenestrationSurface:Detailed": {
-                "identifiers": {
-                  "Zn1_par1_jan": {
-                    "Vertex 3 Z-coordinate {m}": {
-                      "alg": "SameValue",
-                      "parameters": {
-                        "value": "parent"
-                      }
-                    }
-                  },
-                  "Zn1_par4_jan": {
-                    "Vertex 2 Z-coordinate {m}": {
-                      "alg": "SameValue",
-                      "parameters": {
-                        "value": "parent"
-                      }
-                    },
-                    "Vertex 3 Z-coordinate {m}": {
-                      "alg": "SameValue",
-                      "parameters": {
-                        "value": "parent"
+              "change": {
+                "Shading:Overhang:Projection": {
+                  "identifiers": {
+                    "Overhang_par4": {
+                      "Depth as Fraction of Window/Door Height {dimensionless}": {
+                        "alg": "SameValue",
+                        "parameters": {
+                          "value": "parent"
+                        },
+                        "change": {
+                        "FenestrationSurface:Detailed": {
+                          "identifiers": {
+                            "Zn1_par1_jan": {
+                              "Vertex 2 Z-coordinate {m}": {
+                                "alg": "MonteCarlo",
+                                "parameters": {
+                                  "min": 0.17040816,
+                                  "max": 2.3744898,
+                                  "precision": 0.01
+                                },
+                                "change": {
+                                  "Shading:Fin:Projection": {
+                                    "identifiers": {
+                                      "Fin_par1": {
+                                        "Left Depth as Fraction of Window/Door Width {dimensionless}": {
+                                          "alg": "Mathematical",
+                                          "parameters": {
+                                            "value": "parent",
+                                            "other": [
+                                              {
+                                                "Shading:Overhang:Projection": {
+                                                  "identifiers": {
+                                                    "Overhang_par1": [
+                                                      "Depth as Fraction of Window/Door Height {dimensionless}"
+                                                    ]
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          },
+                                          "change": {
+                                            "Shading:Fin:Projection": {
+                                              "identifiers": {
+                                                "Fin_par1": {
+                                                  "Right Depth as Fraction of Window/Door Width {dimensionless}": {
+                                                    "alg": "SameValue",
+                                                    "parameters": {
+                                                      "value": "parent"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "Fin_par4": {
+                                        "Left Depth as Fraction of Window/Door Width {dimensionless}": {
+                                          "alg": "Mathematical4",
+                                          "parameters": {
+                                            "value": "parent",
+                                            "other": [
+                                              {
+                                                "Shading:Overhang:Projection": {
+                                                  "identifiers": {
+                                                    "Overhang_par4": [
+                                                      "Depth as Fraction of Window/Door Height {dimensionless}"
+                                                    ]
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          },
+                                          "change": {
+                                            "Shading:Fin:Projection": {
+                                              "identifiers": {
+                                                "Fin_par4": {
+                                                  "Right Depth as Fraction of Window/Door Width {dimensionless}": {
+                                                    "alg": "SameValue",
+                                                    "parameters": {
+                                                      "value": "parent"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "FenestrationSurface:Detailed": {
+                                    "identifiers": {
+                                      "Zn1_par1_jan": {
+                                        "Vertex 3 Z-coordinate {m}": {
+                                          "alg": "SameValue",
+                                          "parameters": {
+                                            "value": "parent"
+                                          }
+                                        }
+                                      },
+                                      "Zn1_par4_jan": {
+                                        "Vertex 2 Z-coordinate {m}": {
+                                          "alg": "SameValue",
+                                          "parameters": {
+                                            "value": "parent"
+                                          }
+                                        },
+                                        "Vertex 3 Z-coordinate {m}": {
+                                          "alg": "SameValue",
+                                          "parameters": {
+                                            "value": "parent"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
