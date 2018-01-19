@@ -1,8 +1,8 @@
 {
   "quantity": 5,
   "path": {
-    "base": "/home/vinicius/Documents/Workspace/paridf/files/IDFBase_ideal_overhand_fin.idf",
-    "destination": "/home/vinicius/Documents/Workspace/paridf/output",
+    "base": "/home/vinicius/Documents/parIDF/files/Modelobase_V16.idf",
+    "destination": "/home/vinicius/Documents/parIDF/output",
     "weatherFilename": "BRA_SP_Sao_Paulo.epw",
     "parameterFile": "parameter.csv",
     "filename": "file"
@@ -31,6 +31,39 @@
               "min": 0.2,
               "max": 0.9,
               "precision": 0.01
+            }
+          }
+        }
+      }
+    },
+    "WindowMaterial:Blind": {
+          "Front Side Slat Beam Solar Reflectance": {
+            "alg": "Predefined",
+            "parameters": {
+              "values": [
+              "0",
+              "0.8"
+              ]
+          },
+          "change": {
+            "WindowMaterial:Blind": {
+              "Back Side Slat Beam Solar Reflectance": {
+                  "alg": "SameValue",
+                  "parameters": {
+                  "value": "parent"
+                }
+              },
+              "Front Side Slat Diffuse Solar Reflectance": {
+                  "alg": "SameValue",
+                  "parameters": {
+                  "value": "parent"
+                }
+              },
+              "Back Side Slat Diffuse Solar Reflectance": {
+                "alg": "SameValue",
+                "parameters": {
+                "value": "parent"
+              }
             }
           }
         }
@@ -130,18 +163,18 @@
 
     "Shading:Overhang:Projection": {
             "identifiers": {
-              "Overhang_par1": {
+              "Zn1_par1_brise": {
                 "Depth as Fraction of Window/Door Height {dimensionless}": {
                   "alg": "MonteCarlo",
                   "parameters": {
-                    "min": 0.01,
+                    "min": 0.001,
                     "max": 2.75,
                     "precision": 0.01
               },
               "change": {
                 "Shading:Overhang:Projection": {
                   "identifiers": {
-                    "Overhang_par4": {
+                    "Zn1_par4_brise": {
                       "Depth as Fraction of Window/Door Height {dimensionless}": {
                         "alg": "SameValue",
                         "parameters": {
@@ -161,7 +194,7 @@
                                 "change": {
                                   "Shading:Fin:Projection": {
                                     "identifiers": {
-                                      "Fin_par1": {
+                                      "fin_par1": {
                                         "Left Depth as Fraction of Window/Door Width {dimensionless}": {
                                           "alg": "Mathematical",
                                           "parameters": {
@@ -170,7 +203,7 @@
                                               {
                                                 "Shading:Overhang:Projection": {
                                                   "identifiers": {
-                                                    "Overhang_par1": [
+                                                    "Zn1_par1_brise": [
                                                       "Depth as Fraction of Window/Door Height {dimensionless}"
                                                     ]
                                                   }
@@ -181,7 +214,7 @@
                                           "change": {
                                             "Shading:Fin:Projection": {
                                               "identifiers": {
-                                                "Fin_par1": {
+                                                "fin_par1": {
                                                   "Right Depth as Fraction of Window/Door Width {dimensionless}": {
                                                     "alg": "SameValue",
                                                     "parameters": {
@@ -194,7 +227,7 @@
                                           }
                                         }
                                       },
-                                      "Fin_par4": {
+                                      "fin_par4": {
                                         "Left Depth as Fraction of Window/Door Width {dimensionless}": {
                                           "alg": "Mathematical4",
                                           "parameters": {
@@ -203,7 +236,7 @@
                                               {
                                                 "Shading:Overhang:Projection": {
                                                   "identifiers": {
-                                                    "Overhang_par4": [
+                                                    "Zn1_par4_brise": [
                                                       "Depth as Fraction of Window/Door Height {dimensionless}"
                                                     ]
                                                   }
@@ -214,7 +247,7 @@
                                           "change": {
                                             "Shading:Fin:Projection": {
                                               "identifiers": {
-                                                "Fin_par4": {
+                                                "fin_par4": {
                                                   "Right Depth as Fraction of Window/Door Width {dimensionless}": {
                                                     "alg": "SameValue",
                                                     "parameters": {

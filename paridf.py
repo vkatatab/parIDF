@@ -5,6 +5,8 @@ import shutil
 import glob
 import ntpath
 from subprocess import call
+from joblib import Parallel, delayed
+import multiprocessing
 
 # sys.path.insert: possibilita a importação de classes em uma subpasta
 sys.path.insert(0, 'classes')
@@ -19,6 +21,10 @@ idf = main.Main(filename)
 
 idf.createIdfs()
 
+def runEnergyPlus(outputName,weatherFilename):
+	call(["runenergyplus", outputName, weatherFilename])
+
+
 run = input ("*** Do you want to simulate all the created IDF's files? (Y/n):\n")
 # # Y representa Yes e será o default e n representa No
 if run.lower() == "y" or run.lower() == "":
@@ -28,8 +34,8 @@ if run.lower() == "y" or run.lower() == "":
     globName = config['path']['destination'] + '/' + config['path']['filename'] + '*.idf'
     weatherFilename = config['path']['weatherFilename']
     globFiles = glob.glob(globName)
-    for outputName in globFiles:
-        call(["runenergyplus", outputName, weatherFilename])
+    num_cores = multiprocessing.cpu_count()
+    Parallel(n_jobs=num_cores)(delayed(runEnergyPlus)(outputName, weatherFilename) for outputName in globFiles)
     print ("*** The IDF files simulations have been successfully completed ***")
 
 # energyplus -i custom.idd -w weather.epw input.idf

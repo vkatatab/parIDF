@@ -9,7 +9,7 @@ import math
 class Mathematical4(object):
 
     def __init__(self, parameters):
-        a = float(parameters['Shading:Overhang:Projection:Overhang_par4:Depth as Fraction of Window/Door Height {dimensionless}']);
+        a = float(parameters['Shading:Overhang:Projection:Zn1_par4_brise:Depth as Fraction of Window/Door Height {dimensionless}']);
         h = float(parameters['value'])
         self.newValue = ((2.65 - h) * a)/7.84
 

@@ -1,0 +1,1306 @@
+!-Generator IDFEditor 1.49
+!-Option SortedOrder
+
+!-NOTE: All comments with '!-' are ignored by the IDFEditor and are generated automatically.
+!-      Use '!' comments if they need to be retained when using the IDFEditor.
+
+
+!-   ===========  ALL OBJECTS IN CLASS: VERSION ===========
+
+Version,
+    8.7;                     !- Version Identifier
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SIMULATIONCONTROL ===========
+
+SimulationControl,
+    Yes,                     !- Do Zone Sizing Calculation
+    Yes,                     !- Do System Sizing Calculation
+    No,                      !- Do Plant Sizing Calculation
+    No,                      !- Run Simulation for Sizing Periods
+    Yes;                     !- Run Simulation for Weather File Run Periods
+
+
+!-   ===========  ALL OBJECTS IN CLASS: BUILDING ===========
+
+Building,
+    Cross Ventilation,       !- Name
+    225,                     !- North Axis {deg}
+    City,                    !- Terrain
+    0.04,                    !- Loads Convergence Tolerance Value
+    0.4,                     !- Temperature Convergence Tolerance Value {deltaC}
+    FullInteriorAndExterior, !- Solar Distribution
+    25,                      !- Maximum Number of Warmup Days
+    ;                        !- Minimum Number of Warmup Days
+
+
+!-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
+
+Timestep,
+    4;                       !- Number of Timesteps per Hour
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SITE:LOCATION ===========
+
+Site:Location,
+    Sao_Paulo_SP_BRA Design_Conditions,  !- Name
+    -23.85,                  !- Latitude {deg}
+    -46.64,                  !- Longitude {deg}
+    -3.00,                   !- Time Zone {hr}
+    792.00;                  !- Elevation {m}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SIZINGPERIOD:DESIGNDAY ===========
+
+SizingPeriod:DesignDay,
+    Sao Paulo Aeroporto Ann Htg 99.6 Condns DB,  !- Name
+    7,                       !- Month
+    21,                      !- Day of Month
+    WinterDesignDay,         !- Day Type
+    8.8,                     !- Maximum Dry-Bulb Temperature {C}
+    0.0,                     !- Daily Dry-Bulb Temperature Range {deltaC}
+    DefaultMultipliers,      !- Dry-Bulb Temperature Range Modifier Type
+    ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
+    DewPoint,                !- Humidity Condition Type
+    3.9,                     !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+    ,                        !- Humidity Condition Day Schedule Name
+    ,                        !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+    ,                        !- Enthalpy at Maximum Dry-Bulb {J/kg}
+    ,                        !- Daily Wet-Bulb Temperature Range {deltaC}
+    92040,                   !- Barometric Pressure {Pa}
+    2.3,                     !- Wind Speed {m/s}
+    160,                     !- Wind Direction {deg}
+    No,                      !- Rain Indicator
+    No,                      !- Snow Indicator
+    No,                      !- Daylight Saving Time Indicator
+    ASHRAEClearSky,          !- Solar Model Indicator
+    ,                        !- Beam Solar Day Schedule Name
+    ,                        !- Diffuse Solar Day Schedule Name
+    ,                        !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+    ,                        !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+    0.00;                    !- Sky Clearness
+
+SizingPeriod:DesignDay,
+    Sao Paulo Aeroporto Ann Clg 1 Condns DB=>MWB,  !- Name
+    2,                       !- Month
+    21,                      !- Day of Month
+    SummerDesignDay,         !- Day Type
+    31,                      !- Maximum Dry-Bulb Temperature {C}
+    8.3,                     !- Daily Dry-Bulb Temperature Range {deltaC}
+    DefaultMultipliers,      !- Dry-Bulb Temperature Range Modifier Type
+    ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
+    Wetbulb,                 !- Humidity Condition Type
+    20.4,                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+    ,                        !- Humidity Condition Day Schedule Name
+    ,                        !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+    ,                        !- Enthalpy at Maximum Dry-Bulb {J/kg}
+    ,                        !- Daily Wet-Bulb Temperature Range {deltaC}
+    92040,                   !- Barometric Pressure {Pa}
+    3.4,                     !- Wind Speed {m/s}
+    330,                     !- Wind Direction {deg}
+    No,                      !- Rain Indicator
+    No,                      !- Snow Indicator
+    No,                      !- Daylight Saving Time Indicator
+    ASHRAEClearSky,          !- Solar Model Indicator
+    ,                        !- Beam Solar Day Schedule Name
+    ,                        !- Diffuse Solar Day Schedule Name
+    ,                        !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+    ,                        !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+    1.00;                    !- Sky Clearness
+
+SizingPeriod:DesignDay,
+    Sao Paulo Aeroporto Ann Clg 1% Condns WB=>MDB,  !- Name
+    2,                       !- Month
+    21,                      !- Day of Month
+    SummerDesignDay,         !- Day Type
+    27.1,                    !- Maximum Dry-Bulb Temperature {C}
+    8.3,                     !- Daily Dry-Bulb Temperature Range {deltaC}
+    DefaultMultipliers,      !- Dry-Bulb Temperature Range Modifier Type
+    ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
+    Wetbulb,                 !- Humidity Condition Type
+    22.6,                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+    ,                        !- Humidity Condition Day Schedule Name
+    ,                        !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+    ,                        !- Enthalpy at Maximum Dry-Bulb {J/kg}
+    ,                        !- Daily Wet-Bulb Temperature Range {deltaC}
+    92040,                   !- Barometric Pressure {Pa}
+    3.4,                     !- Wind Speed {m/s}
+    330,                     !- Wind Direction {deg}
+    No,                      !- Rain Indicator
+    No,                      !- Snow Indicator
+    No,                      !- Daylight Saving Time Indicator
+    ASHRAEClearSky,          !- Solar Model Indicator
+    ,                        !- Beam Solar Day Schedule Name
+    ,                        !- Diffuse Solar Day Schedule Name
+    ,                        !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+    ,                        !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+    1.00;                    !- Sky Clearness
+
+
+!-   ===========  ALL OBJECTS IN CLASS: RUNPERIOD ===========
+
+RunPeriod,
+    Run Period 1,            !- Name
+    1,                       !- Begin Month
+    1,                       !- Begin Day of Month
+    12,                      !- End Month
+    31,                      !- End Day of Month
+    Sunday,                  !- Day of Week for Start Day
+    No,                      !- Use Weather File Holidays and Special Days
+    No,                      !- Use Weather File Daylight Saving Period
+    No,                      !- Apply Weekend Holiday Rule
+    Yes,                     !- Use Weather File Rain Indicators
+    No,                      !- Use Weather File Snow Indicators
+    1;                       !- Number of Times Runperiod to be Repeated
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULETYPELIMITS ===========
+
+ScheduleTypeLimits,
+    Number,                  !- Name
+    ,                        !- Lower Limit Value
+    ,                        !- Upper Limit Value
+    Continuous;              !- Numeric Type
+
+ScheduleTypeLimits,
+    Fracao,                  !- Name
+    0,                       !- Lower Limit Value
+    1,                       !- Upper Limit Value
+    Continuous,              !- Numeric Type
+    Availability;            !- Unit Type
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:DAY:HOURLY ===========
+
+Schedule:Day:Hourly,
+    sch_util_OCUP,           !- Name
+    Fracao,                  !- Schedule Type Limits Name
+    0,                       !- Hour 1
+    0,                       !- Hour 2
+    0,                       !- Hour 3
+    0,                       !- Hour 4
+    0,                       !- Hour 5
+    0,                       !- Hour 6
+    0,                       !- Hour 7
+    1,                       !- Hour 8
+    1,                       !- Hour 9
+    1,                       !- Hour 10
+    1,                       !- Hour 11
+    0.5,                     !- Hour 12
+    1,                       !- Hour 13
+    1,                       !- Hour 14
+    1,                       !- Hour 15
+    1,                       !- Hour 16
+    1,                       !- Hour 17
+    1,                       !- Hour 18
+    0,                       !- Hour 19
+    0,                       !- Hour 20
+    0,                       !- Hour 21
+    0,                       !- Hour 22
+    0,                       !- Hour 23
+    0;                       !- Hour 24
+
+Schedule:Day:Hourly,
+    sch_sab_OCUP,            !- Name
+    Fracao,                  !- Schedule Type Limits Name
+    0,                       !- Hour 1
+    0,                       !- Hour 2
+    0,                       !- Hour 3
+    0,                       !- Hour 4
+    0,                       !- Hour 5
+    0,                       !- Hour 6
+    0,                       !- Hour 7
+    0.3,                     !- Hour 8
+    0.3,                     !- Hour 9
+    0.3,                     !- Hour 10
+    0.3,                     !- Hour 11
+    0.3,                     !- Hour 12
+    0.3,                     !- Hour 13
+    0,                       !- Hour 14
+    0,                       !- Hour 15
+    0,                       !- Hour 16
+    0,                       !- Hour 17
+    0,                       !- Hour 18
+    0,                       !- Hour 19
+    0,                       !- Hour 20
+    0,                       !- Hour 21
+    0,                       !- Hour 22
+    0,                       !- Hour 23
+    0;                       !- Hour 24
+
+Schedule:Day:Hourly,
+    sch_dom,                 !- Name
+    Fracao,                  !- Schedule Type Limits Name
+    0,                       !- Hour 1
+    0,                       !- Hour 2
+    0,                       !- Hour 3
+    0,                       !- Hour 4
+    0,                       !- Hour 5
+    0,                       !- Hour 6
+    0,                       !- Hour 7
+    0,                       !- Hour 8
+    0,                       !- Hour 9
+    0,                       !- Hour 10
+    0,                       !- Hour 11
+    0,                       !- Hour 12
+    0,                       !- Hour 13
+    0,                       !- Hour 14
+    0,                       !- Hour 15
+    0,                       !- Hour 16
+    0,                       !- Hour 17
+    0,                       !- Hour 18
+    0,                       !- Hour 19
+    0,                       !- Hour 20
+    0,                       !- Hour 21
+    0,                       !- Hour 22
+    0,                       !- Hour 23
+    0;                       !- Hour 24
+
+Schedule:Day:Hourly,
+    sch_util_ILUMEQUIP,      !- Name
+    Fracao,                  !- Schedule Type Limits Name
+    0,                       !- Hour 1
+    0,                       !- Hour 2
+    0,                       !- Hour 3
+    0,                       !- Hour 4
+    0,                       !- Hour 5
+    0,                       !- Hour 6
+    0,                       !- Hour 7
+    1,                       !- Hour 8
+    1,                       !- Hour 9
+    1,                       !- Hour 10
+    1,                       !- Hour 11
+    0.8,                     !- Hour 12
+    1,                       !- Hour 13
+    1,                       !- Hour 14
+    1,                       !- Hour 15
+    1,                       !- Hour 16
+    1,                       !- Hour 17
+    1,                       !- Hour 18
+    0,                       !- Hour 19
+    0,                       !- Hour 20
+    0,                       !- Hour 21
+    0,                       !- Hour 22
+    0,                       !- Hour 23
+    0;                       !- Hour 24
+
+Schedule:Day:Hourly,
+    sch_sab_ILUMEQUIP,       !- Name
+    Fracao,                  !- Schedule Type Limits Name
+    ,                        !- Hour 1
+    0,                       !- Hour 2
+    0,                       !- Hour 3
+    0,                       !- Hour 4
+    0,                       !- Hour 5
+    0,                       !- Hour 6
+    0,                       !- Hour 7
+    0.3,                     !- Hour 8
+    0.3,                     !- Hour 9
+    0.3,                     !- Hour 10
+    0.3,                     !- Hour 11
+    0.3,                     !- Hour 12
+    0.3,                     !- Hour 13
+    0,                       !- Hour 14
+    0,                       !- Hour 15
+    0,                       !- Hour 16
+    0,                       !- Hour 17
+    0,                       !- Hour 18
+    0,                       !- Hour 19
+    0,                       !- Hour 20
+    0,                       !- Hour 21
+    0,                       !- Hour 22
+    0,                       !- Hour 23
+    0;                       !- Hour 24
+
+Schedule:Day:Hourly,
+    sch_util_MM,             !- Name
+    Fracao,                  !- Schedule Type Limits Name
+    0,                       !- Hour 1
+    0,                       !- Hour 2
+    0,                       !- Hour 3
+    0,                       !- Hour 4
+    0,                       !- Hour 5
+    0,                       !- Hour 6
+    0,                       !- Hour 7
+    1,                       !- Hour 8
+    1,                       !- Hour 9
+    1,                       !- Hour 10
+    1,                       !- Hour 11
+    1,                       !- Hour 12
+    1,                       !- Hour 13
+    1,                       !- Hour 14
+    1,                       !- Hour 15
+    1,                       !- Hour 16
+    1,                       !- Hour 17
+    1,                       !- Hour 18
+    0,                       !- Hour 19
+    0,                       !- Hour 20
+    0,                       !- Hour 21
+    0,                       !- Hour 22
+    0,                       !- Hour 23
+    0;                       !- Hour 24
+
+Schedule:Day:Hourly,
+    sch_sab_MM,              !- Name
+    Fracao,                  !- Schedule Type Limits Name
+    0,                       !- Hour 1
+    0,                       !- Hour 2
+    0,                       !- Hour 3
+    0,                       !- Hour 4
+    0,                       !- Hour 5
+    0,                       !- Hour 6
+    0,                       !- Hour 7
+    1,                       !- Hour 8
+    1,                       !- Hour 9
+    1,                       !- Hour 10
+    1,                       !- Hour 11
+    1,                       !- Hour 12
+    1,                       !- Hour 13
+    0,                       !- Hour 14
+    0,                       !- Hour 15
+    0,                       !- Hour 16
+    0,                       !- Hour 17
+    0,                       !- Hour 18
+    0,                       !- Hour 19
+    0,                       !- Hour 20
+    0,                       !- Hour 21
+    0,                       !- Hour 22
+    0,                       !- Hour 23
+    0;                       !- Hour 24
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:WEEK:COMPACT ===========
+
+Schedule:Week:Compact,
+    Sch_Sem_Ocup,            !- Name
+    Weekdays,                !- DayType List 1
+    sch_util_OCUP,           !- Schedule:Day Name 1
+    Saturday,                !- DayType List 2
+    sch_sab_OCUP,            !- Schedule:Day Name 2
+    Sunday,                  !- DayType List 3
+    sch_dom,                 !- Schedule:Day Name 3
+    AllOtherDays,            !- DayType List 4
+    sch_util_OCUP;           !- Schedule:Day Name 4
+
+Schedule:Week:Compact,
+    Sch_Sem_ILUMEQUIP,       !- Name
+    Weekdays,                !- DayType List 1
+    sch_util_ILUMEQUIP,      !- Schedule:Day Name 1
+    Saturday,                !- DayType List 2
+    sch_sab_ILUMEQUIP,       !- Schedule:Day Name 2
+    Sunday,                  !- DayType List 3
+    sch_dom,                 !- Schedule:Day Name 3
+    AllOtherDays,            !- DayType List 4
+    sch_util_ILUMEQUIP;      !- Schedule:Day Name 4
+
+Schedule:Week:Compact,
+    Sch_Sem_MM,              !- Name
+    Weekdays,                !- DayType List 1
+    sch_util_MM,             !- Schedule:Day Name 1
+    Saturday,                !- DayType List 2
+    sch_sab_MM,              !- Schedule:Day Name 2
+    Sunday,                  !- DayType List 3
+    sch_dom,                 !- Schedule:Day Name 3
+    AllOtherDays,            !- DayType List 4
+    sch_util_MM;             !- Schedule:Day Name 4
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:YEAR ===========
+
+Schedule:Year,
+    Sch_Ocup,                !- Name
+    Fracao,                  !- Schedule Type Limits Name
+    Sch_Sem_Ocup,            !- Schedule:Week Name 1
+    1,                       !- Start Month 1
+    1,                       !- Start Day 1
+    12,                      !- End Month 1
+    31;                      !- End Day 1
+
+Schedule:Year,
+    Sch_light_equip,         !- Name
+    Fracao,                  !- Schedule Type Limits Name
+    Sch_Sem_ILUMEQUIP,       !- Schedule:Week Name 1
+    1,                       !- Start Month 1
+    1,                       !- Start Day 1
+    12,                      !- End Month 1
+    31;                      !- End Day 1
+
+Schedule:Year,
+    Sch_MM,                  !- Name
+    Fracao,                  !- Schedule Type Limits Name
+    Sch_Sem_MM,              !- Schedule:Week Name 1
+    1,                       !- Start Month 1
+    1,                       !- Start Day 1
+    12,                      !- End Month 1
+    31;                      !- End Day 1
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SCHEDULE:COMPACT ===========
+
+Schedule:Compact,
+    sch_acticity,            !- Name
+    Number,                  !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    for: alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    117;                     !- Field 4
+
+Schedule:Compact,
+    sch_0,                   !- Name
+    Number,                  !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    for: alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    0;                       !- Field 4
+
+Schedule:Compact,
+    sch_clo,                 !- Name
+    Number,                  !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    for: alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    .5;                      !- Field 4
+
+Schedule:Compact,
+    sch_airvelocity,         !- Name
+    Number,                  !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    for: alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    .2;                      !- Field 4
+
+Schedule:Compact,
+    sch_minoutdoor,          !- Name
+    Number,                  !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    for: alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    .01;                     !- Field 4
+
+Schedule:Compact,
+    sch_Temp,                !- Name
+    Number,                  !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    for: alldays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    20;                      !- Field 4
+
+
+!-   ===========  ALL OBJECTS IN CLASS: MATERIAL ===========
+
+Material,
+    eW_HC,                   !- Name
+    MediumRough,             !- Roughness
+    0.05,                    !- Thickness {m}
+    5,                       !- Conductivity {W/m-K}
+    100,                     !- Density {kg/m3}
+    1000,                    !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.5,                     !- Solar Absorptance
+    0.5;                     !- Visible Absorptance
+
+Material,
+    concrete slab 10cm,      !- Name
+    MediumRough,             !- Roughness
+    0.1,                     !- Thickness {m}
+    1.75,                    !- Conductivity {W/m-K}
+    2300,                    !- Density {kg/m3}
+    1000,                    !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.5,                     !- Solar Absorptance
+    0.5;                     !- Visible Absorptance
+
+
+!-   ===========  ALL OBJECTS IN CLASS: MATERIAL:NOMASS ===========
+
+Material:NoMass,
+    eW_U,                    !- Name
+    MediumRough,             !- Roughness
+    0.19395,                 !- Thermal Resistance {m2-K/W}
+    0.9,                     !- Thermal Absorptance
+    0.5,                     !- Solar Absorptance
+    0.5;                     !- Visible Absorptance
+
+
+!-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:SIMPLEGLAZINGSYSTEM ===========
+
+WindowMaterial:SimpleGlazingSystem,
+    glazing,                 !- Name
+    5.67,                    !- U-Factor {W/m2-K}
+    0.87,                    !- Solar Heat Gain Coefficient
+    0.9;                     !- Visible Transmittance
+
+
+!-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:BLIND ===========
+
+WindowMaterial:Blind,
+    Blind,                   !- Name
+    Horizontal,              !- Slat Orientation
+    0.025,                   !- Slat Width {m}
+    0.01875,                 !- Slat Separation {m}
+    0.001,                   !- Slat Thickness {m}
+    45,                      !- Slat Angle {deg}
+    221,                     !- Slat Conductivity {W/m-K}
+    0,                       !- Slat Beam Solar Transmittance
+    0,                       !- Front Side Slat Beam Solar Reflectance
+    0,                       !- Back Side Slat Beam Solar Reflectance
+    0,                       !- Slat Diffuse Solar Transmittance
+    0,                       !- Front Side Slat Diffuse Solar Reflectance
+    0,                       !- Back Side Slat Diffuse Solar Reflectance
+    0.0,                     !- Slat Beam Visible Transmittance
+    0.7,                     !- Front Side Slat Beam Visible Reflectance
+    0.7,                     !- Back Side Slat Beam Visible Reflectance
+    0.0,                     !- Slat Diffuse Visible Transmittance
+    0.7,                     !- Front Side Slat Diffuse Visible Reflectance
+    0.7,                     !- Back Side Slat Diffuse Visible Reflectance
+    0.0,                     !- Slat Infrared Hemispherical Transmittance
+    0.9,                     !- Front Side Slat Infrared Hemispherical Emissivity
+    0.9,                     !- Back Side Slat Infrared Hemispherical Emissivity
+    0.050,                   !- Blind to Glass Distance {m}
+    0.0,                     !- Blind Top Opening Multiplier
+    0.0,                     !- Blind Bottom Opening Multiplier
+    0.5,                     !- Blind Left Side Opening Multiplier
+    0.5,                     !- Blind Right Side Opening Multiplier
+    2.91,                    !- Minimum Slat Angle {deg}
+    177.09;                  !- Maximum Slat Angle {deg}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: CONSTRUCTION ===========
+
+Construction,
+    Wall,                    !- Name
+    eW_HC,                   !- Outside Layer
+    eW_U,                    !- Layer 2
+    eW_HC;                   !- Layer 3
+
+Construction,
+    Slab,                    !- Name
+    concrete slab 10cm;      !- Outside Layer
+
+Construction,
+    Window,                  !- Name
+    glazing;                 !- Outside Layer
+
+
+!-   ===========  ALL OBJECTS IN CLASS: GLOBALGEOMETRYRULES ===========
+
+GlobalGeometryRules,
+    UpperLeftCorner,         !- Starting Vertex Position
+    Counterclockwise,        !- Vertex Entry Direction
+    Relative;                !- Coordinate System
+
+
+!-   ===========  ALL OBJECTS IN CLASS: ZONE ===========
+
+Zone,
+    Zn1,                     !- Name
+    0,                       !- Direction of Relative North {deg}
+    0.0,                     !- X Origin {m}
+    0.0,                     !- Y Origin {m}
+    13.5,                    !- Z Origin {m}
+    ,                        !- Type
+    1;                       !- Multiplier
+
+
+!-   ===========  ALL OBJECTS IN CLASS: BUILDINGSURFACE:DETAILED ===========
+
+BuildingSurface:Detailed,
+    Piso,                    !- Name
+    Floor,                   !- Surface Type
+    Slab,                    !- Construction Name
+    Zn1,                     !- Zone Name
+    Adiabatic,               !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    0.0,                     !- View Factor to Ground
+    4,                       !- Number of Vertices
+    5.000000000000,          !- Vertex 1 X-coordinate {m}
+    8.000000000000,          !- Vertex 1 Y-coordinate {m}
+    0.000000000000,          !- Vertex 1 Z-coordinate {m}
+    5.000000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.000000000000,          !- Vertex 2 Z-coordinate {m}
+    0.000000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.000000000000,          !- Vertex 3 Z-coordinate {m}
+    0.000000000000,          !- Vertex 4 X-coordinate {m}
+    8.000000000000,          !- Vertex 4 Y-coordinate {m}
+    0.000000000000;          !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Zn1_par4,                !- Name
+    Wall,                    !- Surface Type
+    Wall,                    !- Construction Name
+    Zn1,                     !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    ,                        !- View Factor to Ground
+    4,                       !- Number of Vertices
+    0.000000000000,          !- Vertex 1 X-coordinate {m}
+    8.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.700000000000,          !- Vertex 1 Z-coordinate {m}
+    0.000000000000,          !- Vertex 2 X-coordinate {m}
+    8.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.000000000000,          !- Vertex 2 Z-coordinate {m}
+    0.000000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.000000000000,          !- Vertex 3 Z-coordinate {m}
+    0.000000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.700000000000;          !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Zn1_par3,                !- Name
+    Wall,                    !- Surface Type
+    Wall,                    !- Construction Name
+    Zn1,                     !- Zone Name
+    Adiabatic,               !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    4,                       !- Number of Vertices
+    5.000000000000,          !- Vertex 1 X-coordinate {m}
+    8.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.700000000000,          !- Vertex 1 Z-coordinate {m}
+    5.000000000000,          !- Vertex 2 X-coordinate {m}
+    8.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.000000000000,          !- Vertex 2 Z-coordinate {m}
+    0.000000000000,          !- Vertex 3 X-coordinate {m}
+    8.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.000000000000,          !- Vertex 3 Z-coordinate {m}
+    0.000000000000,          !- Vertex 4 X-coordinate {m}
+    8.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.700000000000;          !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Zn1_par1,                !- Name
+    Wall,                    !- Surface Type
+    Wall,                    !- Construction Name
+    Zn1,                     !- Zone Name
+    Outdoors,                !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    SunExposed,              !- Sun Exposure
+    WindExposed,             !- Wind Exposure
+    ,                        !- View Factor to Ground
+    4,                       !- Number of Vertices
+    0.000000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.700000000000,          !- Vertex 1 Z-coordinate {m}
+    0.000000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.000000000000,          !- Vertex 2 Z-coordinate {m}
+    5.000000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.000000000000,          !- Vertex 3 Z-coordinate {m}
+    5.000000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.700000000000;          !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Zn1_par2,                !- Name
+    Wall,                    !- Surface Type
+    Wall,                    !- Construction Name
+    Zn1,                     !- Zone Name
+    Adiabatic,               !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    4,                       !- Number of Vertices
+    5.000000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.700000000000,          !- Vertex 1 Z-coordinate {m}
+    5.000000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    0.000000000000,          !- Vertex 2 Z-coordinate {m}
+    5.000000000000,          !- Vertex 3 X-coordinate {m}
+    8.000000000000,          !- Vertex 3 Y-coordinate {m}
+    0.000000000000,          !- Vertex 3 Z-coordinate {m}
+    5.000000000000,          !- Vertex 4 X-coordinate {m}
+    8.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.700000000000;          !- Vertex 4 Z-coordinate {m}
+
+BuildingSurface:Detailed,
+    Cobe,                    !- Name
+    Ceiling,                 !- Surface Type
+    Slab,                    !- Construction Name
+    Zn1,                     !- Zone Name
+    Adiabatic,               !- Outside Boundary Condition
+    ,                        !- Outside Boundary Condition Object
+    NoSun,                   !- Sun Exposure
+    NoWind,                  !- Wind Exposure
+    ,                        !- View Factor to Ground
+    4,                       !- Number of Vertices
+    0.000000000000,          !- Vertex 1 X-coordinate {m}
+    8.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.700000000000,          !- Vertex 1 Z-coordinate {m}
+    0.000000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    2.700000000000,          !- Vertex 2 Z-coordinate {m}
+    5.000000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    2.700000000000,          !- Vertex 3 Z-coordinate {m}
+    5.000000000000,          !- Vertex 4 X-coordinate {m}
+    8.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.700000000000;          !- Vertex 4 Z-coordinate {m}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: FENESTRATIONSURFACE:DETAILED ===========
+
+FenestrationSurface:Detailed,
+    Zn1_par1_jan,            !- Name
+    Window,                  !- Surface Type
+    Window,                  !- Construction Name
+    Zn1_par1,                !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    Shading_blind,           !- Shading Control Name
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    4,                       !- Number of Vertices
+    0.050000000000,          !- Vertex 1 X-coordinate {m}
+    0.000000000000,          !- Vertex 1 Y-coordinate {m}
+    2.650000000000,          !- Vertex 1 Z-coordinate {m}
+    0.050000000000,          !- Vertex 2 X-coordinate {m}
+    0.000000000000,          !- Vertex 2 Y-coordinate {m}
+    1.823470000000,          !- Vertex 2 Z-coordinate {m}
+    4.950000000000,          !- Vertex 3 X-coordinate {m}
+    0.000000000000,          !- Vertex 3 Y-coordinate {m}
+    1.823470000000,          !- Vertex 3 Z-coordinate {m}
+    4.950000000000,          !- Vertex 4 X-coordinate {m}
+    0.000000000000,          !- Vertex 4 Y-coordinate {m}
+    2.650000000000;          !- Vertex 4 Z-coordinate {m}
+
+FenestrationSurface:Detailed,
+    Zn1_par4_jan,            !- Name
+    Window,                  !- Surface Type
+    Window,                  !- Construction Name
+    Zn1_par4,                !- Building Surface Name
+    ,                        !- Outside Boundary Condition Object
+    ,                        !- View Factor to Ground
+    Shading_blind,           !- Shading Control Name
+    ,                        !- Frame and Divider Name
+    ,                        !- Multiplier
+    4,                       !- Number of Vertices
+    0.000000000000,          !- Vertex 1 X-coordinate {m}
+    7.92,                    !- Vertex 1 Y-coordinate {m}
+    2.650000000000,          !- Vertex 1 Z-coordinate {m}
+    0.000000000000,          !- Vertex 2 X-coordinate {m}
+    7.92,                    !- Vertex 2 Y-coordinate {m}
+    1.82347,                 !- Vertex 2 Z-coordinate {m}
+    0.000000000000,          !- Vertex 3 X-coordinate {m}
+    0.08,                    !- Vertex 3 Y-coordinate {m}
+    1.82347,                 !- Vertex 3 Z-coordinate {m}
+    0.000000000000,          !- Vertex 4 X-coordinate {m}
+    0.08,                    !- Vertex 4 Y-coordinate {m}
+    2.650000000000;          !- Vertex 4 Z-coordinate {m}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: WINDOWPROPERTY:SHADINGCONTROL ===========
+
+WindowProperty:ShadingControl,
+    Shading_blind,           !- Name
+    InteriorBlind,           !- Shading Type
+    ,                        !- Construction with Shading Name
+    OnIfScheduleAllows,      !- Shading Control Type
+    Sch_MM,                  !- Schedule Name
+    ,                        !- Setpoint {W/m2 W or deg C}
+    Yes,                     !- Shading Control Is Scheduled
+    No,                      !- Glare Control Is Active
+    Blind,                   !- Shading Device Material Name
+    BlockBeamSolar,          !- Type of Slat Angle Control for Blinds
+    ;                        !- Slat Angle Schedule Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SHADING:OVERHANG:PROJECTION ===========
+
+Shading:Overhang:Projection,
+    Zn1_par1_brise,          !- Name
+    Zn1_par1_jan,            !- Window or Door Name
+    ,                        !- Height above Window or Door {m}
+    90,                      !- Tilt Angle from Window/Door {deg}
+    ,                        !- Left extension from Window/Door Width {m}
+    ,                        !- Right extension from Window/Door Width {m}
+    0.001;                   !- Depth as Fraction of Window/Door Height {dimensionless}
+
+Shading:Overhang:Projection,
+    Zn1_par4_brise,          !- Name
+    Zn1_par4_jan,            !- Window or Door Name
+    ,                        !- Height above Window or Door {m}
+    90,                      !- Tilt Angle from Window/Door {deg}
+    ,                        !- Left extension from Window/Door Width {m}
+    ,                        !- Right extension from Window/Door Width {m}
+    0.001;                   !- Depth as Fraction of Window/Door Height {dimensionless}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: SHADING:FIN:PROJECTION ===========
+
+Shading:Fin:Projection,
+    fin_par1,                !- Name
+    Zn1_par1_jan,            !- Window or Door Name
+    0,                       !- Left Extension from Window/Door {m}
+    0,                       !- Left Distance Above Top of Window {m}
+    0,                       !- Left Distance Below Bottom of Window {m}
+    90,                      !- Left Tilt Angle from Window/Door {deg}
+    0.001,                   !- Left Depth as Fraction of Window/Door Width {dimensionless}
+    0,                       !- Right Extension from Window/Door {m}
+    0,                       !- Right Distance Above Top of Window {m}
+    0,                       !- Right Distance Below Bottom of Window {m}
+    90,                      !- Right Tilt Angle from Window/Door {deg}
+    0.001;                   !- Right Depth as Fraction of Window/Door Width {dimensionless}
+
+Shading:Fin:Projection,
+    fin_par4,                !- Name
+    Zn1_par4_jan,            !- Window or Door Name
+    0,                       !- Left Extension from Window/Door {m}
+    0,                       !- Left Distance Above Top of Window {m}
+    0,                       !- Left Distance Below Bottom of Window {m}
+    90,                      !- Left Tilt Angle from Window/Door {deg}
+    0.001,                   !- Left Depth as Fraction of Window/Door Width {dimensionless}
+    0,                       !- Right Extension from Window/Door {m}
+    0,                       !- Right Distance Above Top of Window {m}
+    0,                       !- Right Distance Below Bottom of Window {m}
+    90,                      !- Right Tilt Angle from Window/Door {deg}
+    0.001;                   !- Right Depth as Fraction of Window/Door Width {dimensionless}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: PEOPLE ===========
+
+People,
+    Occupancy,               !- Name
+    Zn1,                     !- Zone or ZoneList Name
+    Sch_Ocup,                !- Number of People Schedule Name
+    People/Area,             !- Number of People Calculation Method
+    ,                        !- Number of People
+    0.14,                    !- People per Zone Floor Area {person/m2}
+    ,                        !- Zone Floor Area per Person {m2/person}
+    0.3,                     !- Fraction Radiant
+    autocalculate,           !- Sensible Heat Fraction
+    sch_acticity,            !- Activity Level Schedule Name
+    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    Yes,                     !- Enable ASHRAE 55 Comfort Warnings
+    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Surface Name/Angle Factor List Name
+    sch_0,                   !- Work Efficiency Schedule Name
+    ClothingInsulationSchedule,  !- Clothing Insulation Calculation Method
+    ,                        !- Clothing Insulation Calculation Method Schedule Name
+    sch_clo,                 !- Clothing Insulation Schedule Name
+    sch_airvelocity,         !- Air Velocity Schedule Name
+    AdaptiveASH55;           !- Thermal Comfort Model 1 Type
+
+
+!-   ===========  ALL OBJECTS IN CLASS: LIGHTS ===========
+
+Lights,
+    Lights,                  !- Name
+    Zn1,                     !- Zone or ZoneList Name
+    Sch_light_equip,         !- Schedule Name
+    Watts/Area,              !- Design Level Calculation Method
+    ,                        !- Lighting Level {W}
+    9.7,                     !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0.31,                    !- Return Air Fraction
+    0.22,                    !- Fraction Radiant
+    0.2,                     !- Fraction Visible
+    1,                       !- Fraction Replaceable
+    General,                 !- End-Use Subcategory
+    No;                      !- Return Air Fraction Calculated from Plenum Temperature
+
+
+!-   ===========  ALL OBJECTS IN CLASS: ELECTRICEQUIPMENT ===========
+
+ElectricEquipment,
+    Equipment,               !- Name
+    Zn1,                     !- Zone or ZoneList Name
+    Sch_light_equip,         !- Schedule Name
+    Watts/Area,              !- Design Level Calculation Method
+    ,                        !- Design Level {W}
+    10.7,                    !- Watts per Zone Floor Area {W/m2}
+    ,                        !- Watts per Person {W/person}
+    0,                       !- Fraction Latent
+    0.5,                     !- Fraction Radiant
+    0,                       !- Fraction Lost
+    General;                 !- End-Use Subcategory
+
+
+!-   ===========  ALL OBJECTS IN CLASS: AIRFLOWNETWORK:SIMULATIONCONTROL ===========
+
+AirflowNetwork:SimulationControl,
+    NV,                      !- Name
+    MultizoneWithoutDistribution,  !- AirflowNetwork Control
+    SurfaceAverageCalculation,  !- Wind Pressure Coefficient Type
+    OpeningHeight,           !- Height Selection for Local Wind Pressure Calculation
+    HighRise,                !- Building Type
+    500,                     !- Maximum Number of Iterations {dimensionless}
+    ZeroNodePressures,       !- Initialization Type
+    0.0001,                  !- Relative Airflow Convergence Tolerance {dimensionless}
+    0.000001,                !- Absolute Airflow Convergence Tolerance {kg/s}
+    -.5,                     !- Convergence Acceleration Limit {dimensionless}
+    0,                       !- Azimuth Angle of Long Axis of Building {deg}
+    0.5,                     !- Ratio of Building Width Along Short Axis to Width Along Long Axis
+    No;                      !- Height Dependence of External Node Temperature
+
+
+!-   ===========  ALL OBJECTS IN CLASS: AIRFLOWNETWORK:MULTIZONE:ZONE ===========
+
+AirflowNetwork:MultiZone:Zone,
+    Zn1,                     !- Zone Name
+    ASHRAE55Adaptive,        !- Ventilation Control Mode
+    ,                        !- Ventilation Control Zone Temperature Setpoint Schedule Name
+    ,                        !- Minimum Venting Open Factor {dimensionless}
+    ,                        !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
+    ,                        !- Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor {deltaC}
+    ,                        !- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
+    300000,                  !- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimum Venting Open Factor {deltaJ/kg}
+    Sch_MM,                  !- Venting Availability Schedule Name
+    Standard,                !- Single Sided Wind Pressure Coefficient Algorithm
+    10;                      !- Facade Width {m}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: AIRFLOWNETWORK:MULTIZONE:SURFACE ===========
+
+AirflowNetwork:MultiZone:Surface,
+    Zn1_par1_jan,            !- Surface Name
+    window_width,            !- Leakage Component Name
+    ,                        !- External Node Name
+    0.27,                    !- Window/Door Opening Factor or Crack Factor {dimensionless}
+    ASHRAE55Adaptive,        !- Ventilation Control Mode
+    ,                        !- Ventilation Control Zone Temperature Setpoint Schedule Name
+    1,                       !- Minimum Venting Open Factor {dimensionless}
+    0,                       !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
+    0.000001,                !- Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor {deltaC}
+    ,                        !- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
+    300000,                  !- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimum Venting Open Factor {deltaJ/kg}
+    Sch_MM;                  !- Venting Availability Schedule Name
+
+AirflowNetwork:MultiZone:Surface,
+    Zn1_par4_jan,            !- Surface Name
+    window_depth,            !- Leakage Component Name
+    ,                        !- External Node Name
+    0.27,                    !- Window/Door Opening Factor or Crack Factor {dimensionless}
+    ASHRAE55Adaptive,        !- Ventilation Control Mode
+    ,                        !- Ventilation Control Zone Temperature Setpoint Schedule Name
+    1,                       !- Minimum Venting Open Factor {dimensionless}
+    0,                       !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
+    0.000001,                !- Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor {deltaC}
+    ,                        !- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
+    300000,                  !- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimum Venting Open Factor {deltaJ/kg}
+    Sch_MM;                  !- Venting Availability Schedule Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: AIRFLOWNETWORK:MULTIZONE:COMPONENT:DETAILEDOPENING ===========
+
+AirflowNetwork:MultiZone:Component:DetailedOpening,
+    window_depth,            !- Name
+    0.001,                   !- Air Mass Flow Coefficient When Opening is Closed {kg/s-m}
+    0.65,                    !- Air Mass Flow Exponent When Opening is Closed {dimensionless}
+    NonPivoted,              !- Type of Rectangular Large Vertical Opening (LVO)
+    14,                      !- Extra Crack Length or Height of Pivoting Axis {m}
+    2,                       !- Number of Sets of Opening Factor Data
+    0,                       !- Opening Factor 1 {dimensionless}
+    0.001,                   !- Discharge Coefficient for Opening Factor 1 {dimensionless}
+    0,                       !- Width Factor for Opening Factor 1 {dimensionless}
+    0,                       !- Height Factor for Opening Factor 1 {dimensionless}
+    0,                       !- Start Height Factor for Opening Factor 1 {dimensionless}
+    1,                       !- Opening Factor 2 {dimensionless}
+    0.6,                     !- Discharge Coefficient for Opening Factor 2 {dimensionless}
+    1,                       !- Width Factor for Opening Factor 2 {dimensionless}
+    1,                       !- Height Factor for Opening Factor 2 {dimensionless}
+    0;                       !- Start Height Factor for Opening Factor 2 {dimensionless}
+
+AirflowNetwork:MultiZone:Component:DetailedOpening,
+    window_width,            !- Name
+    0.001,                   !- Air Mass Flow Coefficient When Opening is Closed {kg/s-m}
+    0.65,                    !- Air Mass Flow Exponent When Opening is Closed {dimensionless}
+    NonPivoted,              !- Type of Rectangular Large Vertical Opening (LVO)
+    8,                       !- Extra Crack Length or Height of Pivoting Axis {m}
+    2,                       !- Number of Sets of Opening Factor Data
+    0,                       !- Opening Factor 1 {dimensionless}
+    0.001,                   !- Discharge Coefficient for Opening Factor 1 {dimensionless}
+    0,                       !- Width Factor for Opening Factor 1 {dimensionless}
+    0,                       !- Height Factor for Opening Factor 1 {dimensionless}
+    0,                       !- Start Height Factor for Opening Factor 1 {dimensionless}
+    1,                       !- Opening Factor 2 {dimensionless}
+    0.6,                     !- Discharge Coefficient for Opening Factor 2 {dimensionless}
+    1,                       !- Width Factor for Opening Factor 2 {dimensionless}
+    1,                       !- Height Factor for Opening Factor 2 {dimensionless}
+    0;                       !- Start Height Factor for Opening Factor 2 {dimensionless}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: HVACTEMPLATE:THERMOSTAT ===========
+
+HVACTemplate:Thermostat,
+    Thermostat,              !- Name
+    ,                        !- Heating Setpoint Schedule Name
+    20,                      !- Constant Heating Setpoint {C}
+    ,                        !- Cooling Setpoint Schedule Name
+    25;                      !- Constant Cooling Setpoint {C}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: HVACTEMPLATE:ZONE:UNITARY ===========
+
+HVACTemplate:Zone:Unitary,
+    Zn1,                     !- Zone Name
+    ZN1_HVAC,                !- Template Unitary System Name
+    Thermostat,              !- Template Thermostat Name
+    autosize,                !- Supply Air Maximum Flow Rate {m3/s}
+    ,                        !- Zone Heating Sizing Factor
+    ,                        !- Zone Cooling Sizing Factor
+    Flow/Zone,               !- Outdoor Air Method
+    ,                        !- Outdoor Air Flow Rate per Person {m3/s}
+    ,                        !- Outdoor Air Flow Rate per Zone Floor Area {m3/s-m2}
+    0.026,                   !- Outdoor Air Flow Rate per Zone {m3/s}
+    ,                        !- Supply Plenum Name
+    ,                        !- Return Plenum Name
+    None,                    !- Baseboard Heating Type
+    ,                        !- Baseboard Heating Availability Schedule Name
+    autosize,                !- Baseboard Heating Capacity {W}
+    SystemSupplyAirTemperature,  !- Zone Cooling Design Supply Air Temperature Input Method
+    14,                      !- Zone Cooling Design Supply Air Temperature {C}
+    11,                      !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+    SystemSupplyAirTemperature,  !- Zone Heating Design Supply Air Temperature Input Method
+    31,                      !- Zone Heating Design Supply Air Temperature {C}
+    11;                      !- Zone Heating Design Supply Air Temperature Difference {deltaC}
+
+
+!-   ===========  ALL OBJECTS IN CLASS: HVACTEMPLATE:SYSTEM:UNITARY ===========
+
+HVACTemplate:System:Unitary,
+    ZN1_HVAC,                !- Name
+    Sch_MM,                  !- System Availability Schedule Name
+    Zn1,                     !- Control Zone or Thermostat Location Name
+    autosize,                !- Supply Fan Maximum Flow Rate {m3/s}
+    ,                        !- Supply Fan Operating Mode Schedule Name
+    0.3,                     !- Supply Fan Total Efficiency
+    100,                     !- Supply Fan Delta Pressure {Pa}
+    0.8,                     !- Supply Fan Motor Efficiency
+    1,                       !- Supply Fan Motor in Air Stream Fraction
+    SingleSpeedDX,           !- Cooling Coil Type
+    ,                        !- Cooling Coil Availability Schedule Name
+    14,                      !- Cooling Design Supply Air Temperature {C}
+    autosize,                !- Cooling Coil Gross Rated Total Capacity {W}
+    autosize,                !- Cooling Coil Gross Rated Sensible Heat Ratio
+    3.24,                    !- Cooling Coil Gross Rated COP {W/W}
+    Electric,                !- Heating Coil Type
+    ,                        !- Heating Coil Availability Schedule Name
+    50,                      !- Heating Design Supply Air Temperature {C}
+    autosize,                !- Heating Coil Capacity {W}
+    0.8,                     !- Gas Heating Coil Efficiency
+    ,                        !- Gas Heating Coil Parasitic Electric Load {W}
+    autosize,                !- Maximum Outdoor Air Flow Rate {m3/s}
+    autosize,                !- Minimum Outdoor Air Flow Rate {m3/s}
+    ,                        !- Minimum Outdoor Air Schedule Name
+    NoEconomizer,            !- Economizer Type
+    NoLockout,               !- Economizer Lockout
+    ,                        !- Economizer Upper Temperature Limit {C}
+    ,                        !- Economizer Lower Temperature Limit {C}
+    ,                        !- Economizer Upper Enthalpy Limit {J/kg}
+    ,                        !- Economizer Maximum Limit Dewpoint Temperature {C}
+    ,                        !- Supply Plenum Name
+    ,                        !- Return Plenum Name
+    BlowThrough,             !- Supply Fan Placement
+    StayOff,                 !- Night Cycle Control
+    ,                        !- Night Cycle Control Zone Name
+    None,                    !- Heat Recovery Type
+    0.7,                     !- Sensible Heat Recovery Effectiveness
+    0.65,                    !- Latent Heat Recovery Effectiveness
+    None,                    !- Dehumidification Control Type
+    60,                      !- Dehumidification Setpoint {percent}
+    None,                    !- Humidifier Type
+    ,                        !- Humidifier Availability Schedule Name
+    0.000001,                !- Humidifier Rated Capacity {m3/s}
+    autosize,                !- Humidifier Rated Electric Power {W}
+    ,                        !- Humidifier Control Zone Name
+    30,                      !- Humidifier Setpoint {percent}
+    No,                      !- Return Fan
+    0.7,                     !- Return Fan Total Efficiency
+    500,                     !- Return Fan Delta Pressure {Pa}
+    0.9,                     !- Return Fan Motor Efficiency
+    1;                       !- Return Fan Motor in Air Stream Fraction
+
+
+!-   ===========  ALL OBJECTS IN CLASS: ENERGYMANAGEMENTSYSTEM:SENSOR ===========
+
+EnergyManagementSystem:Sensor,
+    OnOffSensor2,            !- Name
+    Occupancy,               !- OutputVariable or OutputMeter Index Key Name
+    People Occupant Count;   !- OutputVariable or OutputMeter Name
+
+EnergyManagementSystem:Sensor,
+    OnOffSensor3,            !- Name
+    Occupancy,               !- OutputVariable or OutputMeter Index Key Name
+    Zone Thermal Comfort ASHRAE 55 Adaptive Model 80% Acceptability Status ;  !- OutputVariable or OutputMeter Name
+
+EnergyManagementSystem:Sensor,
+    OnOffSensor4,            !- Name
+    Zn1,                     !- OutputVariable or OutputMeter Index Key Name
+    Site Outdoor Air Drybulb Temperature ;  !- OutputVariable or OutputMeter Name
+
+EnergyManagementSystem:Sensor,
+    OnOffSensor5,            !- Name
+    Zn1,                     !- OutputVariable or OutputMeter Index Key Name
+    Zone Operative Temperature ;  !- OutputVariable or OutputMeter Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: ENERGYMANAGEMENTSYSTEM:ACTUATOR ===========
+
+EnergyManagementSystem:Actuator,
+    OnOffActuator,           !- Name
+    Zn1_par1_jan,            !- Actuated Component Unique Name
+    AirFlow Network Window/Door Opening,  !- Actuated Component Type
+    Venting Opening Factor;  !- Actuated Component Control Type
+
+EnergyManagementSystem:Actuator,
+    OnOffActuator2,          !- Name
+    ZN1_HVAC,                !- Actuated Component Unique Name
+    AirLoopHVAC,             !- Actuated Component Type
+    Availability Status;     !- Actuated Component Control Type
+
+EnergyManagementSystem:Actuator,
+    OnOffActuator3,          !- Name
+    Zn1_par4_jan,            !- Actuated Component Unique Name
+    AirFlow Network Window/Door Opening,  !- Actuated Component Type
+    Venting Opening Factor;  !- Actuated Component Control Type
+
+
+!-   ===========  ALL OBJECTS IN CLASS: ENERGYMANAGEMENTSYSTEM:PROGRAMCALLINGMANAGER ===========
+
+EnergyManagementSystem:ProgramCallingManager,
+    Calculate vent openings, !- Name
+    InsideHVACSystemIterationLoop,  !- EnergyPlus Model Calling Point
+    DefineOpening;           !- Program Name 1
+
+
+!-   ===========  ALL OBJECTS IN CLASS: ENERGYMANAGEMENTSYSTEM:PROGRAM ===========
+
+EnergyManagementSystem:Program,
+    DefineOpening,           !- Name
+    IF ( OnOffSensor3 <0.5), !- Program Line 1
+    IF OnOffSensor2 > 0,     !- Program Line 2
+    SET OnOffActuator2 = 2,  !- A4
+    SET OnOffActuator=0,     !- A5
+    SET OnOffActuator3=0,    !- A6
+    ELSE,                    !- A7
+    SET OnOffActuator2=1,    !- A8
+    SET OnOffActuator=0,     !- A9
+    SET OnOffActuator3=0,    !- A10
+    ENDIF,                   !- A11
+    ELSEIF ( OnOffSensor5 > OnOffSensor4 AND OnOffSensor2 > 0 AND OnOffSensor3 >= 0.5),  !- A12
+    SET OnOffActuator2=1,    !- A13
+    SET OnOffActuator=0.27,  !- A14
+    SET OnOffActuator3=0.27, !- A15
+    ELSE,                    !- A16
+    SET OnOffActuator2=1,    !- A17
+    SET OnOffActuator=0,     !- A18
+    SET OnOffActuator3=0,    !- A19
+    ENDIF;                   !- A20
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLEDICTIONARY ===========
+
+Output:VariableDictionary,
+    regular;                 !- Key Field
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:SURFACES:DRAWING ===========
+
+Output:Surfaces:Drawing,
+    DXF,                     !- Report Type
+    RegularPolyline;         !- Report Specifications 1
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:ENERGYMANAGEMENTSYSTEM ===========
+
+Output:EnergyManagementSystem,
+    Verbose,                 !- Actuator Availability Dictionary Reporting
+    None,                    !- Internal Variable Availability Dictionary Reporting
+    ErrorsOnly;              !- EMS Runtime Language Debug Output Level
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:TABLE:SUMMARYREPORTS ===========
+
+Output:Table:SummaryReports,
+    AllSummary;              !- Report 1 Name
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUTCONTROL:TABLE:STYLE ===========
+
+OutputControl:Table:Style,
+    Comma,                   !- Column Separator
+    JtoKWH;                  !- Unit Conversion
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
+
+Output:Variable,
+    *,                       !- Key Value
+    Site Outdoor Air Drybulb Temperature,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Site Wind Speed,         !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Operative Temperature,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    AFN Surface Venting Window or Door Opening Factor,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    AFN Zone Infiltration Volume,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    AFN Zone Infiltration Air Change Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Thermal Comfort ASHRAE 55 Adaptive Model 80% Acceptability Status,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Thermal Comfort ASHRAE 55 Adaptive Model Running Average Outdoor Air Temperature,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Mean Air Temperature,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Zone Predicted Sensible Load to Setpoint Heat Transfer Rate,  !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+Output:Variable,
+    *,                       !- Key Value
+    Site Day Type Index,     !- Variable Name
+    Hourly;                  !- Reporting Frequency
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:METER ===========
+
+Output:Meter,
+    Cooling:EnergyTransfer , !- Name
+    Hourly;                  !- Reporting Frequency
+
+
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:DIAGNOSTICS ===========
+
+Output:Diagnostics,
+    DisplayExtraWarnings;    !- Key 1
+
