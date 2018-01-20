@@ -31,9 +31,10 @@ if run.lower() == "y" or run.lower() == "":
     energyplusOutput = config['path']['destination'] + '/Output'
     if (os.path.isdir(energyplusOutput)):
         shutil.rmtree(energyplusOutput)
-    globName = config['path']['destination'] + '/' + config['path']['filename'] + '*.idf'
+    globName = config['path']['destination'] + '/' + config['path']['filename'] + '*/' + config['path']['filename'] + '*.idf'
     weatherFilename = config['path']['weatherFilename']
     globFiles = glob.glob(globName)
+    print(globFiles)
     num_cores = multiprocessing.cpu_count()
     Parallel(n_jobs=num_cores)(delayed(runEnergyPlus)(outputName, weatherFilename) for outputName in globFiles)
     print ("*** The IDF files simulations have been successfully completed ***")
@@ -46,7 +47,7 @@ if run.lower() == "y" or run.lower() == "":
         extensionFolder = energyplusOutput + '/' + extension
         if not os.path.exists(extensionFolder):
             os.makedirs(extensionFolder)
-        globName = energyplusOutput + '/' + config['path']['filename'] + '*.' + extension
+        globName = config['path']['destination'] + '/' + config['path']['filename'] + '*' + '/Output/' + config['path']['filename'] + '*.' + extension
         for file in glob.glob(globName):
             os.rename(file, extensionFolder + '/' + ntpath.basename(file))
 

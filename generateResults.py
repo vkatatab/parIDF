@@ -12,13 +12,12 @@ fp = open(filename)
 file = fp.read()
 config = json.loads(file)
 
-globString = config['path']['destination'] + '/*.idf'
+globString = config['path']['destination'] + '/**/*.idf'
 globFiles = glob.glob(globString)
 
 results = config['results']
 
 for resultName in results:
-
     resultDict = {}
     resultConfig = results[resultName]
     for globFile in globFiles:
@@ -28,7 +27,6 @@ for resultName in results:
             filename = config['path']['source'] + '/' + splittedName[0] + 'Meter.csv'
         else:
             filename = config['path']['source'] + '/' + splittedName[0] + '.csv'
-        # print(filename)
         with open(filename) as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:

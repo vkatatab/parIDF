@@ -115,9 +115,12 @@ class Main(object):
         # gera a quatidade de idf's configurada
         for x in range(1,self.config['quantity']+1):
 
-            filename = self.config['path']['filename'] + '' + str(x) + '.idf'
+            baseFilename = self.config['path']['filename'] + '' + str(x)
+            if not os.path.exists(self.config['path']['destination'] + '/' + baseFilename):
+                os.makedirs(self.config['path']['destination'] + '/' + baseFilename)
+            filename = baseFilename + '/' + baseFilename + '.idf'
             self.header = 'output'
-            self.configString = filename
+            self.configString = baseFilename + '.idf'
 
             # instancia a classe do idf a partir do idf base
             idf = idfset.IDFSet(self.config['path']['base'])
