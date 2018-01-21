@@ -21,7 +21,7 @@
       "ResfriamentoHVAC.csv": {
         "meter": false,
         "columns": [
-            "Cooling:EnergyTransfer [J](Hourly) "
+            "Cooling:EnergyTransfer [J](Hourly)"
         ]
       },
       "ConfortoASHRAE55Percentual80.csv": {

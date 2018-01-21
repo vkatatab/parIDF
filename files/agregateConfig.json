@@ -20,7 +20,7 @@
     },
     "ResfriamentoHVAC.csv": {
       "columns": {
-        "Cooling:EnergyTransfer [J](Hourly) ": {
+        "Cooling:EnergyTransfer [J](Hourly)": {
           "values": [
             "SUM"
           ]

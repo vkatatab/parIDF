@@ -6,6 +6,7 @@ import glob
 import ntpath
 import csv
 from subprocess import call
+from tqdm import tqdm
 
 filename = 'files/resultConfig.json'
 fp = open(filename)
@@ -17,10 +18,10 @@ globFiles = glob.glob(globString)
 
 results = config['results']
 
-for resultName in results:
+for resultName in tqdm(results):
     resultDict = {}
     resultConfig = results[resultName]
-    for globFile in globFiles:
+    for globFile in tqdm(globFiles):
         basename = ntpath.basename(globFile)
         splittedName = os.path.splitext(basename)
         if (resultConfig['meter']):

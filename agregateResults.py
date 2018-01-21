@@ -12,7 +12,7 @@ import csv
 import re
 import collections
 from subprocess import call
-
+from tqdm import tqdm
 
 # inicia a leitura do arquivo de configuração
 filename = 'files/agregateConfig.json'
@@ -24,7 +24,7 @@ source = config['path']['source'] + '/'
 
 files = config['files']
 
-for filename in files:
+for filename in tqdm(files):
     fullPath = source + filename
 
     with open(fullPath, "r") as f:
