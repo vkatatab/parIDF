@@ -1,59 +1,33 @@
 {
   "path":{
-    "source": "/home/caroline/Documents/parIdf/output/Output/csv",
-    "destination": "/home/caroline/Documents/parIdf/output",
+    "source": "/home/vinicius/Documents/parIDF/output/Output/csv",
+    "destination": "/home/vinicius/Documents/parIDF/output",
     "filename": "file"
   },
   "results": {
-      "Temperatures.csv": {
+      "TemperaturaOperativa.csv": {
         "meter": false,
         "columns": [
-            "Environment:Site Outdoor Air Drybulb Temperature [C](Hourly)",
-            "ZN1:Zone Mean Air Temperature [C](Hourly)",
-            "ZN1:Zone Operative Temperature [C](Hourly)",
-            "ZN1:Zone Mean Radiant Temperature [C](Hourly)"
+            "ZN1:Zone Operative Temperature [C](Hourly)"
         ]
       },
-      "OpeningFactor.csv": {
+      "HorasOcupadasComHVAC.csv": {
         "meter": false,
         "columns": [
             "ZN1_PAR1_JAN:AFN Surface Venting Window or Door Opening Factor [](Hourly)",
             "ZN1_PAR4_JAN:AFN Surface Venting Window or Door Opening Factor [](Hourly)"
         ]
       },
-      "NaturalVentilation.csv": {
+      "ResfriamentoHVAC.csv": {
         "meter": false,
         "columns": [
-            "ZN1:AFN Zone Infiltration Volume [m3](Hourly)",
-            "ZN1:AFN Zone Infiltration Air Change Rate [ach](Hourly)"
+            "Cooling:EnergyTransfer [J](Hourly) "
         ]
       },
-      "HybridControl.csv": {
+      "ConfortoASHRAE55Percentual80.csv": {
         "meter": false,
         "columns": [
-            "ZN1:Availability Manager Hybrid Ventilation Control Status [](Hourly)",
-            "ZN1:Availability Manager Hybrid Ventilation Control Mode [](Hourly)"
-        ]
-      },
-      "IdealAirConditioning.csv": {
-        "meter": false,
-        "columns": [
-            "ZN1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Sensible Cooling Energy [J](Hourly)",
-            "ZN1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Energy [J](Hourly)"
-        ]
-      },
-      "TotalPowerConsumption.csv": {
-        "meter": false,
-        "columns": [
-            "Electricity:Facility [J](Hourly)",
-            "DistrictCooling:Facility [J](Hourly)"
-        ]
-      },
-      "CO2eCarbonEquivalent.csv": {
-        "meter": false,
-        "columns": [
-            "CO2:Facility [kg](Hourly)",
-            "Carbon Equivalent:Facility [kg](Hourly) "
+            "OCCUPANCY:Zone Thermal Comfort ASHRAE 55 Adaptive Model 80% Acceptability Status [](Hourly)"
         ]
       }
   }

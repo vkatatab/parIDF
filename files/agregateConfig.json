@@ -1,43 +1,37 @@
 {
   "path":{
-    "source": "/home/caroline/Documents/parIdf/output",
-    "destination": "/home/caroline/Documents/parIdf/output"
+    "source": "/home/vinicius/Documents/parIDF/output",
+    "destination": "/home/vinicius/Documents/parIDF/output"
   },
   "files": {
-    "TotalPowerConsumption.csv": {
+    "HorasOcupadasComHVAC.csv": {
       "columns": {
-        "Electricity:Facility [J](Hourly)": {
+        "ZN1_PAR1_JAN:AFN Surface Venting Window or Door Opening Factor [](Hourly)": {
           "values": [
-            "SUM",
-            "MIN",
-            "MAX"
+            "SUM"
           ]
         },
-        "DistrictCooling:Facility [J](Hourly)": {
+        "ZN1_PAR4_JAN:AFN Surface Venting Window or Door Opening Factor [](Hourly)": {
           "values": [
-            "SUM",
-            "MIN",
-            "MAX"
+            "SUM"
           ]
         }
       }
     },
-    "CO2eCarbonEquivalent.csv": {
+    "ResfriamentoHVAC.csv": {
       "columns": {
-        "CO2:Facility [kg](Hourly)": {
+        "Cooling:EnergyTransfer [J](Hourly) ": {
           "values": [
-            "SUM/COUNT",
-            "COUNT",
-            "MIN",
-            "MAX",
             "SUM"
           ]
-        },
-        "Carbon Equivalent:Facility [kg](Hourly) ": {
+        }
+      }
+    },
+    "ConfortoASHRAE55Percentual80.csv": {
+      "columns": {
+        "OCCUPANCY:Zone Thermal Comfort ASHRAE 55 Adaptive Model 80% Acceptability Status [](Hourly)": {
           "values": [
-            "SUM",
-            "MIN",
-            "MAX"
+            "SUM"
           ]
         }
       }
