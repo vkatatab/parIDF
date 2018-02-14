@@ -20,7 +20,7 @@
       "ResfriamentoHVACIdeal.csv": {
         "meter": false,
         "columns": [
-            "ZN1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Rate [W](Hourly)"
+          "ZN1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Rate [W](Hourly)"
         ]
       },
        "Carbono.csv": {
