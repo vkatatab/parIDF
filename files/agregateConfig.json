@@ -1,35 +1,22 @@
 {
   "path":{
-    "source": "/home/vinicius/Documents/parIDF/output",
-    "destination": "/home/vinicius/Documents/parIDF/output"
+    "source": "/home/vinicius/Documents/versionada/parIDF/output",
+    "destination": "/home/vinicius/Documents/versionada/parIDF/output"
   },
   "files": {
-    "HorasOcupadasComHVAC.csv": {
+    "ResfriamentoHVACIdeal.csv": {
       "columns": {
-        "ZN1_PAR1_JAN:AFN Surface Venting Window or Door Opening Factor [](Hourly)": {
+        "ZN1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Rate [W](Hourly)": {
           "values": [
-            "SUM"
-          ]
-        },
-        "ZN1_PAR4_JAN:AFN Surface Venting Window or Door Opening Factor [](Hourly)": {
-          "values": [
+            "MAX",
             "SUM"
           ]
         }
       }
     },
-    "ResfriamentoHVAC.csv": {
+    "Carbono.csv": {
       "columns": {
-        "Cooling:EnergyTransfer [J](Hourly) ": {
-          "values": [
-            "SUM"
-          ]
-        }
-      }
-    },
-    "ConfortoASHRAE55Percentual80.csv": {
-      "columns": {
-        "OCCUPANCY:Zone Thermal Comfort ASHRAE 55 Adaptive Model 80% Acceptability Status [](Hourly)": {
+        "Carbon Equivalent:Facility [kg](Hourly) ": {
           "values": [
             "SUM"
           ]

@@ -11,7 +11,7 @@ class Mathematical(object):
     def __init__(self, parameters):
         a = float(parameters['Shading:Overhang:Projection:Zn1_par1_brise:Depth as Fraction of Window/Door Height {dimensionless}']);
         h = float(parameters['value'])
-        self.newValue = ((2.65 - h) * a)/4.9
+        self.newValue = ((h - 0.75) * a)/4.9
 
     def getNewValue(self):
         return str(self.newValue)

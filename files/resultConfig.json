@@ -1,7 +1,7 @@
 {
   "path":{
-    "source": "/home/vinicius/Documents/parIDF/output/Output/csv",
-    "destination": "/home/vinicius/Documents/parIDF/output",
+    "source": "/home/vinicius/Documents/versionada/parIDF/output/Output/csv",
+    "destination": "/home/vinicius/Documents/versionada/parIDF/output",
     "filename": "file"
   },
   "results": {
@@ -11,23 +11,28 @@
             "ZN1:Zone Operative Temperature [C](Hourly)"
         ]
       },
-      "HorasOcupadasComHVAC.csv": {
+      "Ocupacao.csv": {
         "meter": false,
         "columns": [
-            "ZN1_PAR1_JAN:AFN Surface Venting Window or Door Opening Factor [](Hourly)",
-            "ZN1_PAR4_JAN:AFN Surface Venting Window or Door Opening Factor [](Hourly)"
+            "OCCUPANCY:People Occupant Count [](Hourly)"
         ]
       },
-      "ResfriamentoHVAC.csv": {
+      "ResfriamentoHVACIdeal.csv": {
         "meter": false,
         "columns": [
-            "Cooling:EnergyTransfer [J](Hourly) "
+            "ZN1 IDEAL LOADS AIR SYSTEM:Zone Ideal Loads Supply Air Total Cooling Rate [W](Hourly)"
         ]
       },
-      "ConfortoASHRAE55Percentual80.csv": {
+       "Carbono.csv": {
         "meter": false,
         "columns": [
-            "OCCUPANCY:Zone Thermal Comfort ASHRAE 55 Adaptive Model 80% Acceptability Status [](Hourly)"
+            "Carbon Equivalent:Facility [kg](Hourly) "
+        ]
+      },
+      "ConfortoASHRAE55.csv": {
+        "meter": false,
+        "columns": [
+            "OCCUPANCY:Zone Thermal Comfort ASHRAE 55 Adaptive Model Running Average Outdoor Air Temperature [C](Hourly)"
         ]
       }
   }
