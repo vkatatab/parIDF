@@ -70,7 +70,11 @@ class Main(object):
         if ('value' in parameters):
             if (parameters['value'] == 'parent'):
                 functionParameters = parentValue
-        if ('other' in parameters):
+        if ('otherParam' in parameters):
+            newParameters.update({'value':functionParameters})
+            newParameters = self.merge_dicts(newParameters, parameters['otherParam'])
+            instance = class_(newParameters)
+        elif ('other' in parameters):
             newParameters.update({'value':functionParameters})
             newParameters = self.merge_dicts(newParameters, self.getValueFromObject(parameters['other'], idf))
             instance = class_(newParameters)

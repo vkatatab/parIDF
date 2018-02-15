@@ -11,8 +11,15 @@ class MonteCarlo(object):
         mini = parameters['min']
         maxi = parameters['max']
         precision = parameters['precision']
+        if 'text' in parameters:
+            self.text = parameters['text']
+        else:
+            self.text = ''
         rand = random.randint(0,math.floor((maxi - mini)/precision))
         self.newValue = (rand * precision) + mini
 
     def getNewValue(self):
-        return str(round (self.newValue, 2))
+        value = str(round (self.newValue, 2))
+        if not self.text:
+            return value
+        return self.text + value

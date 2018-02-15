@@ -32,6 +32,30 @@
         }
       }
     },
+    "EnergyManagementSystem:Program": {
+      "A17": {
+        "alg": "MonteCarlo",
+        "parameters": {
+          "min": 0.05,
+          "max": 0.90,
+          "text":"SET Controle_jan1 = ",
+          "precision": 0.1
+        },
+        "change": {
+          "EnergyManagementSystem:Program": {
+            "A18": {
+              "alg": "SameNumberValue",
+              "parameters": {
+                "value": "parent",
+                "otherParam": {
+                  "text": "SET Controle_jan4 = "
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "WindowMaterial:Blind": {
           "Front Side Slat Beam Solar Reflectance": {
             "alg": "Predefined",
