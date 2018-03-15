@@ -34,7 +34,7 @@ for filename in tqdm(files):
     for columnName in columns:
         result = re.findall('.*\<(.*)\>', columnName)
         outputs.append(result[0])
-    outputs = set(outputs)
+    outputs = sorted(set(outputs))
 
     newHeader = ['file']
     newDict = collections.OrderedDict()
