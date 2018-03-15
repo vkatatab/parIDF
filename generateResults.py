@@ -5,8 +5,10 @@ import shutil
 import glob
 import ntpath
 import csv
+import collections
 from subprocess import call
 from tqdm import tqdm
+import re
 
 filename = 'files/resultConfig.json'
 fp = open(filename)
@@ -14,12 +16,12 @@ file = fp.read()
 config = json.loads(file)
 
 globString = config['path']['destination'] + '/**/*.idf'
-globFiles = glob.glob(globString)
+globFiles = sorted(glob.glob(globString), key=lambda name: int(re.findall('\d+|$', name)[0]))
 
 results = config['results']
 
 for resultName in tqdm(results):
-    resultDict = {}
+    resultDict = collections.OrderedDict()
     resultConfig = results[resultName]
     for globFile in tqdm(globFiles):
         basename = ntpath.basename(globFile)
@@ -47,7 +49,7 @@ for resultName in tqdm(results):
         writer.writeheader()
         size = len(resultDict[columns[0]])
         for i in range(0, size):
-            dictRow = {}
+            dictRow = collections.OrderedDict()
             for column in resultDict:
                 dictRow[column] = resultDict[column][i].strip()
             writer.writerow(dictRow)

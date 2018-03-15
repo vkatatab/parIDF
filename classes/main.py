@@ -115,11 +115,12 @@ class Main(object):
 
     def createIdfs(self):
         progressbar.printProgressBar(0, self.config['quantity']+1, prefix = 'Progress:', suffix = 'Complete', length = 50)
+        length = len(str(self.config['quantity']))
 
         # gera a quatidade de idf's configurada
         for x in range(1,self.config['quantity']+1):
 
-            baseFilename = self.config['path']['filename'] + '' + str(x)
+            baseFilename = self.config['path']['filename'] + '' + str(x).zfill(length)
             if not os.path.exists(self.config['path']['destination'] + '/' + baseFilename):
                 os.makedirs(self.config['path']['destination'] + '/' + baseFilename)
             filename = baseFilename + '/' + baseFilename + '.idf'
