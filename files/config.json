@@ -24,12 +24,23 @@
     },
     "Zone": {
           "Z Origin {m}": {
-            "alg": "MonteCarlo",
+            "alg": "Predefined",
             "parameters": {
-              "min": 2.7,
-              "max": 29.7,
-              "precision": 0.1
-        }
+              "values": [
+              "2.7",
+              "5.4",
+              "8.1",
+              "10.8",
+              "13.5",
+              "16.2",
+              "18.9",
+              "21.6",
+              "24.3",
+              "27",
+              "29.7",
+              "32.4"
+              ]
+          }
       }
     },
     "EnergyManagementSystem:Program": {
@@ -39,7 +50,7 @@
           "min": 0.05,
           "max": 0.90,
           "text":"SET Controle_jan1 = ",
-          "precision": 0.1
+          "precision": 0.01
         },
         "change": {
           "EnergyManagementSystem:Program": {
@@ -111,7 +122,7 @@
             "parameters": {
               "min": 100,
               "max": 3600,
-              "precision": 0.1
+              "precision": 10
             }
           },
           "Solar Absorptance": {
@@ -125,62 +136,6 @@
         }
       }
     },
-    "AirflowNetwork:MultiZone:Surface": {
-      "identifiers": {
-        "Zn1_par1_jan": {
-          "Window/Door Opening Factor or Crack Factor {dimensionless}": {
-            "alg": "MonteCarlo",
-            "parameters": {
-              "min": 0.05,
-              "max": 1.00,
-              "precision": 0.01
-            },
-            "change": {
-              "AirflowNetwork:MultiZone:Surface": {
-                "identifiers": {
-                  "Zn1_par4_jan": {
-                    "Window/Door Opening Factor or Crack Factor {dimensionless}": {
-                      "alg": "SameValue",
-                      "parameters": {
-                        "value": "parent"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "Building": {
-      "North Axis {deg}": {
-        "alg": "Predefined",
-        "parameters": {
-          "values": [
-            "0",
-            "45",
-            "90",
-            "135",
-            "180",
-            "225",
-            "270",
-            "315"
-          ]
-        },
-        "change": {
-          "AirflowNetwork:SimulationControl": {
-            "Azimuth Angle of Long Axis of Building {deg}": {
-              "alg": "Orientation",
-              "parameters": {
-                "value": "parent"
-              }
-            }
-          }
-        }
-      }
-    },
-
     "Shading:Overhang:Projection": {
             "identifiers": {
               "Zn1_par1_brise": {
