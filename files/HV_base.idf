@@ -25,7 +25,7 @@ SimulationControl,
 
 Building,
     Cross Ventilation,       !- Name
-    225,                     !- North Axis {deg}
+    135,                     !- North Axis {deg}
     City,                    !- Terrain
     0.04,                    !- Loads Convergence Tolerance Value
     0.4,                     !- Temperature Convergence Tolerance Value {deltaC}
@@ -778,7 +778,7 @@ AirflowNetwork:SimulationControl,
     0.0001,                  !- Relative Airflow Convergence Tolerance {dimensionless}
     0.000001,                !- Absolute Airflow Convergence Tolerance {kg/s}
     -.5,                     !- Convergence Acceleration Limit {dimensionless}
-    45,                      !- Azimuth Angle of Long Axis of Building {deg}
+    135,                      !- Azimuth Angle of Long Axis of Building {deg}
     0.5,                     !- Ratio of Building Width Along Short Axis to Width Along Long Axis
     No;                      !- Height Dependence of External Node Temperature
 
@@ -809,7 +809,7 @@ AirflowNetwork:MultiZone:Surface,
     ASHRAE55Adaptive,        !- Ventilation Control Mode
     ,                        !- Ventilation Control Zone Temperature Setpoint Schedule Name
     1,                       !- Minimum Venting Open Factor {dimensionless}
-    0,                       !- Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor {deltaC}
+    0,                       !- Indoor and Outdoor Temperature Difference 5Lower Limit For Maximum Venting Open Factor {deltaC}
     0.000001,                !- Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor {deltaC}
     ,                        !- Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor {deltaJ/kg}
     300000,                  !- Indoor and Outdoor Enthalpy Difference Upper Limit for Minimum Venting Open Factor {deltaJ/kg}
